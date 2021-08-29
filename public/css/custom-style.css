@@ -1,0 +1,194 @@
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;1,400&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;1,400&display=swap');
+
+/* VARIABLES */
+:root{
+    /* COLORS */
+    --gray-800: #1F2937;
+    --gray-50: #F9FAFB;
+    --green-primary: #5AE311;
+
+
+    /* FONT FAMILIES */
+    --roboto-condensed:'Roboto Condensed', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+
+    /* FONT WEIGHTS */
+    --regular: 400;
+    --semi-bold: 600; /* only applies to poppins */
+    --bold: 700;
+
+    /* FONT SIZES */
+    --lead-lg: 40px;
+    --lead: 30px;
+    --body-20: 20px; 
+    --body-18: 18px;
+    --body-16: 16px;
+}
+
+/*
+**************************************
+* CUSTOM UTILITY & COMPONENT CLASSES * 
+**************************************
+*/
+
+/* BACKGROUND COLORS */
+.--bg-gray-800{ background-color: var(--gray-800); }
+.--bg-gray-50{ background-color: var(--gray-50); }
+.--bg-green{ background-color: var(--green-primary); }
+
+/* COLORS */
+.--text-gray-800{ color: var(--gray-800); }
+.--text-gray-50{ color: var(--gray-50); }
+.--text-green{ color: var(--green-primary); }
+
+/* FONT FAMILY */
+.--roboto-condensed{ font-family: var(--roboto-condensed); }
+.--poppins{ font-family: var(--poppins); }
+
+/* FONT SIZES*/
+.--lead-lg{ font-size: var(--lead-lg);}
+.--lead{ font-size: var(--lead);}
+.--body-20{ font-size: var(--body-20);}
+.--body-18{ font-size: var(--body-18);}
+.--body-16{ font-size: var(--body-16);}
+
+/* FONT WEIGHTS */
+.--regular{ font-weight: var(--regular);}
+.--semi-bold{ font-weight: var(--semi-bold);}
+.--bold{ font-weight: var(--bold);}
+
+/* ANCHOR TAGS/LINKS */
+.--link-green, .--link-gray{
+    text-decoration: none;
+    color: var(--gray-50);
+    transition: all 0.3s ease-in-out;
+}
+
+.--link-gray:hover{
+    color: var(--gray-800);
+    text-decoration: underline 3px solid var(--gray-800);
+}
+
+.--link-green:hover{
+    color: var(--green-primary);
+    text-decoration: underline 3px solid var(--green-primary);
+}
+
+.--link-dark-green{
+    text-decoration: none;
+    color: var(--gray-800);
+    transition: all 0.3s ease-in-out;
+}
+
+.--link-dark-green:hover{
+    color: var(--green-primary);
+    text-decoration: underline 3px solid var(--green-primary);
+}
+
+/* BUTTONS */
+.--btn-rounded{
+    border-radius: 30px;
+}
+
+.--btn-outline-green{
+    background-color: transparent;
+    border: 2px solid var(--green-primary);
+    color: var(--green-primary);
+    font-family: var(--poppins);
+    font-weight: var(--bold);
+    text-transform: uppercase;
+}
+
+.--btn-outline-green:hover{
+    color: #F9FAFB;
+    background-color: var(--green-primary);
+}
+
+.--btn-outline-gray{
+    background-color: transparent;
+    border: 2px solid var(--gray-800);
+    color: var(--gray-800);
+    font-family: var(--poppins);
+    font-weight: var(--bold);
+    text-transform: uppercase;
+}
+
+.--btn-outline-gray:hover{
+    color: #F9FAFB;
+    background-color: var(--gray-800);
+}
+
+/*
+********************************
+* PUT OTHER CUSTOM CLASS BELOW *
+********************************
+*/
+.--underline{
+    position: relative;
+    border: none;
+}
+
+.--underline:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.175rem;
+    background: var(--green-primary);
+    left: 0;
+    bottom: 0;
+    transform: scale(0, 1);
+    transition: transform 0.3s ease;
+}
+
+.--underline:hover::after{
+    transform: scale(1, 1);
+}
+
+.--underline > a{
+    color: var(--gray-50) !important;
+    text-decoration: none;
+}
+
+.--underline > a:hover{
+    color: var(--green-primary) !important;
+}
+
+#hero-section,  .--background-img{
+    width: 100%;
+    margin-bottom: 5rem;
+    background-image: url('../storage/img/shop-photo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+#hero-section{
+    min-height: auto;
+}
+
+#hero-section > div, .--dark-overlay{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.--background-img, .--dark-overlay{
+    min-height: 30vh;
+    position: relative;
+    z-index: 0;
+}
+
+.--sample{
+    min-width: 100%;
+    position: absolute;
+    z-index: 100;
+    top: 30%;
+}
+
+
+
+
+
+
+
