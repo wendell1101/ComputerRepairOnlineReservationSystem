@@ -51,7 +51,7 @@
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="" class="nav-link">FAQS</a>
+                            <a href="/#4th-section" class="nav-link">FAQS</a>
                         </li>
 
                         <li class="nav-item --underline mx-3">
