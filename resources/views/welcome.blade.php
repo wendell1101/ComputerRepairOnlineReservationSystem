@@ -13,7 +13,7 @@
                     <p class="--roboto-condensed --body-20">Fixing your devices to make it run like brand new!</p>
                 </div>
                 
-                <a href="#" class="btn --btn-rounded --btn-outline-green mt-2">Book appointment</a>
+                <a href="#" class="btn --border-radius-30 --btn-outline-green mt-2">Book appointment</a>
             </div>
         </div>
     </section>
@@ -29,7 +29,7 @@
                     <h3 class="--poppins --bold">Repair</h3>
                     <p class="--roboto-condensed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, reprehenderit! Saepe, ullam!</p>
 
-                    <a href="#" class="btn --btn-rounded --btn-outline-gray mt-2">View</a>
+                    <a href="#" class="btn --border-radius-30 --btn-outline-gray mt-2">View</a>
                 </div>
 
                 <div class="col-md-4 col-sm-12 text-center mb-5">
@@ -39,7 +39,7 @@
                     <h3 class="--poppins --bold">Upgrade</h3>
                     <p class="--roboto-condensed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, reprehenderit! Saepe, ullam!</p>
 
-                    <a href="#" class="btn --btn-rounded --btn-outline-gray mt-2">View</a>
+                    <a href="#" class="btn --border-radius-30 --btn-outline-gray mt-2">View</a>
                 </div>
 
                 <div class="col-md-4 col-sm-12 text-center mb-5">
@@ -49,7 +49,7 @@
                     <h3 class="--poppins --bold">Print</h3>
                     <p class="--roboto-condensed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, reprehenderit! Saepe, ullam!</p>
 
-                    <a href="#" class="btn --btn-rounded --btn-outline-gray mt-2">View</a>
+                    <a href="#" class="btn --border-radius-30 --btn-outline-gray mt-2">View</a>
                 </div>
             </div>
         </section>

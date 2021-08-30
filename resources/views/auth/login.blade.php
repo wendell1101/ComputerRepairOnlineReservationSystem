@@ -5,10 +5,10 @@
     <div class="--dark-overlay"></div>
 </div>
 
-<div class="container --sample mb-5">
+<div class="container --overlap mb-5">
     <div class="row">
         <div class="col-4 offset-4">
-            <div class="card shadow-lg border-0 --btn-rounded">
+            <div class="card shadow-lg border-0 --border-radius-30">
                 <div class="card-body">
                     <h3 class="--roboto-condensed --bold --lead text-center mb-5">SIGN IN</h3>
                     <form method="POST" action="{{ route('login') }}">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-block --btn-rounded --btn-outline-gray">
+                        <button type="submit" class="btn btn-block --border-radius-30 --btn-outline-gray">
                             {{ __('Login') }}
                         </button>
 

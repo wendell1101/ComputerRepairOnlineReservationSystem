@@ -165,7 +165,7 @@
                                     <textarea name="message" id="" cols="30" rows="5" class="form-control" placeholder="message"></textarea>
                                 </div>
 
-                                <input type="submit" value="SEND" class="btn btn-block --btn-rounded --btn-outline-green">
+                                <input type="submit" value="SEND" class="btn btn-block --border-radius-30 --btn-outline-green">
                             </form>
                         </div>
                     </div>
