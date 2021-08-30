@@ -7,7 +7,7 @@
 
 <div class="container --overlap mb-5">
     <div class="row">
-        <div class="col-4 offset-4">
+        <div class="col-md-4 offset-md-4 col-sm-8 offset-sm-2">
             <div class="card shadow-lg border-0 --border-radius-30">
                 <div class="card-body">
                     <h3 class="--roboto-condensed --bold --lead text-center mb-5">SIGN IN</h3>
@@ -49,15 +49,12 @@
                             @enderror
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
+                        <div class="form-group">
+                            <div class="col-lg-8 col-md-10 col-sm-12 d-flex pl-1">
+                                <input class="--checkbox mr-3" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
-                                    </label>
-                                </div>
+                                </label>
                             </div>
                         </div>
 

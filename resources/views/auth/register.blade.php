@@ -11,7 +11,7 @@
             <div class="card shadow-lg border-0 --border-radius-30">
 
                 <div class="card-body">
-                    <h3 class="--roboto-condensed --bold --lead text-center mb-5">SIGN IN</h3>
+                    <h3 class="--roboto-condensed --bold --lead text-center mb-5">SIGN UP</h3>
                     <form method="POST" action="{{ route('register') }}" class="--poppins mb-2">
                         @csrf
 
