@@ -11,7 +11,7 @@
             <div class="card shadow-lg border-0 --border-radius-30">
                 <div class="card-body">
                     <h3 class="--roboto-condensed --bold --lead text-center mb-5">SIGN IN</h3>
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" class="mb-2 --poppins">
                         @csrf
                         <div class="form-group">
                             <div class="input-group">
@@ -64,15 +64,17 @@
                         <button type="submit" class="btn btn-block --border-radius-30 --btn-outline-gray">
                             {{ __('Login') }}
                         </button>
+                    </form>
 
-                        @if (Route::has('password.request'))
-                        <p class="text-center">
+                    @if (Route::has('password.request'))
+                        <p class="text-center mb-0 --poppins">
                             <a class="--link-dark-green" href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}
                             </a>
                         </p>
-                        @endif
-                    </form>
+                    @endif
+
+                    <p class="text-center --poppins">Not a member? <span><a href="{{ route('register') }}" class="--link-dark-green">Register now</a></span></p>
                 </div>
             </div>
         </div>
