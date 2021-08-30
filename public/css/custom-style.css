@@ -217,5 +217,35 @@
     min-width: 100%;
     position: absolute;
     z-index: 100;
-    top: 30%;
+    top: 25%;
 }
+
+.--checkbox{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: var(--gray-50);
+    border: 2px solid var(--gray-800);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.--checkbox:after{
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: var(--gray-800);
+    border-radius: 2px;
+    display: none;
+}
+
+.--checkbox:checked:after{
+    display: block;
+}
+
+
