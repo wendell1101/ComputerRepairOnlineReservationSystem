@@ -18,4 +18,20 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-sm-10 offset-md-2 offset-sm-1">
+                <div class="card shadow-lg rounded p-3">
+                    <div class="card-body">
+                        put datatable here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.content -->
 @endsection
