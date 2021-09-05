@@ -43,7 +43,7 @@
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="" class="nav-link">ABOUT</a>
+                            <a href="{{route('about')}}" class="nav-link">ABOUT</a>
                         </li>
 
                         <li class="nav-item --underline mx-3">
