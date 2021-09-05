@@ -15,6 +15,10 @@ Route::group(['prefix' => '/admin'], function () {
     Route::get('categories', function () {
         return view('admin.categories.index');
     })->name('categories.index');
+
+    Route::get('products', function(){
+        return view('admin.products.index');
+    })->name('products.index');
 });
 
 
