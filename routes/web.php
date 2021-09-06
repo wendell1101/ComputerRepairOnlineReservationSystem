@@ -15,6 +15,10 @@ Route::get('service-fees', function(){
 Route::get('about', function(){
     return view('user.about');
 })->name('about');
+Route::get('profile', function(){
+    // TEMPORARY
+    return view('user.profile');
+})->name('userprofile');
 
 // Admin
 Route::group(['prefix' => '/admin'], function () {

@@ -248,4 +248,26 @@
     display: block;
 }
 
+.--up-btn{
+    width:35px; 
+    height:35px;
+    background-color: var(--gray-50);
+    border: 2px solid var(--gray-800);
+    color: var(--gray-800);
+    position: fixed; 
+    right: 2%;
+    bottom: 5%;
+    z-index: 1500;
+    cursor: pointer;
+    display: none;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+.--up-btn:hover{
+    color: var(--green-primary);
+    background-color: var(--gray-800);
+}
+
+
 

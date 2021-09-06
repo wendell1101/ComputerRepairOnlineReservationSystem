@@ -4,7 +4,7 @@
     <div class="--dark-overlay"></div>
 </div>
 
-<div class="container --overlap mb-5">
+<div class="--overlap mb-5">
     <div class="row">
         <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
             <div class="card shadow-lg border-0 --border-radius-30">
@@ -19,4 +19,6 @@
         </div>
     </div>
 </div>
+
+<div style="width: 100px; height:35vh; position:relative; z-index:100; top:50%;" class="overflow-x-hidden"></div>
 @endsection
