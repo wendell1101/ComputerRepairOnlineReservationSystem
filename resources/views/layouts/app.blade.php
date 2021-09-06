@@ -53,15 +53,15 @@
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="" class="nav-link">STORE</a>
+                            <a href="{{route('user.store')}}" class="nav-link">STORE</a>
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="/#4th-section" class="nav-link">FAQS</a>
+                            <a href="{{ url('/') }}#5th-section" class="nav-link">FAQS</a>
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="" class="nav-link">CONTACT</a>
+                            <a href="#contact-form" class="nav-link">CONTACT</a>
                         </li>
 
                         @auth
@@ -151,21 +151,21 @@
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
-                                    <a href="" class="">About</a>
+                                    <a href="{{route('about')}}" class="">About</a>
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
-                                    <a href="" class="">Store</a>
+                                    <a href="{{route('user.store')}}" class="">Store</a>
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
-                                    <a href="" class="">FAQs</a>
+                                    <a href="{{ url('/') }}#5th-section" class="">FAQs</a>
                                 </li>
                             </ul>
                         </div>    
                     </div>
 
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-3" id="contact-form">
                         <h4 class="--roboto-condensed --body-20 mb-3">CONNECT WITH US</h4>
                         <div class="--poppins">
                             <form action="" method="post">
