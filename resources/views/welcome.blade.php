@@ -74,32 +74,31 @@
 
             <div class="row mt-3">               
                 <div class="col-md-4 mb-5">
-                    <div class="card bg-dark text-white shadow-lg">
-                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img" alt="...">
-                        <div class="card-img-overlay text-center" style="background: rgba(0, 0, 0, 0.4)">
-                            <h5 class="card-title --roboto-condensed --lead">Card title</h5>
+                    <div class="card bg-dark text-white shadow-lg --border-radius-30">
+                        <img src="{{asset('storage/products/ssd.jpg')}}" class="card-img --border-radius-30" alt="...">
+                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
+                            <h5 class="card-title --roboto-condensed --lead">Solid State Drive</h5>
                             <p class="card-text --poppins">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 mb-5">
-                    <div class="card bg-dark text-white shadow-lg">
-                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img" alt="...">
-                        <div class="card-img-overlay text-center" style="background: rgba(0, 0, 0, 0.4)">
-                            <h5 class="card-title --roboto-condensed --lead">Card title</h5>
+                    <div class="card bg-dark text-white shadow-lg --border-radius-30">
+                        <img src="{{asset('storage/products/hdd.jpg')}}" class="card-img --border-radius-30" alt="...">
+                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
+                            <h5 class="card-title --roboto-condensed --lead">Hard Disk Drive</h5>
                             <p class="card-text --poppins">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 mb-5">
-                    <div class="card bg-dark text-white shadow-lg">
-                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img" alt="...">
-                        <div class="card-img-overlay text-center" style="background: rgba(0, 0, 0, 0.4)">
-                            <h5 class="card-title --lead">Card title</h5>
+                    <div class="card bg-dark text-white shadow-lg --border-radius-30">
+                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img --border-radius-30" alt="...">
+                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
+                            <h5 class="card-title --roboto-condensed --lead">Gaming Earphones</h5>
                             <p class="card-text --poppins">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            
                         </div>
                     </div>
                 </div>
@@ -148,7 +147,7 @@
                     </div>
                     <div id="faqs-2" class="collapse" data-parent="#faqs-collapse">
                         <div class="card-body">
-                            <p class="--body-16">Zero! We only charge fees when we repaired or upgraded your device. Otherwise, it's free.</p>
+                            <p class="--body-16">No, we don't. Our charge for repair depends on the damage we had to fix. We first inform our clients of their device's condition, recommend the best fix for it, then ask them if we shall proceed.</p>
                         </div>
                     </div>
                 </div>
