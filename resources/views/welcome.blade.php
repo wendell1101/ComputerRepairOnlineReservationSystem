@@ -72,19 +72,37 @@
         <section id="4th-section" class="my-5 py-5 px-3">
             <h2 class="text-center --poppins --bold" style="font-size: 40px">Featured Products</h2>
 
-            <div class="row mt-3">
-                {{-- CHANGE TO FOREACH  --}}
-                @for ($i = 0; $i < 3; $i++)
-                    <div class="col-md-4 mb-5">
-                        <div class="card bg-dark text-white shadow-lg">
-                            <img src="" class="card-img" alt="...">
-                            <div class="card-img-overlay">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
+            <div class="row mt-3">               
+                <div class="col-md-4 mb-5">
+                    <div class="card bg-dark text-white shadow-lg">
+                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img" alt="...">
+                        <div class="card-img-overlay text-center" style="background: rgba(0, 0, 0, 0.4)">
+                            <h5 class="card-title --roboto-condensed --lead">Card title</h5>
+                            <p class="card-text --poppins">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         </div>
                     </div>
-                @endfor
+                </div>
+
+                <div class="col-md-4 mb-5">
+                    <div class="card bg-dark text-white shadow-lg">
+                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img" alt="...">
+                        <div class="card-img-overlay text-center" style="background: rgba(0, 0, 0, 0.4)">
+                            <h5 class="card-title --roboto-condensed --lead">Card title</h5>
+                            <p class="card-text --poppins">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-5">
+                    <div class="card bg-dark text-white shadow-lg">
+                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img" alt="...">
+                        <div class="card-img-overlay text-center" style="background: rgba(0, 0, 0, 0.4)">
+                            <h5 class="card-title --lead">Card title</h5>
+                            <p class="card-text --poppins">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
