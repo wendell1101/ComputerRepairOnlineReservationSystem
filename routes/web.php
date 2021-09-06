@@ -19,6 +19,10 @@ Route::get('profile', function(){
     // TEMPORARY
     return view('user.profile');
 })->name('userprofile');
+Route::get('store', function(){
+    // TEMPORARY
+    return view('user.store');
+})->name('user.store');
 
 // Admin
 Route::group(['prefix' => '/admin'], function () {
