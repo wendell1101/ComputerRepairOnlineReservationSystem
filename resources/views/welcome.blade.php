@@ -53,12 +53,14 @@
                 </div>
             </div>
         </section>
+    </div>
 
-        {{-- DESCRIPTION SECTION --}}
-        <section id="3rd-section" class="my-5 py-5 px-3">
+    {{-- DESCRIPTION SECTION --}}
+    <section id="desc-section" class="my-5 py-5 px-3">
+        <div class="container">
             <div class="row mt-5">
                 <div class="col-md-6 d-none d-sm-none d-md-block d-lg-block d-xl-block">
-                    <img src="{{asset('img/broken-phone.jpg')}}" alt="#" width="100%" class="rounded shadow-lg">
+                    <img src="{{asset('img/broken-phone.jpg')}}" alt="#" width="100%" class="shadow-lg">
                 </div>
                 <div class="col-md-6">
                     <h3 class="mt-0 --poppins --bold" style="font-size: 69px;">No fix,</h3>
@@ -66,8 +68,11 @@
                     <p class="--lead --roboto-condensed text-justify">We only charge customers for repair and/or upgrades on your electronics. Diagnosis is free!</p>
                 </div>
             </div>
-        </section>
+        </div>
+        
+    </section>
 
+    <div class="container mt-3">
         {{-- FEATURED SECTION --}}
         <section id="4th-section" class="my-5 py-5 px-3">
             <h2 class="text-center --poppins --bold" style="font-size: 40px">Featured Products</h2>
@@ -78,7 +83,7 @@
                         <img src="{{asset('storage/products/ssd.jpg')}}" class="card-img --border-radius-30" alt="...">
                         <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
                             <h5 class="card-title --roboto-condensed --lead">Solid State Drive</h5>
-                            <p class="card-text --poppins">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text --poppins">Specs here.</p>
                         </div>
                     </div>
                 </div>
@@ -88,7 +93,7 @@
                         <img src="{{asset('storage/products/hdd.jpg')}}" class="card-img --border-radius-30" alt="...">
                         <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
                             <h5 class="card-title --roboto-condensed --lead">Hard Disk Drive</h5>
-                            <p class="card-text --poppins">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text --poppins">Specs here</p>
                         </div>
                     </div>
                 </div>
@@ -98,7 +103,7 @@
                         <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img --border-radius-30" alt="...">
                         <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
                             <h5 class="card-title --roboto-condensed --lead">Gaming Earphones</h5>
-                            <p class="card-text --poppins">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text --poppins">Specs here</p>
                         </div>
                     </div>
                 </div>

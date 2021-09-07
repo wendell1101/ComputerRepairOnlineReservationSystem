@@ -269,5 +269,19 @@
     background-color: var(--gray-800);
 }
 
+#desc-section{
+    background-image: url("../storage/img/frosted-desc.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    width: 100%;
+}
 
+#desc-section img{
+    /* width: inherit;
+    height: 500px; */
+    border-radius: 30px;
+
+}
 
