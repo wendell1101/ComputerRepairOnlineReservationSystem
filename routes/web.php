@@ -8,6 +8,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// User
+Route::get('service-fees', function(){
+    return view('user.service-fees');
+})->name('servicefees');
+Route::get('about', function(){
+    return view('user.about');
+})->name('about');
+Route::get('profile', function(){
+    // TEMPORARY
+    return view('user.profile');
+})->name('userprofile');
+Route::get('store', function(){
+    // TEMPORARY
+    return view('user.store');
+})->name('user.store');
+
 // Admin
 Route::group(['prefix' => '/admin'], function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');

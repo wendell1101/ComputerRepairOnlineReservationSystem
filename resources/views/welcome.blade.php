@@ -27,9 +27,9 @@
                         <i class="fas fa-tools"></i>
                     </div>
                     <h3 class="--poppins --bold">Repair</h3>
-                    <p class="--roboto-condensed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, reprehenderit! Saepe, ullam!</p>
+                    <p class="--roboto-condensed --body-20">We accept desktops, laptops, smartphones, tablets, and even smart TVs; and make 'em run like its brand new!</p>
 
-                    <a href="#" class="btn --border-radius-30 --btn-outline-gray mt-2">View</a>
+                    <a href="{{route('servicefees')}}#repair-section" class="btn --border-radius-30 --btn-outline-gray mt-2">View</a>
                 </div>
 
                 <div class="col-md-4 col-sm-12 text-center mb-5">
@@ -37,9 +37,9 @@
                         <i class="fas fa-arrow-alt-circle-up"></i>
                     </div>
                     <h3 class="--poppins --bold">Upgrade</h3>
-                    <p class="--roboto-condensed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, reprehenderit! Saepe, ullam!</p>
+                    <p class="--roboto-condensed --body-20">Is your device too slow? Or is your screen cracked? Let us optimize your device performance.</p>
 
-                    <a href="#" class="btn --border-radius-30 --btn-outline-gray mt-2">View</a>
+                    <a href="{{route('servicefees')}}#upgrade-section" class="btn --border-radius-30 --btn-outline-gray mt-2">View</a>
                 </div>
 
                 <div class="col-md-4 col-sm-12 text-center mb-5">
@@ -47,136 +47,160 @@
                         <i class="fas fa-print"></i>
                     </div>
                     <h3 class="--poppins --bold">Print</h3>
-                    <p class="--roboto-condensed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, reprehenderit! Saepe, ullam!</p>
+                    <p class="--roboto-condensed --body-20">Documents? Photos? Temporary license plate? We got you! You can send it through our email or visit us personally.</p>
 
-                    <a href="#" class="btn --border-radius-30 --btn-outline-gray mt-2">View</a>
+                    <a href="{{route('servicefees')}}#print-section" class="btn --border-radius-30 --btn-outline-gray mt-2">View</a>
                 </div>
             </div>
         </section>
+    </div>
 
-        {{-- DESCRIPTION SECTION --}}
-        <section id="3rd-section" class="my-5 py-5 px-3">
+    {{-- DESCRIPTION SECTION --}}
+    <section id="desc-section" class="my-5 py-5 px-3">
+        <div class="container">
             <div class="row mt-5">
                 <div class="col-md-6 d-none d-sm-none d-md-block d-lg-block d-xl-block">
-                    <img src="{{asset('img/broken-phone.jpg')}}" alt="#" width="100%" class="rounded shadow-lg">
+                    <img src="{{asset('img/broken-phone.jpg')}}" alt="#" width="100%" class="shadow-lg">
                 </div>
                 <div class="col-md-6">
                     <h3 class="mt-0 --poppins --bold" style="font-size: 69px;">No fix,</h3>
                     <h2 class="mt-2 --poppins --bold" style="font-size: 103px;">NO FEE!</h2>
-                    <p class="--lead --roboto-condensed">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque temporibus nihil mollitia.</p>
+                    <p class="--lead --roboto-condensed text-justify">We only charge customers for repair and/or upgrades on your electronics. Diagnosis is free!</p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <div class="container mt-3">
+        {{-- FEATURED SECTION --}}
+        <section id="4th-section" class="my-5 py-5 px-3">
+            <h2 class="text-center --poppins --bold" style="font-size: 40px">Featured Products</h2>
+
+            <div class="row mt-3">               
+                <div class="col-md-4 mb-5">
+                    <div class="card bg-dark text-white shadow-lg --border-radius-30">
+                        <img src="{{asset('storage/products/ssd.jpg')}}" class="card-img --border-radius-30" alt="...">
+                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
+                            <h5 class="card-title --roboto-condensed --lead">Solid State Drive</h5>
+                            <p class="card-text --poppins">Specs here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-5">
+                    <div class="card bg-dark text-white shadow-lg --border-radius-30">
+                        <img src="{{asset('storage/products/hdd.jpg')}}" class="card-img --border-radius-30" alt="...">
+                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
+                            <h5 class="card-title --roboto-condensed --lead">Hard Disk Drive</h5>
+                            <p class="card-text --poppins">Specs here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-5">
+                    <div class="card bg-dark text-white shadow-lg --border-radius-30">
+                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img --border-radius-30" alt="...">
+                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
+                            <h5 class="card-title --roboto-condensed --lead">Gaming Earphones</h5>
+                            <p class="card-text --poppins">Specs here</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        {{-- FEATURED SECTION --}}
-        <section id="4th-section" class="my-5 py-5 px-3">
-            <h2 class="text-center --poppins --bold" style="font-size: 40px">Featured Products</h2>
-            <div class="row mt-3">
-                {{-- CHANGE TO FOREACH  --}}
-                @for ($i = 0; $i < 3; $i++) <div class="col-md-4 mb-5">
-                    <div class="card bg-dark text-white shadow-lg">
-                        <img src="" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        {{-- FAQs SECTION --}}
+        <section id="5th-section" class="my-5 py-5 px-3">
+            <h2 class="text-center --poppins --bold" style="font-size: 40px">Frequently Asked Questions</h2>
+
+            <div id="faqs-collapse" class="accordion mt-3">
+                <div class="card">
+                    <div class="card-header --bg-gray-50">
+                        <button class="btn btn-block btn-link " type="button" data-target="#faqs-1" data-toggle="collapse">
+                            <div class="row">
+                                <div class="col-10">
+                                    <h3 class="--roboto-condensed --body-20 text-left">How much for the checkup/diagnosis fee?</h3>
+                                </div>
+
+                                <div class="col-2 --body-20 d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div id="faqs-1" class="collapse" data-parent="#faqs-collapse">
+                        <div class="card-body">
+                            <p class="--body-16">Zero! We only charge fees when we repaired or upgraded your device. Otherwise, it's free.</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header --bg-gray-50">
+                        <button class="btn btn-block btn-link " type="button" data-target="#faqs-2" data-toggle="collapse">
+                            <div class="row">
+                                <div class="col-10">
+                                    <h3 class="--roboto-condensed --body-20 text-left">Do you have a fixed repair fee?</h3>
+                                </div>
+
+                                <div class="col-2 --body-20 d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div id="faqs-2" class="collapse" data-parent="#faqs-collapse">
+                        <div class="card-body">
+                            <p class="--body-16">No, we don't. Our charge for repair depends on the damage we had to fix. We first inform our clients of their device's condition, recommend the best fix for it, then ask them if we shall proceed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header --bg-gray-50">
+                        <button class="btn btn-block btn-link " type="button" data-target="#faqs-3" data-toggle="collapse">
+                            <div class="row">
+                                <div class="col-10">
+                                    <h3 class="--roboto-condensed --body-20 text-left">My device runs so slow. What could be the problem?</h3>
+                                </div>
+
+                                <div class="col-2 --body-20 d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div id="faqs-3" class="collapse" data-parent="#faqs-collapse">
+                        <div class="card-body">
+                            <p class="--body-16">Zero! We only charge fees when we repaired or upgraded your device. Otherwise, it's free.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header --bg-gray-50">
+                        <button class="btn btn-block btn-link " type="button" data-target="#faqs-4" data-toggle="collapse">
+                            <div class="row">
+                                <div class="col-10">
+                                    <h3 class="--roboto-condensed --body-20 text-left">My device suddenly won't work. It was fine a while ago. Why is that?</h3>
+                                </div>
+
+                                <div class="col-2 --body-20 d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div id="faqs-4" class="collapse" data-parent="#faqs-collapse">
+                        <div class="card-body">
+                            <p class="--body-16">Zero! We only charge fees when we repaired or upgraded your device. Otherwise, it's free.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            @endfor
+        </section>
     </div>
-    </section>
-
-    {{-- FAQs SECTION --}}
-    <section id="5th-section" class="my-5 py-5 px-3">
-        <h2 class="text-center --poppins --bold" style="font-size: 40px">Frequently Asked Questions</h2>
-
-        <div id="faqs-collapse" class="accordion mt-3">
-            <div class="card">
-                <div class="card-header --bg-gray-50">
-                    <button class="btn btn-block btn-link " type="button" data-target="#faqs-1" data-toggle="collapse">
-                        <div class="row">
-                            <div class="col-10">
-                                <h3 class="--roboto-condensed --body-20 text-left">How much for the checkup fee?</h3>
-                            </div>
-
-                            <div class="col-2 --body-20 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div id="faqs-1" class="collapse" data-parent="#faqs-collapse">
-                    <div class="card-body">
-                        <p class="--body-16">Zero! We only charge fees when we repaired or upgraded your device. Otherwise, it's free.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header --bg-gray-50">
-                    <button class="btn btn-block btn-link " type="button" data-target="#faqs-2" data-toggle="collapse">
-                        <div class="row">
-                            <div class="col-10">
-                                <h3 class="--roboto-condensed --body-20 text-left">How much for the checkup fee?</h3>
-                            </div>
-
-                            <div class="col-2 --body-20 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div id="faqs-2" class="collapse" data-parent="#faqs-collapse">
-                    <div class="card-body">
-                        <p class="--body-16">Zero! We only charge fees when we repaired or upgraded your device. Otherwise, it's free.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header --bg-gray-50">
-                    <button class="btn btn-block btn-link " type="button" data-target="#faqs-3" data-toggle="collapse">
-                        <div class="row">
-                            <div class="col-10">
-                                <h3 class="--roboto-condensed --body-20 text-left">How much for the checkup fee?</h3>
-                            </div>
-
-                            <div class="col-2 --body-20 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div id="faqs-3" class="collapse" data-parent="#faqs-collapse">
-                    <div class="card-body">
-                        <p class="--body-16">Zero! We only charge fees when we repaired or upgraded your device. Otherwise, it's free.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header --bg-gray-50">
-                    <button class="btn btn-block btn-link " type="button" data-target="#faqs-4" data-toggle="collapse">
-                        <div class="row">
-                            <div class="col-10">
-                                <h3 class="--roboto-condensed --body-20 text-left">How much for the checkup fee?</h3>
-                            </div>
-
-                            <div class="col-2 --body-20 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div id="faqs-4" class="collapse" data-parent="#faqs-collapse">
-                    <div class="card-body">
-                        <p class="--body-16">Zero! We only charge fees when we repaired or upgraded your device. Otherwise, it's free.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-</div>
 </div>
 @endsection

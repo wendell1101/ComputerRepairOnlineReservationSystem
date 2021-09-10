@@ -23,6 +23,12 @@
     <link href="{{ asset('css/custom-style.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css" integrity="sha512-9my9Mb2+0YO+I4PUCSwUYO7sEK21Y0STBAiFEYoWtd2VzLEZZ4QARDrZ30hdM1GlioHJ8o8cWQiy8IAb1hy/Hg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        html{
+            overflow-x: hidden;
+            scroll-behavior: smooth
+        }
+    </style>
 </head>
 
 <body>
@@ -43,19 +49,19 @@
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="" class="nav-link">ABOUT</a>
+                            <a href="{{route('about')}}" class="nav-link">ABOUT</a>
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="" class="nav-link">STORE</a>
+                            <a href="{{route('user.store')}}" class="nav-link">STORE</a>
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="/#4th-section" class="nav-link">FAQS</a>
+                            <a href="{{ url('/') }}#5th-section" class="nav-link">FAQS</a>
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="" class="nav-link">CONTACT</a>
+                            <a href="#contact-form" class="nav-link">CONTACT</a>
                         </li>
 
                         @auth
@@ -67,7 +73,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <a class="dropdown-item --text-gray-800" href="{{ url('/home') }}">Reservations</a>
 
-                                    <a href="" class="dropdown-item --text-gray-800">Profile</a>
+                                    <a href="{{route('user.profile')}}" class="dropdown-item --text-gray-800">Profile</a>
 
                                     <a class="dropdown-item --text-gray-800" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -103,6 +109,12 @@
 
         <main class="pb-4 --bg-gray-50 min-vh-100">
             @yield('content')
+
+            <div id="up-btn" class="--up-btn">
+                <div class="d-flex justify-content-center align-items-center w-100 h-100">
+                    <i class="fas fa-arrow-up"></i>
+                </div>
+            </div>
         </main>
 
         {{-- FOOTER --}}
@@ -139,21 +151,21 @@
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
-                                    <a href="" class="">About</a>
+                                    <a href="{{route('about')}}" class="">About</a>
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
-                                    <a href="" class="">Store</a>
+                                    <a href="{{route('user.store')}}" class="">Store</a>
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
-                                    <a href="" class="">FAQs</a>
+                                    <a href="{{ url('/') }}#5th-section" class="">FAQs</a>
                                 </li>
                             </ul>
                         </div>    
                     </div>
 
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-3" id="contact-form">
                         <h4 class="--roboto-condensed --body-20 mb-3">CONNECT WITH US</h4>
                         <div class="--poppins">
                             <form action="" method="post">
@@ -173,6 +185,8 @@
             </div>
         </footer>
     </div>
+
+    <script src="{{asset('js/custom-script.js')}}"></script>
 </body>
 
 </html>
