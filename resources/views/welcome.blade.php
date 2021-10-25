@@ -79,9 +79,9 @@
 
             <div class="row mt-3">               
                 <div class="col-md-4 mb-5">
-                    <div class="card bg-dark text-white shadow-lg --border-radius-30">
-                        <img src="{{asset('storage/products/ssd.jpg')}}" class="card-img --border-radius-30" alt="...">
-                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
+                    <div class="card bg-dark text-white shadow-lg --border-radius-30" style="height: 302px;">
+                        <img src="{{asset('storage/products/ssd.jpg')}}" class="card-img --border-radius-30" alt="..." height="300px" style="object-fit: cover">
+                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4); height: 300px">
                             <h5 class="card-title --roboto-condensed --lead">Solid State Drive</h5>
                             <p class="card-text --poppins">Specs here.</p>
                         </div>
@@ -89,9 +89,9 @@
                 </div>
 
                 <div class="col-md-4 mb-5">
-                    <div class="card bg-dark text-white shadow-lg --border-radius-30">
-                        <img src="{{asset('storage/products/hdd.jpg')}}" class="card-img --border-radius-30" alt="...">
-                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
+                    <div class="card bg-dark text-white shadow-lg --border-radius-30" style="height: 302px;">
+                        <img src="{{asset('storage/products/hdd.jpg')}}" class="card-img --border-radius-30" alt="..." height="300px" style="object-fit: cover">
+                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4); height: 300px">
                             <h5 class="card-title --roboto-condensed --lead">Hard Disk Drive</h5>
                             <p class="card-text --poppins">Specs here</p>
                         </div>
@@ -99,9 +99,9 @@
                 </div>
 
                 <div class="col-md-4 mb-5">
-                    <div class="card bg-dark text-white shadow-lg --border-radius-30">
-                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img --border-radius-30" alt="...">
-                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4)">
+                    <div class="card bg-dark text-white shadow-lg --border-radius-30" style="height: 302px;">
+                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img --border-radius-30" alt="..." height="300px" style="object-fit: cover">
+                        <div class="card-img-overlay text-center --border-radius-30" style="background: rgba(0, 0, 0, 0.4); height: 300px">
                             <h5 class="card-title --roboto-condensed --lead">Gaming Earphones</h5>
                             <p class="card-text --poppins">Specs here</p>
                         </div>
