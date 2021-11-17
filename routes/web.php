@@ -9,6 +9,8 @@ Route::get('/', function () {
 });
 
 // User
+Route::get('/home', 'HomeController@index')->name('home')->middleware('check_if_user'); // temporary
+
 Route::get('service-fees', function(){
     return view('user.service-fees');
 })->name('servicefees');
@@ -18,7 +20,7 @@ Route::get('about', function(){
 Route::get('profile', function(){
     // TEMPORARY
     return view('user.profile');
-})->name('userprofile');
+})->name('user.profile');
 Route::get('store', function(){
     // TEMPORARY
     return view('user.store');
@@ -41,4 +43,4 @@ Route::group(['prefix' => '/admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
