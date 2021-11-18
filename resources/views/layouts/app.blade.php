@@ -44,10 +44,16 @@
 
                 <div class="collapse navbar-collapse" id="landingNavContent">
                     <ul id="" class="navbar-nav ml-auto --poppins">
-                        <li class="nav-item --underline mx-3">
-                            <a href="#" class="nav-link">HOME</a>
-                        </li>
-
+                        @auth
+                            <li class="nav-item --underline mx-3">
+                                <a href="{{route('home')}}" class="nav-link">HOME</a>
+                            </li>
+                        @else 
+                            <li class="nav-item --underline mx-3">
+                                <a href="#" class="nav-link">HOME</a>
+                            </li>
+                        @endauth
+                        
                         <li class="nav-item --underline mx-3">
                             <a href="{{route('about')}}" class="nav-link">ABOUT</a>
                         </li>

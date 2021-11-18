@@ -9,6 +9,8 @@ Route::get('/', function () {
 });
 
 // User
+Route::get('/home', 'HomeController@index')->name('home')->middleware('check_status', 'check_if_user'); // temporary
+
 Route::get('service-fees', function(){
     return view('user.service-fees');
 })->name('servicefees');
@@ -18,7 +20,7 @@ Route::get('about', function(){
 Route::get('profile', function(){
     // TEMPORARY
     return view('user.profile');
-})->name('userprofile');
+})->name('user.profile')->middleware('auth', 'check_status', 'check_if_user');
 Route::get('store', function(){
     // TEMPORARY
     return view('user.store');
@@ -26,19 +28,17 @@ Route::get('store', function(){
 
 // Admin
 Route::group(['prefix' => '/admin'], function () {
-    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('auth', 'check_status', 'check_if_admin');
     //Temporary
     Route::get('categories', function () {
         return view('admin.categories.index');
-    })->name('categories.index');
+    })->name('categories.index')->middleware('auth', 'check_status', 'check_if_admin');
 
     Route::get('products', function(){
         return view('admin.products.index');
-    })->name('products.index');
+    })->name('products.index')->middleware('auth', 'check_status', 'check_if_admin');
 });
 
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
