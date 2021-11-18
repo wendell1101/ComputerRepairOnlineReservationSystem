@@ -24,8 +24,6 @@ class CheckIfUser
         if(auth()->user()->user_role == 1){
             return redirect()->route('admin.dashboard');
         }
-
-        return $next($request);
         
     }
 }

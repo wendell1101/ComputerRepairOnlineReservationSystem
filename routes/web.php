@@ -9,7 +9,7 @@ Route::get('/', function () {
 });
 
 // User
-Route::get('/home', 'HomeController@index')->name('home')->middleware('check_if_user'); // temporary
+Route::get('/home', 'HomeController@index')->name('home')->middleware('check_status', 'check_if_user'); // temporary
 
 Route::get('service-fees', function(){
     return view('user.service-fees');
@@ -28,7 +28,7 @@ Route::get('store', function(){
 
 // Admin
 Route::group(['prefix' => '/admin'], function () {
-    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('auth', 'check_status', 'check_if_admin');
     //Temporary
     Route::get('categories', function () {
         return view('admin.categories.index');
@@ -43,4 +43,4 @@ Route::group(['prefix' => '/admin'], function () {
 
 Auth::routes();
 
-
+// 'check_status',

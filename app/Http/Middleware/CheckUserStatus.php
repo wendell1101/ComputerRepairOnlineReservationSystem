@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CheckIfAdmin
+class CheckUserStatus
 {
     /**
      * Handle an incoming request.
@@ -15,16 +15,14 @@ class CheckIfAdmin
      */
     public function handle($request, Closure $next)
     {
-        // if ADMIN
-        if(auth()->user()->user_role == 1){
+        if(auth()->user()->status == 0){
+            $user = auth()->user();
+            auth()->logout();
+            return redirect()->route('login')->with('error', 'The account ' . $user->email. ' is deactivated. Please contact the admin to reactivate.');
+        }else{
             return $next($request);
         }
 
-        // if USER
-        if(auth()->user()->user_role == 0){
-            // TEMPORARY REDIRECTION ROUTE FOR USER
-            return redirect()->route('home');
-        }
-
+        
     }
 }
