@@ -37,6 +37,10 @@ Route::group(['prefix' => '/admin'], function () {
     Route::get('products', function(){
         return view('admin.products.index');
     })->name('products.index')->middleware('auth', 'check_status', 'check_if_admin');
+
+    Route::get('users', function(){
+        return view('admin.users.index');
+    })->name('users.index')->middleware('auth', 'check_status', 'check_if_admin');
 });
 
 
