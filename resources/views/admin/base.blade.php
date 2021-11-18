@@ -59,6 +59,7 @@
     <script src="{{ asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin/js/adminlte.js') }}"></script>
+    <script src="{{asset('admin/js/admin.js')}}"></script>
 
     @yield('js')
 </body>

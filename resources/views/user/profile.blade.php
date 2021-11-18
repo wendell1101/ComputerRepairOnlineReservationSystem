@@ -18,7 +18,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="first-name" class="--poppins">FIRST NAME<span class="text-danger">*</span></label>
-                                <input type="text" name="first_name" id="first-name" class="form-control  @error('first_name') is-invalid @enderror" placeholder="John">
+                                <input type="text" name="first_name" id="first-name" class="form-control  @error('first_name') is-invalid @enderror" placeholder="John" value="{{auth()->user()->first_name}}">
                                 
                                 @error('first_name')
                                 <span class="text-danger" role="alert">
@@ -31,7 +31,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="last-name" class="--poppins">LAST NAME<span class="text-danger">*</span></label>
-                                <input type="text" name="last_name" id="last-name" class="form-control  @error('last_name') is-invalid @enderror" placeholder="Doe">
+                                <input type="text" name="last_name" id="last-name" class="form-control  @error('last_name') is-invalid @enderror" placeholder="Doe" value="{{auth()->user()->last_name}}">
 
                                 @error('last_name')
                                     <span class="text-danger" role="alert">
@@ -44,7 +44,7 @@
 
                     <div class="form-group">
                         <label for="email" class="--poppins">EMAIL<span class="text-danger">*</span></label>
-                        <input type="email" name="" id="" class="form-control  @error('email') is-invalid @enderror" placeholder="johndoe@mailinator.com">
+                        <input type="email" name="" id="" class="form-control  @error('email') is-invalid @enderror" placeholder="johndoe@mailinator.com" value="{{auth()->user()->email}}">
 
                         @error('email')
                             <span class="text-danger" role="alert">
