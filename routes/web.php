@@ -20,7 +20,7 @@ Route::get('about', function(){
 Route::get('profile', function(){
     // TEMPORARY
     return view('user.profile');
-})->name('user.profile');
+})->name('user.profile')->middleware('auth', 'check_status', 'check_if_user');
 Route::get('store', function(){
     // TEMPORARY
     return view('user.store');
@@ -32,15 +32,13 @@ Route::group(['prefix' => '/admin'], function () {
     //Temporary
     Route::get('categories', function () {
         return view('admin.categories.index');
-    })->name('categories.index');
+    })->name('categories.index')->middleware('auth', 'check_status', 'check_if_admin');
 
     Route::get('products', function(){
         return view('admin.products.index');
-    })->name('products.index');
+    })->name('products.index')->middleware('auth', 'check_status', 'check_if_admin');
 });
 
 
 
 Auth::routes();
-
-// 'check_status',
