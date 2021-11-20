@@ -1,5 +1,5 @@
 /**
- * VARIABLES
+ * Sidebar DOM
  */
 let path = window.location.pathname;
 const getActive = document.querySelectorAll('.active');
@@ -7,7 +7,27 @@ const dashboardPath = document.querySelector('#dashboard-link').pathname;
 const productsPath = document.querySelector('#products-link').pathname;
 const categoriesPath = document.querySelector('#categories-link').pathname;
 const usersPath = document.querySelector('#users-link').pathname;
-const sidenav = document.querySelector('#sidenav-ul');
+
+/**
+ * Datatables
+ */
+let reservationsTable = new DataTable('#reservations-table', {
+    responsive: true
+});
+let productsTable = new DataTable('#products-table', {
+    responsive: true,
+});
+let categoriesTable = new DataTable('#categories-table', {
+    responsive: true
+});
+let usersTable = new DataTable('#users-table', {
+    responsive: true
+});
+
+/**
+ * Button DOMs
+ */
+const imgUploadBtn = document.querySelector('#product-img-btn');
 
 /**
  * FUNCTIONS
@@ -41,4 +61,23 @@ window.onload = () => {
     }
 }
 
+// To preview image and show image file name
+const productCreateImg = (e) => {
+    e.preventDefault(); 
+    const imgLabel = e.target.nextElementSibling;
+    imgLabel.innerHTML = e.target.files[0].name;
+    const reader = new FileReader();
+
+    reader.onload = () => {
+        const img = document.querySelector('#product-img');
+        img.src = reader.result;
+    }
+
+    reader.readAsDataURL(e.target.files[0]);
+};
+
+/**
+ * EVENT LISTENERS
+ */
+imgUploadBtn.addEventListener('change', productCreateImg);
 
