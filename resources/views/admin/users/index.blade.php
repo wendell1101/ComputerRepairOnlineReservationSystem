@@ -47,15 +47,17 @@
                                         <td>John</td>
                                         <td>Doe</td>
                                         <td>johndoe@mailinator.com</td>
-                                        <td>Active</td>
+                                        <td>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="{{'user-1-status'}}" checked>
+                                                <label class="custom-control-label" for="customSwitch1">Active</label>
+                                            </div>
+                                        </td>
                                         <td>Jan 11, 2021</td>
                                         <td>Jan 11, 2021</td>
                                         <td>
-                                            <a href="#" class="text-info">
+                                            <a href="{{route('users.edit')}}" class="text-info">
                                                 <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a href="#" class="text-success">
-                                                <i class="far fa-edit"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -65,15 +67,17 @@
                                         <td>Jane</td>
                                         <td>Doe</td>
                                         <td>janedoe@mailinator.com</td>
-                                        <td>Active</td>
+                                        <td>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="{{'user-2-status'}}" checked>
+                                                <label class="custom-control-label" for="customSwitch1">Active</label>
+                                            </div>
+                                        </td>
                                         <td>Jan 11, 2021</td>
                                         <td>Jan 11, 2021</td>
                                         <td>
-                                            <a href="#" class="text-info">
+                                            <a href="{{route('users.edit')}}" class="text-info">
                                                 <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a href="#" class="text-success">
-                                                <i class="far fa-edit"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -83,21 +87,27 @@
                                         <td>Jack</td>
                                         <td>Smith</td>
                                         <td>jacksmith@mailinator.com</td>
-                                        <td>Inactive</td>
+                                        <td>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="{{'user-3-status'}}">
+                                                <label class="custom-control-label" for="customSwitch1">Inactive</label>
+                                            </div>
+                                        </td>
                                         <td>Jan 11, 2021</td>
                                         <td>Jan 11, 2021</td>
                                         <td>
-                                            <a href="#" class="text-info">
+                                            <a href="{{route('users.edit')}}" class="text-info">
                                                 <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a href="#" class="text-success">
-                                                <i class="far fa-edit"></i>
                                             </a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+
+                        <div class="form-group mt-4">
+                            <button class="btn btn-block btn-primary">SAVE</button>
+                        </div>  
                     </div>
                 </div>
             </div>

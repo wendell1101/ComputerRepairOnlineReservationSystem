@@ -15,7 +15,7 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">Home</li>
                     <li class="breadcrumb-item">Products</li>
-                    <li class="breadcrumb-item text-bold active">Create</li>
+                    <li class="breadcrumb-item text-bold active">Edit</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,11 +35,16 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div id="product-img-placeholder" class="rounded-lg bg-light h-100 d-flex justify-content-center align-items-center w-100">
-                                    <p class="display-1" id="product-img-alt">
+                                {{-- IF IMAGE IS NOT AVAILABLE --}}
+                                    {{-- <p class="display-1" id="product-img-alt">
                                         <i class="fas fa-image"></i>
-                                    </p>
-                                    <img src="" alt="product image" id="product-img" style="display: none;">
+                                    </p> --}}
+                                    
+                                {{-- ELSE --}}
+                                    <img src="{{asset('storage/products/ssd.jpg')}}" alt="product image" id="product-img" width="100%" height="auto"
+                                    style="object-fit:scale-down;">
                                 </div>
+                                
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-sm-12">
@@ -102,7 +107,7 @@
                                     </div>
         
                                     <div class="form-group">
-                                        <input type="submit" value="CREATE" class="btn btn-outline-primary btn-block" id="product-create-btn">
+                                        <input type="submit" value="UPDATE" class="btn btn-outline-primary btn-block" id="product-edit-btn">
                                     </div>
                                     
                                 </form>

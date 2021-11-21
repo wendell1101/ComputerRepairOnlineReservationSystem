@@ -61,23 +61,37 @@ window.onload = () => {
     }
 }
 
-// To preview image and show image file name
-const productCreateImg = (e) => {
+// To preview image and show image file name in CREATE PAGE
+const productImgUpload = (e) => {
+    // Prevent submission
     e.preventDefault(); 
+    // Show image file name
     const imgLabel = e.target.nextElementSibling;
     imgLabel.innerHTML = e.target.files[0].name;
-    const reader = new FileReader();
+    // Select img element
+    const imgElement = document.querySelector('#product-img');
 
-    reader.onload = () => {
-        const img = document.querySelector('#product-img');
-        img.src = reader.result;
+    if(path == '/admin/products/create'){
+        // Style img element
+        imgElement.style.display = 'block';
+        imgElement.style.width = '100%';
+        imgElement.style.height = 'auto';
+        imgElement.style.objectFit = 'scale-down';
+        // Hide alt icon
+        document.querySelector('#product-img-alt').style.display = 'none';
     }
-
+    
+    // Set file reader
+    const reader = new FileReader();
+    reader.onload = () => {
+        imgElement.src = reader.result;
+    }
+    // Set img src attribute to image path
     reader.readAsDataURL(e.target.files[0]);
 };
 
 /**
  * EVENT LISTENERS
  */
-imgUploadBtn.addEventListener('change', productCreateImg);
+imgUploadBtn.addEventListener('change', productImgUpload);
 
