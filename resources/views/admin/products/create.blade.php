@@ -50,6 +50,9 @@
                                             <div class="form-group">
                                                 <label for="product-name">Name</label>
                                                 <input type="text" name="name" id="product-name" class="form-control">
+                                                @error('name')
+                                                    <small class="text-danger">{{'message'}}</small>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -57,6 +60,9 @@
                                             <div class="form-group">
                                                 <label for="product-price">Price</label>
                                                 <input type="number" name="price" id="product-price" class="form-control">
+                                                @error('price')
+                                                    <small class="text-danger">{{'message'}}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -65,6 +71,10 @@
                                         <label for="product-description">Description</label>
 
                                         <textarea name="description" id="product-description" cols="30" rows="3" class="form-control"></textarea>
+
+                                        @error('description')
+                                            <small class="text-danger">{{'message'}}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="form-row">
@@ -73,6 +83,9 @@
                                                 <label for="product-discount">Discount</label>
 
                                                 <input type="number" name="discount" id="product-discount" class="form-control" value="0">
+                                                @error('discount')
+                                                    <small class="text-danger">{{'message'}}</small>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -83,6 +96,9 @@
                                                     <input type="file" name="img" id="product-img-btn" class="custom-file-input">
                                                     <label for="product-img-btn" class="custom-file-label">jpeg, jpg, png</label>
                                                 </div>
+                                                @error('img')
+                                                    <small class="text-danger">{{'message'}}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -99,6 +115,10 @@
                                             <option value="4">Sit</option>
                                             <option value="5">Amet</option>
                                         </select>
+
+                                        @error('product_category_id')
+                                            <small class="text-danger">{{'message'}}</small>
+                                        @enderror
                                     </div>
         
                                     <div class="form-group">

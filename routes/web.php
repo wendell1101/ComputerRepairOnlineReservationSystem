@@ -50,9 +50,9 @@ Route::group(['prefix' => '/admin'], function () {
         return view('admin.users.index');
     })->name('users.index')->middleware('auth', 'check_status', 'check_if_admin');
 
-    Route::get('users/edit', function(){
-        return view('admin.users.edit');
-    })->name('users.edit')->middleware('auth', 'check_status', 'check_if_admin');
+    Route::get('users/view', function(){
+        return view('admin.users.view');
+    })->name('users.view')->middleware('auth', 'check_status', 'check_if_admin');
 });
 
 

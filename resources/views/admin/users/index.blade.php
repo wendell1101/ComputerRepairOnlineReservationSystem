@@ -50,13 +50,13 @@
                                         <td>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input" id="{{'user-1-status'}}" checked>
-                                                <label class="custom-control-label" for="customSwitch1">Active</label>
+                                                <label class="custom-control-label" for="{{'user-1-status'}}">Active</label>
                                             </div>
                                         </td>
                                         <td>Jan 11, 2021</td>
                                         <td>Jan 11, 2021</td>
                                         <td>
-                                            <a href="{{route('users.edit')}}" class="text-info">
+                                            <a href="{{route('users.view')}}" class="text-info">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                         </td>
@@ -70,13 +70,13 @@
                                         <td>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input" id="{{'user-2-status'}}" checked>
-                                                <label class="custom-control-label" for="customSwitch1">Active</label>
+                                                <label class="custom-control-label" for="{{'user-2-status'}}">Active</label>
                                             </div>
                                         </td>
                                         <td>Jan 11, 2021</td>
                                         <td>Jan 11, 2021</td>
                                         <td>
-                                            <a href="{{route('users.edit')}}" class="text-info">
+                                            <a href="{{route('users.view')}}" class="text-info">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                         </td>
@@ -90,13 +90,13 @@
                                         <td>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input" id="{{'user-3-status'}}">
-                                                <label class="custom-control-label" for="customSwitch1">Inactive</label>
+                                                <label class="custom-control-label" for="{{'user-3-status'}}">Inactive</label>
                                             </div>
                                         </td>
                                         <td>Jan 11, 2021</td>
                                         <td>Jan 11, 2021</td>
                                         <td>
-                                            <a href="{{route('users.edit')}}" class="text-info">
+                                            <a href="{{route('users.view')}}" class="text-info">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                         </td>
