@@ -34,6 +34,10 @@
 
                                     <div class="col-sm-8">
                                         <input type="text" name="name" id="category-name" class="form-control">
+
+                                        @error('name')
+                                            <small class="text-danger">{{'message'}}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="col-sm-2">
