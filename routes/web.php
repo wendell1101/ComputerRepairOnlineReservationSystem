@@ -40,11 +40,19 @@ Route::group(['prefix' => '/admin'], function () {
 
     Route::get('products/create', function(){
         return view('admin.products.create');
-    })->name('products.create');
+    })->name('products.create')->middleware('auth', 'check_status', 'check_if_admin');
+
+    Route::get('products/edit', function(){
+        return view('admin.products.edit');
+    })->name('products.edit')->middleware('auth', 'check_status', 'check_if_admin');
 
     Route::get('users', function(){
         return view('admin.users.index');
     })->name('users.index')->middleware('auth', 'check_status', 'check_if_admin');
+
+    Route::get('users/edit', function(){
+        return view('admin.users.edit');
+    })->name('users.edit')->middleware('auth', 'check_status', 'check_if_admin');
 });
 
 

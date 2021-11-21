@@ -58,7 +58,7 @@
                                         <td>Jan 11, 2021</td>
                                         <td>Jan 11, 2021</td>
                                         <td>
-                                            <a href="#" class="text-success">
+                                            <a href="{{route('products.edit')}}" class="text-success">
                                                 <i class="far fa-edit"></i>
                                             </a>
                                         </td>
@@ -75,7 +75,7 @@
                                         <td>Feb 01, 2021</td>
                                         <td>Feb 01, 2021</td>
                                         <td>
-                                            <a href="#" class="text-success">
+                                            <a href="{{route('products.edit')}}" class="text-success">
                                                 <i class="far fa-edit"></i>
                                             </a>
                                         </td>
