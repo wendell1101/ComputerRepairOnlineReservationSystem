@@ -188,7 +188,7 @@
 }
 
 #hero-section,
-.--background-img {
+.--background-img{
     width: 100%;
     margin-bottom: 5rem;
     background-image: url("../img/shop.jpg");
@@ -201,6 +201,16 @@
     min-height: auto;
 }
 
+.--user-background-img{
+    max-height: 20vh;
+    width: 100%;
+    margin-bottom: 2rem;
+    background-image: url("../img/shop.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 #hero-section > div,
 .--dark-overlay {
     background: rgba(0, 0, 0, 0.7);
@@ -209,6 +219,13 @@
 .--background-img,
 .--dark-overlay {
     min-height: 30vh;
+    position: relative;
+    z-index: 0;
+}
+
+.--user-dark-overlay{
+    background: rgba(0, 0, 0, 0.7);
+    height: 20vh;
     position: relative;
     z-index: 0;
 }
@@ -279,13 +296,49 @@
 }
 
 #desc-section img{
-    /* width: inherit;
-    height: 500px; */
     border-radius: 30px;
-
 }
 
-/* .--user-background-img{
+.--faqs-box{
+    min-height: 200px;
+}
 
-} */
+.--repair-cards{
+    color: var(--gray-800);
+    background: var(--gray-50);
+    height: 275px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.--repair-cards:hover{
+    color: var(--gray-50);
+    background: var(--gray-800);
+    height: 350px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    box-shadow: 0 3px 10px var(--green-primary);
+}
+
+.--repair-icons {
+    font-size: 8em;
+}
+
+#repair-section{
+    min-height: 700px;
+}
+
+#upgrade-section{
+    min-height: 500px;
+}
+
+#upgrade-section, #print-section{
+    margin-top: 10vh;
+}
+
+#repair-section, #upgrade-section, #print-section{
+    position: relative;
+    margin-bottom: 10vh;
+}
 
