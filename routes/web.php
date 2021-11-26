@@ -26,6 +26,17 @@ Route::get('store', function(){
     return view('user.store');
 })->name('user.store');
 
+Route::get('/reservation/create', function(){
+    // TEMPORARY
+    return view('user.reservations.create');
+})->name('user.create')->middleware('auth', 'check_status', 'check_if_user');
+
+Route::get('/reservation/edit', function(){
+    // TEMPORARY
+    return view('user.reservations.edit');
+})->name('user.edit')->middleware('auth', 'check_status', 'check_if_user');
+
+
 // Admin
 Route::group(['prefix' => '/admin'], function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('auth', 'check_status', 'check_if_admin');

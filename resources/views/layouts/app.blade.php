@@ -77,7 +77,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item --text-gray-800" href="{{ url('/home') }}">Reservations</a>
+                                    <a class="dropdown-item --text-gray-800" href="">Reservations</a>
 
                                     <a href="{{route('user.profile')}}" class="dropdown-item --text-gray-800">Profile</a>
 

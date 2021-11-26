@@ -71,71 +71,41 @@
 
                 <form action="" method="post">
                     @csrf
-                    <div class="form-group">
-                        <label for="mobile-number" class="--poppins">MOBILE NUMBER<span class="text-danger">*</span></label>
-                        
-                        <input type="text" name="mobile_number" id="mobile-number" class="form-control @error('mobile_number') is-invalid @enderror" placeholder="09XXXXXXXXX">
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label for="mobile-number" class="--poppins">MOBILE NUMBER<span class="text-danger">*</span></label>
+                            
+                            <input type="text" name="mobile_number" id="mobile-number" class="form-control @error('mobile_number') is-invalid @enderror" placeholder="09XXXXXXXXX">
 
-                        @error('mobile_number')
+                            @error('mobile_number')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="mobile-number" class="--poppins">SOCIAL MEDIA<span class="text-danger">*</span></label>
+                            
+                            <input type="text" name="social_media" id="social-media" class="form-control @error('social_media') is-invalid @enderror" placeholder="facebook.com/john-doe-01">
+
+                            @error('mobile_number')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="barangay" class="--poppins">BARANGAY/SITIO<span class="text-danger">*</span></label>
+                        <input type="text" name="barangay" id="barangay" class="form-control @error('barangay') is-invalid @enderror">
+
+                        @error('barangay')
                             <span class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="house-no" class="--poppins">HOUSE NO.</label>
-                                <input type="text" name="house_no" id="house-no" class="form-control @error('house_no') is-invalid @enderror" placeholder="Apartment 19D">
-                                @error('house_no')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <label for="street" class="--poppins">STREET</label>
-                                <input type="text" name="street" id="street" class="form-control @error('street') is-invalid @enderror" placeholder="Carnation Street">
-
-                                @error('street')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <label for="barangay" class="--poppins">BARANGAY/SITIO<span class="text-danger">*</span></label>
-                                <input type="text" name="barangay" id="barangay" class="form-control @error('barangay') is-invalid @enderror">
-
-                                @error('barangay')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="zip" class="--poppins">ZIP<span class="text-danger">*</span></label>
-                                <input type="text" name="zip" id="zip" class="form-control @error('zip') is-invalid @enderror" placeholder="0000">
-
-                                @error('zip')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
                     </div>
 
                     <div class="form-group">
