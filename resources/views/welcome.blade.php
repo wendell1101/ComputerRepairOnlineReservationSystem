@@ -178,6 +178,10 @@
                 </div>
             </div>
         </section>
+        <a href="mailto:tech2uccgrs@gmail.com" class="--link-dark-green">
+            
+            tech2uccgrs@gmail.com
+        </a>
     </div>
 </div>
 @endsection

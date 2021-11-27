@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('js/custom-script.js')}}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -50,7 +51,7 @@
                             </li>
                         @else 
                             <li class="nav-item --underline mx-3">
-                                <a href="#" class="nav-link">HOME</a>
+                                <a href="/" class="nav-link">HOME</a>
                             </li>
                         @endauth
                         
@@ -59,15 +60,21 @@
                         </li>
 
                         <li class="nav-item --underline mx-3">
+                            <a href="{{route('servicefees')}}" class="nav-link">SERVICES</a>
+                        </li>
+
+                        @auth
+                        <li class="nav-item --underline mx-3">
                             <a href="{{route('user.store')}}" class="nav-link">STORE</a>
                         </li>
+                        @endauth
 
                         <li class="nav-item --underline mx-3">
                             <a href="{{ url('/') }}#5th-section" class="nav-link">FAQS</a>
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="#contact-form" class="nav-link">CONTACT</a>
+                            <a href="{{route('contacts')}}" class="nav-link">CONTACT</a>
                         </li>
 
                         @auth
@@ -77,7 +84,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item --text-gray-800" href="">Reservations</a>
+                                    <a class="dropdown-item --text-gray-800" href="{{ route('home') }}">Reservations</a>
 
                                     <a href="{{route('user.profile')}}" class="dropdown-item --text-gray-800">Profile</a>
 
@@ -129,21 +136,27 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <div class="text-center">
-                            <div class="">
+                            <div class="mb-2">
                                 <h2 class="--roboto-condensed mb-0" style="font-size: 80px">Tech2U</h2>
                                 <p class="--body-20 --poppins mb-0">Computer & Cellphone</p>
                                 <p class="--body-20 --poppins mb-0">Gadget Repair Shop</p>
-                                <p class="--body-20 --poppins mb-0">
-                                    <a href="" class="--text-gray-50">
-                                        <i class="fab fa-facebook-square"></i>
-                                    </a>
-                                </p>
                             </div>
 
                             <div>
-                                <p class="--body-16 --poppins mb-0">Maharlika Highway, Brgy. Lumingon</p>
-                                <p class="--body-16 --poppins mb-0">4325 Tiaong, Quezon</p>
-                                <p class="--body-16 --poppins mb-0">All Rights Reserved &copy; {{date('Y')}}</p>
+                                <div class="row mb-2">
+                                    <p class="--poppins --body-16 col-12 mb-0">Check us on:</p>
+                                    <p class="col-8 offset-2 --poppins">
+                                        <a href="https://www.facebook.com/tech2uccgrs" class="--link-green mr-3">
+                                            <i class="fab fa-facebook-square"></i> facebook
+                                        </a>
+
+                                        <a href="https://www.facebook.com/tech2uccgrs" class="--link-green">
+                                            <i class="fas fa-envelope"></i>
+                                            Gmail
+                                        </a>
+                                    </p>
+                                </div>
+                                <p class="--poppins mb-0">All Rights Reserved &copy; {{date('Y')}}</p>
                             </div>       
                         </div>
                     </div>
@@ -153,7 +166,7 @@
                             <h4 class="--roboto-condensed --body-20 text-center mb-3">MENU</h4>
                             <ul class="list-unstyled text-center">
                                 <li class="list-item mb-3 --underline">
-                                    <a href="" class="">Home</a>
+                                    <a href="/" class="">Home</a>
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
@@ -161,7 +174,7 @@
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
-                                    <a href="{{route('user.store')}}" class="">Store</a>
+                                    <a href="{{route('servicefees')}}" class="">Services</a>
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
@@ -191,8 +204,6 @@
             </div>
         </footer>
     </div>
-
-    <script src="{{asset('js/custom-script.js')}}"></script>
 </body>
 
 </html>

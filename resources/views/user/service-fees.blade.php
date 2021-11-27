@@ -126,7 +126,8 @@
                                     </div>
                                     <h4 class="--poppins --bold">Storage</h4>
                                     <div class="--repair-info mt-3 --poppins" style="display: none;">
-                                        <p class="--body-16">Expand your computer's storage by ordering an HDD (hard disk drive) or an SSD (solid state drive) from us. </p>
+                                        <p class="--body-16">Expand your computer's storage by ordering an HDD (hard disk drive) or an SSD (solid state drive) from us.</p>
+                                        <a href="{{route('user.store')}}" class="--link-green">Go to Store</a>
                                     </div>
                                 </div>
                             </div>
@@ -138,8 +139,9 @@
                                     </div>
 
                                     <h4 class="--poppins --bold">Memory</h4>
-                                    <div class="--repair-info mt-3" style="display: none;">
+                                    <div class="--repair-info mt-3 --poppins" style="display: none;">
                                         <p class="--body-16">Improve your computer's speed by ordering a RAM (random access memory) from us.</p> 
+                                        <a href="{{route('user.store')}}" class="--link-green">Go to Store</a>
                                     </div>
                                 </div>
                             </div>
@@ -177,9 +179,9 @@
                     <div class="">
                         <h2 class="--roboto-condensed --bold">Print, scan, and photocopy...</h2>
                         <p class="--poppins">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis beatae animi totam placeat voluptatem dolores similique cupiditate rem mollitia repellat?</p>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead class="--roboto-condensed text-center">
+                        <div class="table-responsive shadow-sm">
+                            <table class="table table-hover">
+                                <thead class="--roboto-condensed text-center --bg-gray-800 --text-gray-50">
                                     <th scope="row">Size</th>
                                     <th>Color</th>
                                     <th>Image size</th>
