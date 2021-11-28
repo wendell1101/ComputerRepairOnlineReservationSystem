@@ -65,6 +65,22 @@ Route::group(['prefix' => '/admin'], function () {
         return view('admin.products.edit');
     })->name('products.edit')->middleware('auth', 'check_status', 'check_if_admin');
 
+    Route::get('reservations', function(){
+        return view('admin.reservations.index');
+    })->name('reservations.index')->middleware('auth', 'check_status', 'check_if_admin');
+
+    Route::get('printing', function(){
+        return view('admin.printing.index');
+    })->name('printing.index')->middleware('auth', 'check_status', 'check_if_admin');
+
+    Route::get('printing/create', function(){
+        return view('admin.printing.create');
+    })->name('printing.create')->middleware('auth', 'check_status', 'check_if_admin');
+
+    Route::get('printing/edit', function(){
+        return view('admin.printing.edit');
+    })->name('printing.edit')->middleware('auth', 'check_status', 'check_if_admin');
+
     Route::get('users', function(){
         return view('admin.users.index');
     })->name('users.index')->middleware('auth', 'check_status', 'check_if_admin');
@@ -72,6 +88,7 @@ Route::group(['prefix' => '/admin'], function () {
     Route::get('users/view', function(){
         return view('admin.users.view');
     })->name('users.view')->middleware('auth', 'check_status', 'check_if_admin');
+
 });
 
 

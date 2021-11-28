@@ -99,67 +99,12 @@
             <div class="col-md-8 col-sm-12">
                 <div class="card card-navy">
                     <div class="card-header">
-                        <h3 class="card-title">Reservations</h3>                        
+                        <h3 class="card-title">Most ordered products</h3>                        
                     </div>
 
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="reservations-table" class="table table-hover">
-                                <thead>
-                                    <th scope="col">ID</th>
-                                    <th>Username</th>
-                                    <th>Order</th>
-                                    <th>Case (Fault Description)</th>
-                                    <th>Reservation Date</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </thead>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quas, iste sunt maiores harum aut temporibus omnis in aliquam earum!</p>
 
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>John Doe</td>
-                                        <td>SSD</td>
-                                        <td>Upgrade laptop</td>
-                                        <td>November 19, 2022</td>
-                                        <td>Done</td>
-                                        <td>
-                                            <a href="">
-                                                <i class="fas fa-check-square"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jane Doe</td>
-                                        <td>Enclosure</td>
-                                        <td></td>
-                                        <td>November 19, 2022</td>
-                                        <td>Done</td>
-                                        <td>
-                                            <a href="">
-                                                <i class="far fa-square"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Jack Smith</td>
-                                        <td>Enclosure</td>
-                                        <td></td>
-                                        <td>November 19, 2022</td>
-                                        <td>Done</td>
-                                        <td>
-                                            <a href="">
-                                                <i class="far fa-square"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>
