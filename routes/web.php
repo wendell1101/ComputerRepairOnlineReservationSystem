@@ -9,14 +9,18 @@ Route::get('/', function () {
 });
 
 // User
-Route::get('/home', 'HomeController@index')->name('home')->middleware('check_status', 'check_if_user'); // temporary
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'check_status', 'check_if_user'); // temporary
 
-Route::get('service-fees', function(){
+Route::get('services', function(){
     return view('user.service-fees');
 })->name('servicefees');
 Route::get('about', function(){
     return view('user.about');
 })->name('about');
+Route::get('contacts', function(){
+    return view('user.contact');
+})->name('contacts');
+
 Route::get('profile', function(){
     // TEMPORARY
     return view('user.profile');
@@ -25,6 +29,10 @@ Route::get('store', function(){
     // TEMPORARY
     return view('user.store');
 })->name('user.store');
+
+Route::get('/reservation', function(){
+    return view('user.reservations.index');
+})->name('user.reservations')->middleware('auth', 'check_status', 'check_if_user');
 
 Route::get('/reservation/create', function(){
     // TEMPORARY

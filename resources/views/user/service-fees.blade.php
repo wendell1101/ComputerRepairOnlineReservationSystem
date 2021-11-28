@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="--background-img">
-    <div class="--dark-overlay"></div>
+<div class="--user-background-img">
+    <div class="--user-dark-overlay"></div>
 </div>
 
 <div class="container">
@@ -11,7 +11,7 @@
             {{-- MAIN SECTION --}}
             <div id="services-fees-main" class="col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1 offset-sm-0">
                 {{-- REPAIR SECTION --}}
-                <section id="repair-section" class="">
+                <section id="services-repair" class="">
                     <div class="row">
                         <h2 class="mb-3 --roboto-condensed --bold col-md-12"> We repair these devices...</h2>
                         <div class="col-md-4 col-sm-12 text-center mb-5  --repair-card-col">
@@ -89,7 +89,7 @@
                         {{-- CUSTOM INFO CARD --}}
                         <div class="col-md-12 col-sm-12">
                             <div class="row no-gutters shadow ">
-                                <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center">
+                                <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
                                     <h1 class="text-center --text-green mb-0">
                                         <i class="fas fa-info-circle"></i>
                                     </h1>    
@@ -104,7 +104,7 @@
 
                                         <li>
                                             <i class="fa-li fas fa-cog"></i>
-                                            The repair fee depends on the damage  on your device, so we can only give you the specific price <strong>AFTER</strong> we check your device.
+                                            The repair fee depends on the damage  on your device, so we can only give you the specific price <strong>AFTER</strong> we checked it.
                                         </li>
                                     </ul>
                                 </div>
@@ -115,7 +115,7 @@
                 </section>
         
                 {{-- UPGRADE SECTION --}}
-                <section id="upgrade-section" class="">
+                <section id="services-upgrade" class="">
                     <div class="">
                         <h2 class="--roboto-condensed --bold">On upgrades...</h2>
                         <div class="row">
@@ -126,7 +126,8 @@
                                     </div>
                                     <h4 class="--poppins --bold">Storage</h4>
                                     <div class="--repair-info mt-3 --poppins" style="display: none;">
-                                        <p class="--body-16">Expand your computer's storage by ordering an HDD (hard disk drive) or an SSD (solid state drive) from us. </p>
+                                        <p class="--body-16">Expand your computer's storage by ordering an HDD (hard disk drive) or an SSD (solid state drive) from us.</p>
+                                        <a href="{{route('user.store')}}" class="--link-green">Go to Store</a>
                                     </div>
                                 </div>
                             </div>
@@ -138,8 +139,9 @@
                                     </div>
 
                                     <h4 class="--poppins --bold">Memory</h4>
-                                    <div class="--repair-info mt-3" style="display: none;">
+                                    <div class="--repair-info mt-3 --poppins" style="display: none;">
                                         <p class="--body-16">Improve your computer's speed by ordering a RAM (random access memory) from us.</p> 
+                                        <a href="{{route('user.store')}}" class="--link-green">Go to Store</a>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +150,7 @@
                         {{-- CUSTOM INFO CARD --}}
                         <div class="col-md-12 col-sm-12 mb-5">
                             <div class="row no-gutters shadow ">
-                                <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center">
+                                <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
                                     <h1 class="text-center --text-green mb-0">
                                         <i class="fas fa-info-circle"></i>
                                     </h1>    
@@ -173,13 +175,13 @@
                 </section>
         
                 {{-- SET PAGINATION HERE --}}
-                <section id="print-section">
+                <section id="services-print">
                     <div class="">
                         <h2 class="--roboto-condensed --bold">Print, scan, and photocopy...</h2>
                         <p class="--poppins">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis beatae animi totam placeat voluptatem dolores similique cupiditate rem mollitia repellat?</p>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead class="--roboto-condensed text-center">
+                        <div class="table-responsive shadow-sm">
+                            <table class="table table-hover">
+                                <thead class="--roboto-condensed text-center --bg-gray-800 --text-gray-50">
                                     <th scope="row">Size</th>
                                     <th>Color</th>
                                     <th>Image size</th>
