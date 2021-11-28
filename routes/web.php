@@ -30,6 +30,10 @@ Route::get('store', function(){
     return view('user.store');
 })->name('user.store');
 
+Route::get('/reservation', function(){
+    return view('user.reservations.index');
+})->name('user.reservations')->middleware('auth', 'check_status', 'check_if_user');
+
 Route::get('/reservation/create', function(){
     // TEMPORARY
     return view('user.reservations.create');

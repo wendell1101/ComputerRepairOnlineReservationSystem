@@ -70,7 +70,7 @@
                         @endauth
 
                         <li class="nav-item --underline mx-3">
-                            <a href="{{ url('/') }}#5th-section" class="nav-link">FAQS</a>
+                            <a href="{{ url('/') }}#frequently-asked-questions" class="nav-link">FAQS</a>
                         </li>
 
                         <li class="nav-item --underline mx-3">
@@ -84,7 +84,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item --text-gray-800" href="{{ route('home') }}">Reservations</a>
+                                    <a class="dropdown-item --text-gray-800" href="{{ route('user.reservations') }}">Reservations</a>
 
                                     <a href="{{route('user.profile')}}" class="dropdown-item --text-gray-800">Profile</a>
 
@@ -178,7 +178,7 @@
                                 </li>
     
                                 <li class="list-item mb-3 --underline">
-                                    <a href="{{ url('/') }}#5th-section" class="">FAQs</a>
+                                    <a href="{{ url('/') }}#frequently-asked-questions" class="">FAQs</a>
                                 </li>
                             </ul>
                         </div>    

@@ -22,7 +22,7 @@
             </div>
             <div class="card-body px-5 pb-5 pt-3">
                 <div class="alert alert-info">
-                    <p class="--poppins"><strong><i class="fas fa-info-circle"></i></strong> Welcome, {{Auth::user()->first_name}}! You can view the list of your reservations below.</p>
+                    <p class="--poppins mb-0"><strong><i class="fas fa-info-circle"></i></strong> Welcome, {{Auth::user()->first_name}}! You can view the list of your reservations below.</p>
                 </div>
 
                 <div class="table-responsive">

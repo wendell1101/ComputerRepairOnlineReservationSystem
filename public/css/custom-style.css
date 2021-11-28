@@ -120,20 +120,25 @@
 }
 
 /* BUTTONS */
+.--border-radius-10{
+    border-radius: 10px;
+}
+
 .--border-radius-30 {
     border-radius: 30px;
 }
 
-.--btn-outline-green {
+.--btn-outline-green, .--link-btn-outline-green {
     background-color: transparent;
     border: 2px solid var(--green-primary);
     color: var(--green-primary);
     font-family: var(--poppins);
     font-weight: var(--bold);
     text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
 }
 
-.--btn-outline-green:hover {
+.--btn-outline-green:hover, .--link-btn-outline-green:hover{
     color: #f9fafb;
     background-color: var(--green-primary);
 }
@@ -150,6 +155,19 @@
 .--btn-outline-gray:hover {
     color: #f9fafb;
     background-color: var(--gray-800);
+}
+
+.--link-btn-outline-green{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-shadow: none;
+    display: none;
+}
+
+.--link-btn-outline-green:hover{
+    text-decoration: none;
 }
 
 /*
@@ -299,6 +317,21 @@
     border-radius: 30px;
 }
 
+.--product-card-overlay{
+    background: transparent; 
+    height: 300px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; 
+    color: transparent;    
+}
+
+.--product-card-overlay:hover{
+    background: rgba(0, 0, 0, 0.4);
+    color: var(--gray-50);
+    text-shadow: 1px 1px 2px black;
+}
+
+
 .--faqs-box{
     min-height: 200px;
 }
@@ -325,20 +358,32 @@
     font-size: 8em;
 }
 
-#repair-section{
+#services-repair{
     min-height: 700px;
 }
 
-#upgrade-section{
+#services-upgrade{
     min-height: 500px;
 }
 
-#upgrade-section, #print-section{
+#services-upgrade, #services-print{
     margin-top: 10vh;
 }
 
-#repair-section, #upgrade-section, #print-section{
+#services-repair, #services-upgrade, #services-print{
     position: relative;
     margin-bottom: 10vh;
+}
+
+.--pagination-custom > li > a{
+    color: var(--gray-800);
+    text-decoration: none;
+    background: var(--gray-50);
+}
+
+.--pagination-custom > li > a:hover,
+.--pagination-custom > li > a:focus{
+    background: var(--gray-800);
+    color: var(--green-primary);
 }
 
