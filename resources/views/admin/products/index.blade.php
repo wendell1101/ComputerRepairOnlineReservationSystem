@@ -26,6 +26,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
+                {{-- ALERT FOR SUCCESSES AND ERRORS --}}
+                <x-alert/>
+                {{-- MAIN SECTION --}}
                 <div class="card card-outline card-dark shadow-lg rounded p-3">
                     <div class="card-header">
                         <h3 class="text-bold">Products</h3>
