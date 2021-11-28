@@ -1,7 +1,7 @@
 <div>
     {{-- MODALS --}}
     {{-- Tip: Loop modals for each set of data --}}
-    <div class="modal fade" id="update-confirmation-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="update-confirmation-modal" aria-hidden="true">
+    <div class="modal fade" id="confirm-product-update-modal-{{'id'}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="update-confirmation-modal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -18,17 +18,15 @@
                 <div class="modal-footer">
                     <div class="row">
                         <div class="col-6">
-                            <button type="button" class="btn btn-outline-secondary btn-block" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-outline-danger btn-block" data-dismiss="modal" onclick="event.preventDefault();">CANCEL</button>
                         </div>
 
                         <div class="col-6">
-                            <button type="button" class="btn btn-outline-primary btn-block" id="modal-save-btn">Save</button>
+                            <button type="button" class="btn btn-outline-success btn-block" id="modal-save-btn" onclick="
+                                event.preventDefault();
+                                document.querySelector('#product-update-{{'id'}}').submit;
+                                ">CONFIRM</button>
                         </div>
-
-                        {{-- FORMS FOR EACH DATA SETS --}}
-                        <form id="user-update-{{'id'}}" action="" class="d-none" method="post">
-                            @csrf
-                        </form>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,9 @@
 @extends('admin.base')
 
 @section('content')
+{{-- COMPONENT CONTAINS THE EDIT FORM --}}
+<x-edit-categ-modal/>
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -21,6 +24,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-sm-10 offset-md-2 offset-sm-1">
+                {{-- ALERTS FOR SUCCESS AND ERRORS --}}
+                <x-alert/>
+                <x-alert-form-errors/>
+                {{-- MAIN SECTION --}}
                 <div class="card card-outline card-dark shadow-lg rounded p-3">
                     <div class="card-header">
                         <h3 class="text-bold">Product Categories</h3>
@@ -68,7 +75,7 @@
                                         <td>Jan 11, 2021</td>
                                         <td>asas</td>
                                         <td>
-                                            <a href="#" class="text-success">
+                                            <a href="#" class="text-success" data-toggle="modal" data-target="#category-edit-modal-{{'0'}}">
                                                 <i class="far fa-edit"></i>
                                             </a>
                                         </td>
@@ -81,7 +88,7 @@
                                         <td>Feb 01, 2021</td>
                                         <td>asas</td>
                                         <td>
-                                            <a href="#" class="text-success">
+                                            <a href="#" class="text-success" data-toggle="modal" data-target="#category-edit-modal-{{'1'}}">
                                                 <i class="far fa-edit"></i>
                                             </a>
                                         </td>
