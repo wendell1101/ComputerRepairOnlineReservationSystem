@@ -6,6 +6,7 @@ const getActive = document.querySelectorAll('.active');
 const dashboardPath = document.querySelector('#dashboard-link').pathname;
 const productsPath = document.querySelector('#products-link').pathname;
 const categoriesPath = document.querySelector('#categories-link').pathname;
+const printingPath = document.querySelector('#printing-link').pathname;
 const usersPath = document.querySelector('#users-link').pathname;
 
 /**
@@ -18,6 +19,9 @@ let productsTable = new DataTable('#products-table', {
     responsive: true,
 });
 let categoriesTable = new DataTable('#categories-table', {
+    responsive: true
+});
+let printingTable = new DataTable('#printing-table', {
     responsive: true
 });
 let usersTable = new DataTable('#users-table', {
@@ -51,6 +55,11 @@ window.onload = () => {
             document.querySelector('#categories-link').classList.add('active');
             break;
     
+        case printingPath:
+            getActive[0].classList.remove('active');
+            document.querySelector('#printing-link').classList.add('active');
+            break;
+
         case usersPath:
             getActive[0].classList.remove('active');
             document.querySelector('#users-link').classList.add('active');

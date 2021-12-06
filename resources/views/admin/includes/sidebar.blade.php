@@ -26,6 +26,16 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{route('reservations.index')}}" class="nav-link" id="reservations-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Reservations
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="{{ route('categories.index') }}" class="nav-link" id="categories-link">
                         <i class="nav-icon fas fa-th-large"></i>
@@ -34,6 +44,7 @@
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="{{ route('products.index') }}" class="nav-link" id="products-link">
                         <i class="nav-icon fas fa-store"></i>

@@ -1,6 +1,9 @@
 @extends('admin.base')
 
 @section('content')
+{{-- COMPONENT CONTAINS THE EDIT FORM --}}
+<x-confirm-product-update-modal/>
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -27,6 +30,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
+                {{-- ALERTS FOR SUCCESS AND ERRORS --}}
+                <x-alert/>
+                {{-- MAIN SECTION --}}
                 <div class="card card-outline card-dark shadow-lg rounded p-3">
                     <div class="card-header">
                         <h3 class="text-bold">Products</h3>
@@ -35,20 +41,21 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div id="product-img-placeholder" class="rounded-lg bg-light h-100 d-flex justify-content-center align-items-center w-100">
-                                {{-- IF IMAGE IS NOT AVAILABLE --}}
+                                {{-- @if IMAGE IS NOT AVAILABLE --}}
                                     {{-- <p class="display-1" id="product-img-alt">
                                         <i class="fas fa-image"></i>
                                     </p> --}}
                                     
-                                {{-- ELSE --}}
+                                {{-- @else --}}
                                     <img src="{{asset('storage/products/ssd.jpg')}}" alt="product image" id="product-img" width="100%" height="auto"
                                     style="object-fit:scale-down;">
+                                {{-- @endif --}}
                                 </div>
                                 
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                <form action="" method="post">
+                                <form id="product-update-{{'id'}}" action="" method="post">
                                     @csrf
                                     <div class="form-row">
                                         <div class="col-md-6">
@@ -134,7 +141,7 @@
                                     </div>
         
                                     <div class="form-group">
-                                        <input type="submit" value="UPDATE" class="btn btn-outline-primary btn-block" id="product-edit-btn">
+                                        <button class="btn btn-outline-primary btn-block" id="product-edit-btn" data-toggle="modal" data-target="#confirm-product-update-modal-{{'id'}}" onclick="event.preventDefault();">UPDATE</button>
                                     </div>   
                                 </form>
                             </div>
