@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                <form action="" method="post">
+                                <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
                                         <div class="col-md-6">
@@ -103,28 +103,28 @@
                                         </div>
                                     </div>
 
+                                    @if($categories->count() > 0)
                                     <div class="form-group">
                                         <label for="product-category">Category</label>
 
                                         <select name="product_category_id" id="product-category" class="custom-select">
-                                            <option value="" disabled selected>Select one</option>
 
-                                            <option value="1">Lorem</option>
-                                            <option value="2">Ipsum</option>
-                                            <option value="3">Dolor</option>
-                                            <option value="4">Sit</option>
-                                            <option value="5">Amet</option>
+                                            <option value="" disabled selected>Select one</option>
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id}}">{{ $category->name }}</option>
+                                            @endforeach
                                         </select>
 
                                         @error('product_category_id')
                                             <small class="text-danger">{{'message'}}</small>
                                         @enderror
                                     </div>
-        
+                                    @endif
+
                                     <div class="form-group">
                                         <input type="submit" value="CREATE" class="btn btn-outline-primary btn-block" id="product-create-btn">
                                     </div>
-                                    
+
                                 </form>
                             </div>
                         </div>

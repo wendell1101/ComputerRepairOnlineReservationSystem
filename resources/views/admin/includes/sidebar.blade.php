@@ -27,14 +27,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('products.index') }}" class="nav-link" id="products-link">
-                        <i class="nav-icon fas fa-store"></i>
-                        <p>
-                            Products
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('categories.index') }}" class="nav-link" id="categories-link">
                         <i class="nav-icon fas fa-th-large"></i>
                         <p>
@@ -42,6 +34,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('products.index') }}" class="nav-link" id="products-link">
+                        <i class="nav-icon fas fa-store"></i>
+                        <p>
+                            Products
+                        </p>
+                    </a>
+                </li>
+
 
                 <li class="nav-item">
                     <a href="{{route('users.index')}}" class="nav-link" id="users-link">
