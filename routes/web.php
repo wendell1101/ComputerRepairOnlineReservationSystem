@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProductCategoryController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -47,23 +49,27 @@ Route::get('/reservation/edit', function(){
 
 // Admin
 Route::group(['prefix' => '/admin'], function () {
-    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('auth', 'check_status', 'check_if_admin');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     //Temporary
-    Route::get('categories', function () {
-        return view('admin.categories.index');
-    })->name('categories.index')->middleware('auth', 'check_status', 'check_if_admin');
+    // Route::get('categories', function () {
+    //     return view('admin.categories.index');
+    // })->name('categories.index')->middleware('auth', 'check_status', 'check_if_admin');
 
-    Route::get('products', function(){
-        return view('admin.products.index');
-    })->name('products.index')->middleware('auth', 'check_status', 'check_if_admin');
+    Route::resource('categories', 'ProductCategoryController');
+    Route::resource('products', 'ProductController');
 
-    Route::get('products/create', function(){
-        return view('admin.products.create');
-    })->name('products.create')->middleware('auth', 'check_status', 'check_if_admin');
 
-    Route::get('products/edit', function(){
-        return view('admin.products.edit');
-    })->name('products.edit')->middleware('auth', 'check_status', 'check_if_admin');
+    // Route::get('products', function(){
+    //     return view('admin.products.index');
+    // })->name('products.index')->middleware('auth', 'check_status', 'check_if_admin');
+
+    // Route::get('products/create', function(){
+    //     return view('admin.products.create');
+    // })->name('products.create')->middleware('auth', 'check_status', 'check_if_admin');
+
+    // Route::get('products/edit', function(){
+    //     return view('admin.products.edit');
+    // })->name('products.edit')->middleware('auth', 'check_status', 'check_if_admin');
 
     Route::get('reservations', function(){
         return view('admin.reservations.index');

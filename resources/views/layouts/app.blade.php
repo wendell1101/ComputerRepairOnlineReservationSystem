@@ -30,6 +30,8 @@
             scroll-behavior: smooth
         }
     </style>
+    @yield('css')
+    @livewireStyles
 </head>
 
 <body>
@@ -49,12 +51,12 @@
                             <li class="nav-item --underline mx-3">
                                 <a href="{{route('home')}}" class="nav-link">HOME</a>
                             </li>
-                        @else 
+                        @else
                             <li class="nav-item --underline mx-3">
                                 <a href="/" class="nav-link">HOME</a>
                             </li>
                         @endauth
-                        
+
                         <li class="nav-item --underline mx-3">
                             <a href="{{route('about')}}" class="nav-link">ABOUT</a>
                         </li>
@@ -100,7 +102,7 @@
                                 </div>
                             </li>
 
-                        @else 
+                        @else
                             <li class="nav-item dropdown mx-3">
                                 <a id="authDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="far fa-user --text-gray-50"></i>
@@ -114,10 +116,10 @@
 
                             </li>
                         @endauth
-                    </ul>   
+                    </ul>
 
                 </div>
-            </div> 
+            </div>
         </nav>
 
         <main class="pb-4 --bg-gray-50 min-vh-100">
@@ -143,21 +145,10 @@
                             </div>
 
                             <div>
-                                <div class="row mb-2">
-                                    <p class="--poppins --body-16 col-12 mb-0">Check us on:</p>
-                                    <p class="col-8 offset-2 --poppins">
-                                        <a href="https://www.facebook.com/tech2uccgrs" class="--link-green mr-3">
-                                            <i class="fab fa-facebook-square"></i> facebook
-                                        </a>
-
-                                        <a href="https://www.facebook.com/tech2uccgrs" class="--link-green">
-                                            <i class="fas fa-envelope"></i>
-                                            Gmail
-                                        </a>
-                                    </p>
-                                </div>
-                                <p class="--poppins mb-0">All Rights Reserved &copy; {{date('Y')}}</p>
-                            </div>       
+                                <p class="--body-16 --poppins mb-0">Maharlika Highway, Brgy. Lumingon</p>
+                                <p class="--body-16 --poppins mb-0">4325 Tiaong, Quezon</p>
+                                <p class="--body-16 --poppins mb-0">All Rights Reserved &copy; {{date('Y')}}</p>
+                            </div>
                         </div>
                     </div>
 
@@ -168,20 +159,20 @@
                                 <li class="list-item mb-3 --underline">
                                     <a href="/" class="">Home</a>
                                 </li>
-    
+
                                 <li class="list-item mb-3 --underline">
                                     <a href="{{route('about')}}" class="">About</a>
                                 </li>
-    
+
                                 <li class="list-item mb-3 --underline">
                                     <a href="{{route('servicefees')}}" class="">Services</a>
                                 </li>
-    
+
                                 <li class="list-item mb-3 --underline">
                                     <a href="{{ url('/') }}#frequently-asked-questions" class="">FAQs</a>
                                 </li>
                             </ul>
-                        </div>    
+                        </div>
                     </div>
 
                     <div class="col-md-4 mb-3" id="contact-form">
@@ -204,6 +195,10 @@
             </div>
         </footer>
     </div>
+
+    <script src="{{asset('js/custom-script.js')}}"></script>
+    @yield('js')
+    @livewireScripts
 </body>
 
 </html>

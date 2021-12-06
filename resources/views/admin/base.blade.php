@@ -22,8 +22,10 @@
     <link rel="stylesheet" href="{{ asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css"/>
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @yield('css')
+    @livewireStyles
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -46,10 +48,13 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('admin/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">
+    </script>
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
@@ -66,7 +71,18 @@
     <script src="{{asset('admin/js/Product.js')}}" type="module"></script>
     <script src="{{asset('admin/js/admin.js')}}" type="module"></script>
 
+
+    <script>
+        window.addEventListener('alert', event => {
+                     toastr[event.detail.type](event.detail.message,
+                     event.detail.title ?? ''), toastr.options = {
+                            "closeButton": true,
+                            "progressBar": true,
+                        }
+                    });
+        </script>
     @yield('js')
+    @livewireScripts
 </body>
 
 </html>
