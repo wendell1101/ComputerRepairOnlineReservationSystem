@@ -1,6 +1,6 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-success elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link text-center">
+    <a href="/" class="brand-link text-center">
         <strong class="brand-text font-weight-light">Tech2U</strong>
     </a>
 
@@ -19,7 +19,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" id="sidenav-ul">
                 <li class="nav-item">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link" id="dashboard-link">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link @if(Request::is('admin/dashboard*')) active @endif" id="dashboard-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -28,16 +28,17 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('reservations.index')}}" class="nav-link" id="reservations-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                    <a href="{{ route('users.index') }}" class="nav-link @if(Request::is('admin/user*')) active @endif" id="categories-link">
+                        <i class="nav-icon fas fa-user"></i>
                         <p>
-                            Reservations
+                            Users
                         </p>
                     </a>
                 </li>
 
+
                 <li class="nav-item">
-                    <a href="{{ route('categories.index') }}" class="nav-link" id="categories-link">
+                    <a href="{{ route('categories.index') }}" class="nav-link @if(Request::is('admin/categor*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-th-large"></i>
                         <p>
                             Categories
@@ -46,10 +47,19 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('products.index') }}" class="nav-link" id="products-link">
+                    <a href="{{ route('products.index') }}" class="nav-link @if(Request::is('admin/product*')) active @endif" id="products-link">
                         <i class="nav-icon fas fa-store"></i>
                         <p>
                             Products
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('reservations.index')}}" class="nav-link @if(Request::is('admin/reservation*')) active @endif" id="reservations-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Reservations
                         </p>
                     </a>
                 </li>

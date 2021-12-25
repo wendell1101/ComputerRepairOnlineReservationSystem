@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        Brian2694\Toastr\ToastrServiceProvider::class,
+
     ],
 
     /*

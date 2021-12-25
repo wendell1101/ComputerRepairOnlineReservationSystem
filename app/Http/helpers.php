@@ -10,6 +10,13 @@ if (! function_exists('format_date_time')) {
     }
 }
 
+if (! function_exists('format_date')) {
+    function format_date($val)
+    {
+        return Carbon::create($val)->format('M d, Y');
+    }
+}
+
 if (! function_exists('format_price')) {
     function format_price($val)
     {

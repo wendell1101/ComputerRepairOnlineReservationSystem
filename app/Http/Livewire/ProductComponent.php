@@ -8,6 +8,7 @@ use Livewire\Component;
 use App\ProductCategory;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class ProductComponent extends Component
 {
@@ -15,29 +16,24 @@ class ProductComponent extends Component
     use WithFileUploads;
     // listeners
 
+    protected $paginationTheme = 'bootstrap';
+
     public $name = '';
     public $price = 0;
     public $description ='';
-    public $discount = 0;
+    public $discounted_price = 0;
+    public $discount_percentage = 0;
+    public $discounted_start_date = null;
+    public $discounted_end_date = null;
+    public $has_discount = 0;
+    public $is_available = 0;
     public $img;
+    public $product_category_id;
+    public $isUploaded = false;
 
-    // get category id for deletion
     public $productIdDelete = null;
-    public $productIdUpdate= null;
-
-    public $selectedProductForUpdate = [];
 
     //rules
-    protected function rules()
-    {
-        return [
-            'name' => 'required|max:255',
-            'price' => 'required',
-            'description' => 'nullable',
-            'discount' => 'required',
-            'img' => 'required|img',
-        ];
-    }
 
     public function mount()
     {
@@ -45,12 +41,20 @@ class ProductComponent extends Component
         //reassign fields
     }
 
-    // public function updated($propertyName)
-    // {
-    //     $this->validateOnly($propertyName);
-    // }
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
-    // Toast notifs
+    public function updatedImg()
+    {
+        $this->validate([
+            'img' => 'required|image|max:1024',
+        ]);
+        $this->isUploaded = true;
+    }
+
+     // Toast notifs
     // $type can be success, info, warning , error
     public function alertMessage($type, $message)
     {
@@ -61,80 +65,24 @@ class ProductComponent extends Component
     }
 
 
-    public function store()
-    {
-        dd('test');
-        $validatedData = $this->validate();
-
-        dd($validatedData);
-
-        $data = [
-            'name' => $this->name,
-            'price' => $this->price,
-            'description' => $this->description,
-            'discount' => $this->discount,
-            'product_category_id' => $this->product_category_id,
-        ];
-
-        if(request()->hasFile('img')){
-            $data['img'] = time() . '_' . $this->img->getClientOriginalName();
-            $this->img->storeAs('product_images', $data['img'], 'public');
-        }
-
-        Product::create($data);
-
-
-        $this->resetAll();
-        $this->index();
-
-        $this->alertMessage('success','New product has been created');
-    }
-
-    public function updateProduct()
-    {
-        // dd('test');
-        // $validatedData = $this->validate();
-
-        // ProductCategory::where('id', $this->categoryIdUpdate)
-        // ->update(['name' => $this->updateName]);
-
-
-        // $this->index();
-        // $this->resetAll();
-
-        // $this->dispatchBrowserEvent('close-modal');
-
-        // $this->alertMessage('success','Product has been updated');
-
-    }
-
     // set category id to be deleted
     public function setProductIdDelete($id)
     {
-        $this->categoryIdDelete = $id;
+        $this->productIdDelete = $id;
     }
-
-     // set category id to be updated
-     public function setProductIdUpdate($id)
-     {
-         $this->productIdDelete = $id;
-         $product = Product::find($id);
-        //  $this->updateName = $product->name;
-         $this->selectedProductForUpdate = $product;
-     }
 
     public function destroy()
     {
         try{
             $product =  Product::find($this->productIdDelete);
             $product->delete();
+            Storage::delete('public/product_images/' . $product->img);
             $this->resetAll();
 
             $this->alertMessage('success', 'A product has been deleted');
         }catch(Throwable $th){
-            // ignore error
+            dd('error: '. $th);
         }
-
     }
 
     public function resetAll()
@@ -148,15 +96,20 @@ class ProductComponent extends Component
     }
 
     public function cleanVars(){
-        $this->categoryIdDelete = null;
         $this->name = '';
-        $this->updateName = '';
-        $this->selectedCategoryForUpdate = [];
+        $this->price = 0;
+        $this->description ='';
+        $this->discount = 0;
+        $this->img;
+        $this->product_category_id = null;
+
+        // get product id for deletion
+        $this->productIdDelete = null;
     }
 
     public function render()
     {
-        $products = Product::all();
+        $products = Product::paginate(10);
         $categories = ProductCategory::all();
 
         return view('livewire.product-component',[

@@ -68,7 +68,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('admin.products.show',compact('product'));
     }
 
     /**
@@ -79,7 +79,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = ProductCategory::all();
+        $product->price = format_price($product->price);
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -91,7 +93,22 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $data = [
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'discount' => $request->discount,
+            'product_category_id' => $request->product_category_id,
+        ];
+
+        if($request->hasFile('img')){
+            $data['img'] = time() . '_' . $request->img->getClientOriginalName();
+            $request->img->storeAs('product_images', $data['img'], 'public');
+        }
+
+        $product->update($data);
+
+        return redirect()->route('products.index')->with('success', 'New product has been created');
     }
 
     /**
