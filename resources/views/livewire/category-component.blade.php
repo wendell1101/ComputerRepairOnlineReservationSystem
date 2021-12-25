@@ -4,18 +4,17 @@
             <div class="col-sm-12">
                 <div class="card card-outline card-dark shadow-lg rounded p-3">
                     <div class="card-header">
-                        <h3 class="text-bold">Products</h3>
+                        <h3 class="text-bold">Categories</h3>
                     </div>
-                        <div class="mb-4" wire:ignore>
+                        <div class="mb-4">
                             <form  wire:submit.prevent="store">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="category-name" class="col-sm-2 col-form-label">Category Name</label>
 
                                     <div class="col-sm-8">
-                                        <input type="text" name="name" wire:model="name" id="category-name"
+                                        <input type="text"  name="name" wire:model="name" required id="category-name"
                                          class="form-control @error('name') is-invalid @enderror">
-
                                         @error('name')
                                             <small class="text-danger">{{ $message}}</small>
                                         @enderror
@@ -32,9 +31,10 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <x-alert />
+                            @if($categories)
                             <table id="categories-table" class="table table-bordered table-striped table-hover">
                                 <thead>
-                                    <th scope="col">id</th>
+                                    <th scope="col">#</th>
                                     <th>Name</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
@@ -43,31 +43,31 @@
                                 </thead>
 
                                 <tbody>
-                                    @forelse($categories as $key => $category)
+                                    @foreach($categories as $key => $category)
                                         <tr wire:key="{{$loop->index}}">
-                                        <td>{{ $loop->index+1 }}</td>
-                                        <td><a href="#">{{ strtoupper($category->name) }} </a></td>
-                                        <td>{{ format_date_time($category->created_at) }}</td>
-                                        <td>{{ format_date_time($category->updated_at) }}</td>
+                                                <td>{{ $loop->index + 1 }}</td>
+                                                <td><a href="#">{{ strtoupper($category->name) }} </a></td>
+                                                <td>{{ format_date_time($category->created_at) }}</td>
+                                                <td>{{ format_date_time($category->updated_at) }}</td>
 
-                                        <td class="justify-content-center">
-                                            <a href="#" data-toggle="modal" wire:click="setCategoryIdUpdate('{{$category->id}}')" data-target="#updateModal" class="text-success mr-2">
-                                                <i class="far fa-edit"></i>
-                                            </a>
-                                             <a href="#" class="text-danger" wire:click="setCategoryIdDelete('{{$category->id}}')" data-toggle="modal" data-target="#deleteModal" >
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                                <td class="justify-content-center">
+                                                    <a href="#" data-toggle="modal" wire:click="setCategoryIdUpdate('{{$category->id}}')" data-target="#updateModal" class="text-success mr-2">
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                    <a href="#" class="text-danger" wire:click="setCategoryIdDelete('{{$category->id}}')" data-toggle="modal" data-target="#deleteModal" >
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                        </tr>
+                                    @endforeach
 
-                                    @empty
-                                    <p>No Category Found </p>
-                                    @endforelse
-
-
+                                    {{ $categories->links() }}
                                 </tbody>
                                 {{-- {{ $categories2->links() }} --}}
                             </table>
+                            @else
+                            <p style="font-size: 1.5rem">No Category Found</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,9 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="name"></label>
-                        <input type="text"  wire:model.lazy="updateName" value="{{ $updateName ?? ''}}" id="name" class="form-control">
+                        <input type="text"  wire:model.lazy="updateName" value="{{ $updateName ?? ''}}" id="name" class="form-control
+
+                        ">
                     </div>
                 </div>
                 <div class="modal-footer">

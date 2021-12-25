@@ -11,6 +11,8 @@ use stdClass;
 class CategoryComponent extends Component
 {
     use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
     // listeners
 
     protected $listeners = [
@@ -18,7 +20,7 @@ class CategoryComponent extends Component
     ];
 
 
-    public $categories = [];
+    // public $categories = [];
 
     // fields
     public $name;
@@ -35,15 +37,17 @@ class CategoryComponent extends Component
     protected function rules()
     {
         return [
-            'name' => 'required|min:3',
+            'name' => 'required|unique:product_categories|max:255',
         ];
     }
+
+    protected $messages = [
+        'name.unique' => 'Category name already exists. Please try a new one',
+    ];
 
     public function mount()
     {
         $this->index();
-
-        //reassign fields
     }
 
     public function updated($propertyName)
@@ -64,7 +68,8 @@ class CategoryComponent extends Component
 
     public function index()
     {
-        $this->categories = ProductCategory::all();
+    return $this->render();
+        // $this->categories = ProductCategory::all();
     }
 
     public function store()
@@ -132,7 +137,6 @@ class CategoryComponent extends Component
         }catch(Throwable $th){
             // ignore error
         }
-
     }
 
     public function resetAll()
@@ -154,6 +158,7 @@ class CategoryComponent extends Component
 
     public function render()
     {
-        return view('livewire.category-component');
+        $categories = ProductCategory::paginate(5);
+        return view('livewire.category-component', compact('categories'));
     }
 }
