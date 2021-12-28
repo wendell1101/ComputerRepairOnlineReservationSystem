@@ -16,8 +16,11 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
+            $table->string('img');
+            $table->decimal('price', 12,2);
             $table->text('description')->nullable();
+            $table->boolean('is_available')->default(false);
+            $table->foreignId('service_category_id')->constrained('service_categories');
             $table->timestamps();
         });
     }

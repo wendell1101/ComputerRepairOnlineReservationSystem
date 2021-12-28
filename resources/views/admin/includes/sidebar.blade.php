@@ -29,7 +29,7 @@
 
                 <li class="nav-item">
                     <a href="{{ route('users.index') }}" class="nav-link @if(Request::is('admin/user*')) active @endif" id="categories-link">
-                        <i class="nav-icon fas fa-user"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
                         </p>
@@ -41,7 +41,7 @@
                     <a href="{{ route('categories.index') }}" class="nav-link @if(Request::is('admin/categor*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-th-large"></i>
                         <p>
-                            Categories
+                            Product Categories
                         </p>
                     </a>
                 </li>
@@ -56,20 +56,28 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('reservations.index')}}" class="nav-link @if(Request::is('admin/reservation*')) active @endif" id="reservations-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                    <a href="{{ route('xcategory_services.index') }}" class="nav-link @if(Request::is('admin/xcategory_servic*')) active @endif" id="categories-link">
+                        <i class="nav-icon fas fa-th-large"></i>
                         <p>
-                            Reservations
+                            Service Categories
                         </p>
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('services.index') }}" class="nav-link @if(Request::is('admin/service*')) active @endif" id="products-link">
+                        <i class="nav-icon fas fa-tools"></i>
+                        <p>
+                            Services
+                        </p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
-                    <a href="{{route('users.index')}}" class="nav-link" id="users-link">
-                        <i class="nav-icon fas fa-users"></i>
+                    <a href="#" class="nav-link @if(Request::is('admin/reservation*')) active @endif" id="reservations-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
-                            Users
+                            Reservations
                         </p>
                     </a>
                 </li>

@@ -15,7 +15,7 @@
                     </div>
                     {{-- @if(there are reservations) --}}
                     <div class="col-md-6 d-flex justify-content-end">
-                        <a href="{{route('user.create')}}" class="btn --btn-outline-gray m"><i class="fas fa-plus"></i></a>
+                        <a href="#" class="btn --btn-outline-gray m"><i class="fas fa-plus"></i></a>
                     </div>
                     {{-- @endif --}}
                 </div>
@@ -42,26 +42,26 @@
                                 <td>Lorem ipsum dolor sit amet</td>
                                 <td>Not yet done</td>
                                 <td>
-                                    <a href="{{route('user.edit')}}" role="button" data-placement="top" title="Edit" class="btn --btn-outline-gray" style="font-weight: 400; text-transform: none;">
+                                    <a href="#" role="button" data-placement="top" title="Edit" class="btn --btn-outline-gray" style="font-weight: 400; text-transform: none;">
                                         <i class="far fa-edit"></i> Edit
                                     </a>
-    
+
                                     <a href="" role="button" data-placement="top" title="Delete" class="btn btn-outline-danger">
                                         <i class="far fa-trash-alt"></i> Delete
                                     </a>
                                 </td>
                             </tr>
-    
+
                             <tr>
                                 <td>Feb 01, 2022</td>
                                 <td>SSD</td>
                                 <td>Lorem ipsum dolor sit amet</td>
                                 <td>Not yet done</td>
                                 <td>
-                                    <a href="{{route('user.edit')}}" role="button" data-placement="top" title="Edit" class="btn --btn-outline-gray" style="font-weight: 400; text-transform: none;">
+                                    <a href="#" role="button" data-placement="top" title="Edit" class="btn --btn-outline-gray" style="font-weight: 400; text-transform: none;">
                                         <i class="far fa-edit"></i> Edit
                                     </a>
-    
+
                                     <a href="" role="button" data-placement="top" title="Delete" class="btn btn-outline-danger">
                                         <i class="far fa-trash-alt"></i> Delete
                                     </a>
@@ -70,7 +70,7 @@
                             {{-- @empty --}}
                                 <tr>
                                     <td colspan="5">
-                                        <p class="text-center">You have no reservations yet. <strong><a href="{{route('user.create')}}" class="--link-dark-green">Create one.</a></strong></p>
+                                        <p class="text-center">You have no reservations yet. <strong><a href="#" class="--link-dark-green">Create one.</a></strong></p>
                                     </td>
                                 </tr>
                             {{-- @endforelse --}}

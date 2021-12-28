@@ -284,12 +284,12 @@
 }
 
 .--up-btn{
-    width:35px; 
+    width:35px;
     height:35px;
     background-color: var(--gray-50);
     border: 2px solid var(--gray-800);
     color: var(--gray-800);
-    position: fixed; 
+    position: fixed;
     right: 2%;
     bottom: 5%;
     z-index: 1500;
@@ -318,11 +318,11 @@
 }
 
 .--product-card-overlay{
-    background: transparent; 
+    background: transparent;
     height: 300px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out; 
-    color: transparent;    
+    transition: all 0.3s ease-in-out;
+    color: transparent;
 }
 
 .--product-card-overlay:hover{
@@ -359,7 +359,7 @@
 }
 
 #services-repair{
-    min-height: 700px;
+    padding: 2rem 0;
 }
 
 #services-upgrade{

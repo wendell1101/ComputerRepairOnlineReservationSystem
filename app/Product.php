@@ -24,9 +24,9 @@ class Product extends Model
 
     public function checkIfIsAvailable($product){
         if($product->is_available){
-            echo "<span class='text-success'>Available</span>";
+            echo "<span class='text-success'>available</span>";
         }else{
-            echo "<span class='text-danger'>Not Available</span>";
+            echo "<span class='text-danger'>not available</span>";
         }
     }
 }

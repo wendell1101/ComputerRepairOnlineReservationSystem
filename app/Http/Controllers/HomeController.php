@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ServiceCategory;
+use App\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return view('home');
-        return view('welcome');
+        $featuredProducts = Product::where('is_featured', true)->take(3)->get();
+        $service_categories = ServiceCategory::take(3)->get();
+
+        return view('welcome', compact('featuredProducts' ,'service_categories'));
     }
 }
