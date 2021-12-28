@@ -50,3 +50,4 @@ if (! function_exists('get_product_status')) {
 }
 
 
+// {{ \Str::limit(strip_tags($service->description), 100, '...') }}

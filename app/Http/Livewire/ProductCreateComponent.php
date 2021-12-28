@@ -94,8 +94,8 @@ class ProductCreateComponent extends Component
 
         $hasDiscount = false;
 
-        if($this->discount_percentage === 0 && $this->discount_start_date === NULL
-            && $this->discount_end_date == NULL){
+        if($this->discount_percentage > 0 && $this->discount_start_date != NULL
+            && $this->discount_end_date != NULL){
             $hasDiscount = true;
         }
 
@@ -108,7 +108,7 @@ class ProductCreateComponent extends Component
             'discount_start_date' => $this->discount_start_date,
             'discount_end_date' => $this->discount_end_date,
             'product_category_id' => $this->product_category_id,
-            'is_available' => true,
+            'is_available' => $this->is_available,
             'has_discount' => $hasDiscount,
             'is_featured' => $this->is_featured,
             'img' => time() . '_' . $this->img->getClientOriginalName()
@@ -141,11 +141,11 @@ class ProductCreateComponent extends Component
     }
 
     public function cleanVars(){
-        $this->name = '';
-        $this->price = 0;
-        $this->description ='';
-        $this->discount_percentage = 0;
-        $this->img;
+        // $this->name = '';
+        // $this->price = 0;
+        // $this->description ='';
+        // $this->discount_percentage = 0;
+        // $this->img;
         $this->product_category_id = null;
 
     }

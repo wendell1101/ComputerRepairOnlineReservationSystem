@@ -4,7 +4,7 @@
             <div class="col-sm-12">
                 <div class="card card-outline card-dark shadow-lg rounded p-3">
                     <div class="card-header">
-                        <h3 class="text-bold">Categories</h3>
+                        <h3 class="text-bold">Service Categories</h3>
                     </div>
                         <div class="mb-4">
                             <form  wire:submit.prevent="store">
@@ -46,7 +46,7 @@
                                     @foreach($categories as $key => $category)
                                         <tr wire:key="{{$loop->index}}">
                                                 <td>{{ $loop->index + 1 }}</td>
-                                                <td><a href="{{ route('categories.show', $category->id) }}">{{ strtoupper($category->name) }} </a></td>
+                                                <td><a href="{{ route('xcategory_services.show', $category->id) }}">{{ strtoupper($category->name) }} </a></td>
                                                 <td>{{ format_date_time($category->created_at) }}</td>
                                                 <td>{{ format_date_time($category->updated_at) }}</td>
 
@@ -66,7 +66,7 @@
                                 {{-- {{ $categories2->links() }} --}}
                             </table>
                             @else
-                            <p style="font-size: 1.5rem">No Category Found</p>
+                            <p style="font-size: 1.5rem">No Service Category Found</p>
                             @endif
                         </div>
                     </div>
@@ -80,13 +80,13 @@
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Delete Service Category</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete this category? </p>
+                <p>Are you sure you want to delete this service category? </p>
             </div>
             <div class="modal-footer">
                 {{-- <button type="button"  class="btn btn-danger" data-dissmiss="modal">Yes Delete</button> --}}
@@ -102,7 +102,7 @@
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            Update Category Name
+            Update Service Category Name
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

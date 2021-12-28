@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-use App\ProductCategory;
+use App\User;
 use Illuminate\Http\Request;
 
-class ProductCategoryController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        $categories  = ProductCategory::all();
-
-        return view('admin.categories.index', compact('categories'));
+        $users = User::all();
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -27,7 +25,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -38,48 +36,39 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['name' => 'required']);
-
-        ProductCategory::create([
-            'name' => $request->name
-        ]);
-
-        return redirect()->route('categories.index')->with('success', 'New category has been created');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\ProductCategory  $productCategory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($productCategoryId)
+    public function show($id)
     {
-        $category = ProductCategory::find($productCategoryId);
-        $products = Product::where('product_category_id', $category->id)->paginate(10);
-
-        return view('admin.categories.show', compact('category', 'products'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ProductCategory  $productCategory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductCategory $productCategory)
+    public function edit(User $user)
     {
-        //
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ProductCategory  $productCategory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductCategory $productCategory)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -87,10 +76,10 @@ class ProductCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ProductCategory  $productCategory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductCategory $productCategory)
+    public function destroy($id)
     {
         //
     }

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'status', 'user_role'
+        'first_name', 'last_name', 'email', 'password', 'is_admin', 'is_active'
     ];
 
     /**
@@ -46,5 +46,23 @@ class User extends Authenticatable
     public function getFullName()
     {
         return ucwords($this->first_name . ' ' . $this->last_name);
+    }
+
+    public function checkIfIsActive($user)
+    {
+        if($user->is_active){
+            echo "<span class='text-success'>active</span>";
+        }else{
+            echo "<span class='text-danger'>inactive</span>";
+        }
+    }
+
+    public function checkIfIsAdmin($user)
+    {
+        if($user->is_admin){
+            echo "<span class='text-success'>admin</span>";
+        }else{
+            echo "<span class='text-info'>client</span>";
+        }
     }
 }

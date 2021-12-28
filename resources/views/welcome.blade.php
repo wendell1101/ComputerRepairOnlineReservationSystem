@@ -13,7 +13,7 @@
                     <p class="--roboto-condensed --body-20">Fixing your devices to make it run like brand new!</p>
                 </div>
 
-                <a href="{{route('user.create')}}" class="btn --border-radius-30 --btn-outline-green mt-2">Book appointment</a>
+                <a href="#" class="btn --border-radius-30 --btn-outline-green mt-2">Book appointment</a>
             </div>
         </div>
     </section>
@@ -69,47 +69,33 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <div class="container mt-3">
         {{-- FEATURED SECTION --}}
+        @if($featuredProducts->count() > 0)
         <section id="4th-section" class="my-5 py-5 px-3">
             <h2 class="text-center --poppins --bold mb-5" style="font-size: 40px">Featured Products</h2>
 
-            <div class="row mt-3">               
-                <div class="col-md-4 mb-5">
+            <div class="row mt-3">
+                @foreach($featuredProducts as $key => $product)
+                    <div class="col-md-4 mb-5">
                     <div class="card bg-transparent text-white shadow-sm --border-radius-10" style="height: 302px;">
-                        <img src="{{asset('storage/products/ssd.jpg')}}" class="card-img --border-radius-10" alt="..." height="300px" style="object-fit: cover">
-                        
-                        <div class="card-img-overlay --border-radius-10 --product-card-overlay">
-                            <h5 class="card-title --roboto-condensed --lead --bold">Solid State Drive</h5>
-                            <p class="card-text --poppins">Specs here.</p>
-                        </div>
-                    </div>
-                </div>
+                        <img src="{{asset('storage/product_images/' . $product->img)}}" class="card-img --border-radius-10" alt="..." height="300px" style="object-fit: cover">
 
-                <div class="col-md-4 mb-5">
-                    <div class="card bg-transparent text-white shadow-sm --border-radius-10" style="height: 302px;">
-                        <img src="{{asset('storage/products/hdd.jpg')}}" class="card-img --border-radius-10" alt="..." height="300px" style="object-fit: cover">
                         <div class="card-img-overlay --border-radius-10 --product-card-overlay">
-                            <h5 class="card-title --roboto-condensed --lead --bold">Hard Disk Drive</h5>
-                            <p class="card-text --poppins">Specs here</p>
+                            <h5 class="card-title --roboto-condensed --lead --bold">{{ $product->name }}</h5>
+                            <p class="card-text --poppins"> {{ \Str::limit(strip_tags($product->description), 20, '...') }}</p>
                         </div>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="col-md-4 mb-5">
-                    <div class="card bg-transparent text-white shadow-sm --border-radius-10" style="height: 302px;">
-                        <img src="{{asset('storage/products/earphones.jpg')}}" class="card-img --border-radius-10" alt="..." height="300px" style="object-fit: cover">
-                        <div class="card-img-overlay --border-radius-10 --product-card-overlay">
-                            <h5 class="card-title --roboto-condensed --lead --bold">Gaming Earphones</h5>
-                            <p class="card-text --poppins">Specs here</p>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <a href="{{ route('user.store') }}" class="float-right">View More </a>
         </section>
+        @endif
 
         {{-- FAQs SECTION --}}
         <section id="frequently-asked-questions" class="my-5 py-5 px-3">
@@ -122,7 +108,7 @@
                         <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
                             <h1 class="text-center --text-green mb-0">
                                 <i class="fas fa-question-circle"></i>
-                            </h1>    
+                            </h1>
                         </div>
 
                         <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
@@ -137,7 +123,7 @@
                         <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
                             <h1 class="text-center --text-green mb-0">
                                 <i class="fas fa-question-circle"></i>
-                            </h1>    
+                            </h1>
                         </div>
 
                         <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
@@ -153,7 +139,7 @@
                         <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
                             <h1 class="text-center --text-green mb-0">
                                 <i class="fas fa-question-circle"></i>
-                            </h1>    
+                            </h1>
                         </div>
 
                         <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
@@ -168,7 +154,7 @@
                         <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
                             <h1 class="text-center --text-green mb-0">
                                 <i class="fas fa-question-circle"></i>
-                            </h1>    
+                            </h1>
                         </div>
 
                         <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
