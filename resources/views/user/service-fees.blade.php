@@ -23,7 +23,8 @@
                             <div class="--repair-cards p-4">
                                 <div class="my-0 --repair-icons" >
                                     {{-- <i class="fas fa-desktop"></i> --}}
-                                    <img src="{{ asset('storage/service_images/' . $service->img) }}" width="130" />
+                                    <img src="{{ asset('storage/service_images/' . $service->img) }}" width="130" class="--svg-img"
+                                    />
                             </div>
                                 <h4 class="--poppins --bold mt-0">{{ $service->name }}</h4>
                                 <div class="--repair-info" style="display: none;">
