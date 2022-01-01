@@ -387,3 +387,6 @@
     color: var(--green-primary);
 }
 
+.--svg-img{
+    filter: invert(11%) sepia(17%) saturate(1390%) hue-rotate(176deg) brightness(96%) contrast(88%);
+}

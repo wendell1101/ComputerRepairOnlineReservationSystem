@@ -24,12 +24,16 @@ const backToTop = () => {
 
 const learnMore = (e) => {
     const infoBox = e.target.querySelector('.--repair-info');
+    const svg = e.target.querySelector('.--svg-img');
     infoBox.style.display = 'block';
+    svg.style.filter = 'invert(100%) sepia(10%) saturate(375%) hue-rotate(175deg) brightness(100%) contrast(97%)';
 };
 
 const unlearnMore = (e) => {
     const infoBox = e.target.querySelector('.--repair-info');
+    const svg = e.target.querySelector('.--svg-img');
     infoBox.style.display = 'none';
+    svg.style.filter = 'invert(11%) sepia(17%) saturate(1390%) hue-rotate(176deg) brightness(96%) contrast(88%)';
 };
 
 const showReserveBtn = (e) => {
