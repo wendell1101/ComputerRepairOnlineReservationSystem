@@ -12,6 +12,11 @@ Route::get('/', 'HomeController@index');
 // User
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'check_status', 'check_if_user'); // temporary
 
+// Cart
+Route::group(['prefix' => '/cart'], function(){
+    Route::get('/', 'CartController@index');
+});
+
 Route::get('/services', 'ClientServiceController@index')->name('servicefees');
 
 Route::get('/store', 'ClientStoreController@index')->name('user.store');

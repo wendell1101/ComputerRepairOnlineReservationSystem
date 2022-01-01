@@ -3,9 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Product;
+use Livewire\Component;
 use App\ProductCategory;
 use Livewire\WithPagination;
-use Livewire\Component;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Session;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ClientStoreComponent extends Component
 {
@@ -14,9 +17,16 @@ class ClientStoreComponent extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $products = [];
+
+    // product detail view
+    public $selectedProduct = [];
+    public $selectProductId = null;
+
     public $filter_by_category_id = '';
 
     public $is_featured = false;
+
+
 
     public function mount()
     {
@@ -26,6 +36,30 @@ class ClientStoreComponent extends Component
     public function checkIfIsFeatured()
     {
         $this->is_featured = !$this->is_featured;
+    }
+
+    public function setSelectProductId($id)
+    {
+        $this->selectProductId = $id;
+        $product = Product::find($this->selectProductId);
+
+        $product->within_discount_date = 0;
+
+        if ($product->discounted_price > 0) {
+            $start_date = date('Y-m-d', strtotime($product->discount_start_date));
+            $end_date = date('Y-m-d', strtotime($product->discount_end_date));
+            $current_date =  date('Y-m-d');
+            if($current_date >= $start_date && $current_date <= $end_date){
+                $product->within_discount_date = 1;
+            }else{
+                $product->within_discount_date = 0;
+            }
+            $product->discount_start_date = format_date($product->discount_start_date);
+            $product->discount_end_date = format_date($product->discount_end_date);
+        }
+
+        $this->selectedProduct = $product;
+        $this->filterByCategory();
     }
 
     public function filterByCategory()
@@ -97,6 +131,62 @@ class ClientStoreComponent extends Component
         }
 
         $this->products = $products;
+    }
+
+    public function resetVars()
+    {
+        $this->selectedProduct = [];
+        $this->selectProductId = null;
+    }
+
+
+    //Cart
+    public function addToCart($productId, $quantity=1)
+    {
+        // get product
+        $product = Product::findOrFail($productId);
+
+        //check if discounted
+        $product->within_discount_date = 0;
+
+        if ($product->discounted_price > 0) {
+            $start_date = date('Y-m-d', strtotime($product->discount_start_date));
+            $end_date = date('Y-m-d', strtotime($product->discount_end_date));
+            $current_date =  date('Y-m-d');
+            if($current_date >= $start_date && $current_date <= $end_date){
+                $product->within_discount_date = 1;
+            }else{
+                $product->within_discount_date = 0;
+            }
+            $product->discount_start_date = format_date($product->discount_start_date);
+            $product->discount_end_date = format_date($product->discount_end_date);
+        }
+
+        // if within discount date
+        if($product->within_discount_date)
+        {
+            Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity,
+            'price' => $product->discounted_price, 'weight' => 0, 'options' => ['type' => 'product']])->associate('App\Product');
+        }else{
+            Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity,
+            'price' => $product->price, 'weight' => 0, 'options' => ['type' => 'product']])->associate('App\Product');
+        }
+
+        $this->filterByCategory();
+        Session::flash('success', 'A product has been added to cart successfully');
+        // $this->alertMessage('success', 'A product has been added to cart successfully');
+    }
+
+
+         // Toast notifs
+    // $type can be success, info, warning , error
+    public function alertMessage($type, $message)
+    {
+        // $this->dispatchBrowserEvent(
+        //     'alert',
+        //     ['type' => $type,  'message' => $message]
+        // );
+        Toastr::$type($message, $type, ["positionClass" => "toast-top-right"]);
     }
 
     public function render()

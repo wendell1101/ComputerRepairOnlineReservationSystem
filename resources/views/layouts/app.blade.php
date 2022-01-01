@@ -24,11 +24,36 @@
     <link href="{{ asset('css/custom-style.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css" integrity="sha512-9my9Mb2+0YO+I4PUCSwUYO7sEK21Y0STBAiFEYoWtd2VzLEZZ4QARDrZ30hdM1GlioHJ8o8cWQiy8IAb1hy/Hg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {{-- Toast --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <style>
         html{
             overflow-x: hidden;
             scroll-behavior: smooth
         }
+        .badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px;
+}
     </style>
     @yield('css')
     @livewireStyles
@@ -80,6 +105,10 @@
                         </li>
 
                         @auth
+                        <li lass="nav-item --underline mx-3 d-flex align-items-center ">
+                            <a href="/cart"><i class="nav-link fa text-white" style="font-size:16px; margin-top:3px">&#xf07a;</i>
+                                <span class='badge badge-warning' id='lblCartCount'> {{ Cart::content()->count()}} </span></a>
+                        </li>
                             <li class="nav-item dropdown mx-3">
                                 <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="far fa-user --text-gray-50"></i>
@@ -197,7 +226,57 @@
     </div>
 
     <script src="{{asset('js/custom-script.js')}}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">
+    </script>
     @yield('js')
+    <script>
+        window.addEventListener('alert', event => {
+                     toastr[event.detail.type](event.detail.message,
+                     event.detail.title ?? ''), toastr.options = {
+                            "closeButton": true,
+                            "progressBar": true,
+                        }
+                    });
+        </script>
+    @yield('js')
+    <script>
+        @if(Session::has('message'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.success("{{ session('message') }}");
+        @endif
+
+        @if(Session::has('error'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.error("{{ session('error') }}");
+        @endif
+
+        @if(Session::has('info'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.info("{{ session('info') }}");
+        @endif
+
+        @if(Session::has('warning'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.warning("{{ session('warning') }}");
+        @endif
+    </script>
+    {!! Toastr::message() !!}
     @livewireScripts
 </body>
 
