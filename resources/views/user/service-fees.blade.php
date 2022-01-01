@@ -11,6 +11,7 @@
             {{-- MAIN SECTION --}}
             <div id="services-fees-main" class="col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1 offset-sm-0">
                 {{-- REPAIR SECTION --}}
+
                 @if($service_categories->count() > 0)
                 @foreach($service_categories as $category)
                 <section id="services-repair" class="">
@@ -40,6 +41,29 @@
                 @else
                     <h1>No service Found</h1>
                 @endif
+                <div class="col-md-12 col-sm-12">
+                    <div class="row no-gutters shadow ">
+                        <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
+                            <h1 class="text-center --text-green mb-0">
+                                <i class="fas fa-info-circle"></i>
+                            </h1>
+                        </div>
+
+                        <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
+                            <ul class="fa-ul --poppins --body-16">
+                                <li>
+                                    <i class="fa-li fas fa-cog"></i>
+                                    Checkup/Diagnosis is <strong>FREE</strong>
+                                </li>
+
+                                <li>
+                                    <i class="fa-li fas fa-cog"></i>
+                                    The repair fee depends on the damage  on your device, so we can only give you the specific price <strong>AFTER</strong> we checked it.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
