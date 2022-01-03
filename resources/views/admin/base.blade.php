@@ -124,7 +124,7 @@
         }
                 toastr.warning("{{ session('warning') }}");
         @endif
-      </script>
+    </script>
     {!! Toastr::message() !!}
     @livewireScripts
 </body>

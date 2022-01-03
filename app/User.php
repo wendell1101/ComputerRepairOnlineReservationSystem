@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -16,7 +15,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'is_admin', 'is_active'
+        'first_name', 'last_name', 'email', 'img', 'contact_number',
+        'house_number', 'street', 'barangay', 'province', 'city', 'zip_code', 'fb_link',
+        'country', 'address', 'password', 'is_admin', 'is_active',
     ];
 
     /**
@@ -37,7 +38,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     /**
      * getFullName
      *
@@ -50,18 +50,18 @@ class User extends Authenticatable
 
     public function checkIfIsActive($user)
     {
-        if($user->is_active){
+        if ($user->is_active) {
             echo "<span class='text-success'>active</span>";
-        }else{
+        } else {
             echo "<span class='text-danger'>inactive</span>";
         }
     }
 
     public function checkIfIsAdmin($user)
     {
-        if($user->is_admin){
+        if ($user->is_admin) {
             echo "<span class='text-success'>admin</span>";
-        }else{
+        } else {
             echo "<span class='text-info'>client</span>";
         }
     }

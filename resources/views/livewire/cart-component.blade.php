@@ -58,9 +58,14 @@
 
             </table>
         </div>
+        @if(is_null(auth()->user()->address))
+            <span class="text-danger">Note: You must complete your contact information first to continue, Edit your profile
+                <a href="{{ route('user.profile') }}">here</a>
+            </span>
+        @endif
         <div class="float-right">
             <h5>Total: &#8369; {{ $finalTotal }}</h5>
-            <button class="btn btn-success btn-block"> CHECKOUT</button>
+            <button class="btn btn-success btn-block" @if(is_null(auth()->user()->address)) disabled @endif> CHECKOUT</button>
         </div>
         @else
         <p>No Item Found</p>
