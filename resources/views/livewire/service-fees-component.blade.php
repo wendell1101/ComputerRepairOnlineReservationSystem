@@ -4,13 +4,23 @@
         <div class="row">
             {{-- MAIN SECTION --}}
             <div id="services-fees-main" class="col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1 offset-sm-0">
+                <div class="mb-3 --poppins  col-md-12 text-center">
+                    <h1 class="--bold mb-0">Here are our basic services...</h1>
+                    <p>
+                        <a href="#more-info" class="--link-dark-green">
+                            <i class="fas fa-info-circle"></i>
+                            Checkout more info below!
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </p>
+                </div>
+                
                 {{-- REPAIR SECTION --}}
-
                 @if($service_categories->count() > 0)
                 @foreach($service_categories as $category)
                 <section id="services-repair" class="">
                     <div class="row">
-                        <h2 class="mb-3 --roboto-condensed --bold col-md-12"> {{ $category->name }}</h2>
+                        <h2 class="mb-3 --poppins --bold col-md-12"> {{ $category->name }}</h2>
 
                          @foreach($category->services as $service)
 
@@ -24,8 +34,23 @@
                                 <h4 class="--poppins --bold mt-0">{{ $service->name }}</h4>
                                 <div class="--repair-info" style="display: none;">
                                     <p class="--body-16">&#8369;{{ format_price($service->price) }} <br> {{ \Str::limit(strip_tags($service->description), 40, '...') }}</p>
-                                    <button class="btn btn-secondary btn-sm" wire:click="setSelectServiceId({{$service->id}})" data-toggle="modal" data-target="#more-info-modal">More Info</button>
-                                    <button class="btn btn-success btn-sm" wire:click="addToCart({{$service->id}})">Add To Cart</button>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn-block --btn-outline-gray-50" wire:click="setSelectServiceId({{$service->id}})" data-toggle="modal" data-target="#more-info-modal">
+                                                <i class="fas fa-info-circle"></i>
+                                                More Info
+                                            </button>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <button class="btn btn-block --btn-outline-green" wire:click="addToCart({{$service->id}})">
+                                                <i class="fas fa-cart-plus"></i>
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -39,7 +64,7 @@
                     <h1>No service Found</h1>
                 @endif
                 <div class="col-md-12 col-sm-12">
-                    <div class="row no-gutters shadow ">
+                    <div id="more-info" class="row no-gutters shadow ">
                         <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
                             <h1 class="text-center --text-green mb-0">
                                 <i class="fas fa-info-circle"></i>
@@ -55,7 +80,7 @@
 
                                 <li>
                                     <i class="fa-li fas fa-cog"></i>
-                                    The repair fee depends on the damage  on your device, so we can only give you the specific price <strong>AFTER</strong> we checked it.
+                                    The repair fee depends on the damage  on your device/unit, so we can only give you the specific price <strong>AFTER</strong> we checked it.
                                 </li>
                             </ul>
                         </div>
