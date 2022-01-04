@@ -33,7 +33,7 @@
                                     {{ $item->name}}
                                 </a>
                             </dt>
-    
+
                             <dd>
                                 <ul class="list-unstyled --poppins --body-18 --text-gray-800">
                                     {{-- ITEM TYPE --}}
@@ -70,30 +70,35 @@
                                         <i class="fas fa-minus"></i>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                     {{-- SUBTOTAL --}}
                     <div class="d-flex justify-content-end align-items-center px-3 py-1">
                         <p class="--roboto-condensed --text-gray-800 --body-18">
-                            subtotal: 
+                            subtotal:
                             <span class="--bold --body-20">&#8369; {{ $item->subTotal()}}</span>
                         </p>
                     </div>
-                </div> 
+                </div>
             </div>
 
-            
+
         @endforeach
 
+        @if(is_null(auth()->user()->address))
+            <span class="text-danger">Note: You must complete your contact information first to continue, Edit your profile
+                <a href="{{ route('user.profile') }}">here</a>
+            </span>
+        @endif
         {{-- FINAL TOTAL --}}
         <div class="float-right my-4">
             <h5>Total: &#8369; {{ $finalTotal }}</h5>
-            <button class="btn btn-success btn-block"> CHECKOUT</button>
+            <button class="btn btn-success btn-block" @if(is_null(auth()->user()->address)) disabled @endif> CHECKOUT</button>
         </div>
     @else
         <div class="col-8 offset-2">
             <p>No Item Found</p>
-        </div>  
+        </div>
     @endif
 </div>

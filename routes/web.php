@@ -15,6 +15,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'c
 // Cart
 Route::group(['prefix' => '/cart'], function(){
     Route::get('/', 'CartController@index');
+    Route::get('/count', 'CartController@count');
 });
 
 Route::get('/services', 'ClientServiceController@index')->name('servicefees');

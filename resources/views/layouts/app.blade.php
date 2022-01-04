@@ -105,10 +105,7 @@
                         </li>
 
                         @auth
-                        <li lass="nav-item --underline mx-3 d-flex align-items-center ">
-                            <a href="/cart"><i class="nav-link fa text-white" style="font-size:16px; margin-top:3px">&#xf07a;</i>
-                                <span class='badge badge-warning' id='lblCartCount'> {{ Cart::content()->count()}} </span></a>
-                        </li>
+                        @livewire('cart-count-component')
                             <li class="nav-item dropdown mx-3">
                                 <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="far fa-user --text-gray-50"></i>
@@ -229,6 +226,38 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">
     </script>
     @yield('js')
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            getCartCount();
+        });
+
+        function getCartCount()
+        {
+            axios.get('/cart/count')
+            .then(function (response) {
+                const cartCount = document.getElementById('lblCartCount').innerHTML = response.data;
+            })
+            .catch(function (error) {
+                // console.log(error);
+            })
+        }
+        // window.addEventListener('load', function() {
+        //     axios.get('/cart/count')
+        //     .then(function (response) {
+        //         const cartCount = document.getElementById('lblCartCount').innerHTML = response.data;
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })
+        // })
+
+    </script>
+
+
     <script>
         window.addEventListener('alert', event => {
                      toastr[event.detail.type](event.detail.message,
