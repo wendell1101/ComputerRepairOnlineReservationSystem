@@ -71,7 +71,10 @@
                         @endif
 
                     </p>
-                    <button class="btn btn-success btn-sm" wire:click="addToCart({{$product->id}})">Add to cart</button>
+                    <button class="btn btn-block --btn-outline-green" wire:click="addToCart({{$product->id}})">
+                        <i class="fas fa-cart-plus"></i>
+                        Add to cart
+                    </button>
                 </figcaption>
             </figure>
         </div>

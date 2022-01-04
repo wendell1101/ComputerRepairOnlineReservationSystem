@@ -1,75 +1,104 @@
-<div class="card container">
-    <div class="card-header">
-        <h1>Cart Items</h1>
-    </div>
+<div class="container">
+    <x-alert />
+    <h1 class="--roboto-condensed --lead-30 --bold">Cart Items</h1>
 
-    <div class="card-body">
-        <x-alert />
-        @if($cartItems->count() > 0)
-        <div class="table-responsive">
-            <table id="products-table" class="table table-bordered table-striped table-hover">
-                <thead>
-                    <th scope="col">#</th>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
-                    <th scope="col">Actions</th>
-                </thead>
-                <tbody>
-                    @foreach($cartItems as $key => $item)
-                    <tr>
-                        <td>{{ $loop->index+1}}</td>
-                        <td>
-                            @if($item->options->type == 'product')
-                            <img src="{{ asset('storage/product_images/' . $item->model->img) }}" alt="product_image" width="60" height="60" class="rounded-circle border">
-                            @elseif($item->options->type == 'service')
-                            <img src="{{ asset('storage/service_images/' . $item->model->img) }}" alt="service_image" width="60" height="60" class="rounded-circle border">
-                            @endif
-                        </td>
-                        <td>
-                            <a href="#">
-                                {{ $item->name}}
-                            </a>
-                        </td>
-                        <td>{{ $item->options->type }}</td>
-                        <td>&#8369; {{ format_price($item->price) }}</td>
-                        <td>{{ \Str::limit(strip_tags($item->model->description), 30, '...') }}</td>
-                        <td class="qty" data-title="Qty">
-                            <div class="d-flex">
+    @if($cartItems->count() > 0)
+        @foreach($cartItems as $key => $item)
+            <div class="row no-gutters shadow w-100 --bg-gray-50 mb-5">
+                {{-- IMAGE --}}
+                <div class="col-md-3 col-sm-12 d-flex --bg-gray-800">
+                    <div class="justify-content-center align-items-center p-3 w-100">
+                        @if($item->options->type == 'product')
+                            <img src="{{ asset('storage/product_images/' . $item->model->img) }}" alt="product_image" style="object-fit:scale-down" class="" height="auto" width="100%">
+                        @elseif($item->options->type == 'service')
+                            <img src="{{ asset('storage/service_images/' . $item->model->img) }}" alt="service_image" style="object-fit:scale-down" height="auto" width="100%">
+                        @endif
+                    </div>
+                </div>
 
-                                <input type="number" id="quant[{{$item->rowId}}]" name="quant[{{$item->rowId}}]"
-                                    data-field="quant[{{$item->rowId}}]"
-                                    wire:change="updateCartProduct('{{$item->rowId}}', document.getElementById('quant[{{$item->rowId}}]').value )"
-                                    class="input-number mx-2" data-min="1" data-max="1000000000000" min="1" value="{{$item->qty}}"
-                                    style="width: 50px;"/>
+                {{-- ORDER INFO --}}
+                <div class="col-md-9 col-sm-12 p-3">
+                    {{-- REMOVE BUTTON --}}
+                    <div class="d-flex align-items-center justify-content-md-end">
+                        <button class="btn btn-danger btn-sm my-3" wire:click="remove('{{$item->rowId}}')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    {{-- INFO --}}
+                    <div class="d-flex align-items-center justify-content-between">
+                        <dl>
+                            <dt>
+                                {{-- ITEM NAME --}}
+                                <a href="#" class="--roboto-condensed --lead --link-dark-green">
+                                    {{ $item->name}}
+                                </a>
+                            </dt>
+
+                            <dd>
+                                <ul class="list-unstyled --poppins --body-18 --text-gray-800">
+                                    {{-- ITEM TYPE --}}
+                                    <li>{{ $item->options->type }}</li>
+                                    {{-- ITEM PRICE --}}
+                                    <li class="--bold">&#8369; {{ format_price($item->price) }}</li>
+                                    {{-- ITEM DESCRIPTION --}}
+                                    <li>{{ \Str::limit(strip_tags($item->model->description), 30, '...') }}</li>
+                                </ul>
+                            </dd>
+                        </dl>
+
+                        <div class="form-group">
+                            {{-- ITEM QUANTITY --}}
+                            <label for="quant[{{$item->rowId}}]" class="d-block text-center">Qty</label>
+
+                            <div class="row no-gutters">
+                                {{-- NUMBER FIELD --}}
+                                <div class="col-8 --order-qty-box">
+                                    <input type="number" id="quant[{{$item->rowId}}]" name="quant[{{$item->rowId}}]"
+                                        data-field="quant[{{$item->rowId}}]"
+                                        wire:change="updateCartProduct('{{$item->rowId}}', document.getElementById('quant[{{$item->rowId}}]').value )"
+                                        class="--input-number mx-2" data-min="1" data-max="10" min="1" value="{{$item->qty}}"
+                                        style="width: 50px;"/>
+                                </div>
+                                {{-- NUMBER FIELD CONTROL BUTTONS --}}
+                                <div class="col-4">
+                                    {{-- PLUS --}}
+                                    <div class="--qty-up-btn">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    {{-- MINUS --}}
+                                    <div class="--qty-down-btn">
+                                        <i class="fas fa-minus"></i>
+                                    </div>
+                                </div>
                             </div>
-                        </td>
-                        <td>&#8369; {{ $item->subTotal()}}</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm" wire:click="remove('{{$item->rowId}}')">Remove</button>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
+                        </div>
+                    </div>
+                    {{-- SUBTOTAL --}}
+                    <div class="d-flex justify-content-end align-items-center px-3 py-1">
+                        <p class="--roboto-condensed --text-gray-800 --body-18">
+                            subtotal:
+                            <span class="--bold --body-20">&#8369; {{ $item->subTotal()}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-            </table>
-        </div>
+
+        @endforeach
+
         @if(is_null(auth()->user()->address))
             <span class="text-danger">Note: You must complete your contact information first to continue, Edit your profile
                 <a href="{{ route('user.profile') }}">here</a>
             </span>
         @endif
-        <div class="float-right">
+        {{-- FINAL TOTAL --}}
+        <div class="float-right my-4">
             <h5>Total: &#8369; {{ $finalTotal }}</h5>
             <button class="btn btn-success btn-block" @if(is_null(auth()->user()->address)) disabled @endif> CHECKOUT</button>
         </div>
-        @else
-        <p>No Item Found</p>
-        @endif
-    </div>
-
+    @else
+        <div class="col-8 offset-2">
+            <p>No Item Found</p>
+        </div>
+    @endif
 </div>
