@@ -106,3 +106,26 @@ Route::group(['prefix' => '/admin'], function () {
 
 
 Auth::routes();
+
+// TEMPORARY
+Route::get('error-401', function(){
+    return view('errors._401');  
+  });
+Route::get('error-403', function(){
+  return view('errors._403');  
+});
+Route::get('error-404', function(){
+    return view('errors._404');  
+  });
+Route::get('error-500', function(){
+   return view('errors._500');  
+});
+Route::get('error-502', function(){
+    return view('errors._502');  
+});  
+Route::get('error-503', function(){
+    return view('errors._503');  
+});
+Route::get('error-504', function(){
+    return view('errors._504');  
+});
