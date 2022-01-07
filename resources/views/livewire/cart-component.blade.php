@@ -94,7 +94,10 @@
         {{-- FINAL TOTAL --}}
         <div class="float-right my-4">
             <h5>Total: &#8369; {{ $finalTotal }}</h5>
-            <button class="btn btn-success btn-block" @if(is_null(auth()->user()->address)) disabled @endif> CHECKOUT</button>
+            <form action="{{ route('reserve.checkout') }}" method="GET" >
+                <button class="btn btn-success btn-block" type="submit" @if(is_null(auth()->user()->address)) disabled @endif> RESERVE</button>
+            </form>
+
         </div>
     @else
         <div class="col-8 offset-2">

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -26,6 +27,7 @@ class CartComponent extends Component
 
     public function addQuantity($rowId)
     {
+        // dd('add quantity');
         $item = Cart::get($rowId);
 
 

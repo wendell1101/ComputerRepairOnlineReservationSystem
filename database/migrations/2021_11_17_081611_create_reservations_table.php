@@ -15,10 +15,12 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
+            $table->string('transaction_id')->unique();
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('product_id')->nullable()->constrained('products');
-            $table->string('case');
-            $table->date('reservation_date');
+            $table->json('items');
+            $table->float('total_amount', 8,2);
+            $table->dateTime('expected_reservation_date_time');
+            $table->dateTime('final_reservation_date_time')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });
