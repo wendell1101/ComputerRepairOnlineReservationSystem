@@ -72,15 +72,17 @@
 
                 <div class="collapse navbar-collapse" id="landingNavContent">
                     <ul id="" class="navbar-nav ml-auto --poppins">
-                        @auth
+                        {{-- IF USER IS LOGGED IN --}}
+                        @if (isset(Auth::user()->user_role) && Auth::user()->user_role == 0)
                             <li class="nav-item --underline mx-3">
                                 <a href="{{route('home')}}" class="nav-link">HOME</a>
                             </li>
-                        @else
+                        {{-- IF ADMIN IS LOGGED IN || GUEST IS ON SITE --}}
+                        @elseif((isset(Auth::user()->user_role) && Auth::user()->user_role == 1) || !isset(Auth::user()->user_role))
                             <li class="nav-item --underline mx-3">
                                 <a href="/" class="nav-link">HOME</a>
                             </li>
-                        @endauth
+                        @endif
 
                         <li class="nav-item --underline mx-3">
                             <a href="{{route('about')}}" class="nav-link">ABOUT</a>
@@ -90,11 +92,9 @@
                             <a href="{{route('servicefees')}}" class="nav-link">SERVICES</a>
                         </li>
 
-                        @auth
                         <li class="nav-item --underline mx-3">
                             <a href="{{route('user.store')}}" class="nav-link">STORE</a>
                         </li>
-                        @endauth
 
                         <li class="nav-item --underline mx-3">
                             <a href="{{ url('/') }}#frequently-asked-questions" class="nav-link">FAQS</a>
@@ -104,17 +104,30 @@
                             <a href="{{route('contacts')}}" class="nav-link">CONTACT</a>
                         </li>
 
+                        {{-- IF LOGGED IN --}}
                         @auth
-                        @livewire('cart-count-component')
+                            {{-- IF USER IS LOGGED IN --}}
+                            @if (isset(Auth::user()->user_role) && Auth::user()->user_role == 0)
+                                @livewire('cart-count-component')   
+                            @endif
+                        
                             <li class="nav-item dropdown mx-3">
                                 <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="far fa-user --text-gray-50"></i>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item --text-gray-800" href="{{ route('user.reservations') }}">Reservations</a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">       
+                                    @isset(Auth::user()->user_role)
+                                        {{-- IF USER --}}
+                                        @if (Auth::user()->user_role == 0)
+                                            <a class="dropdown-item --text-gray-800" href="{{ route('user.reservations') }}">Reservations</a>
 
-                                    <a href="{{route('user.profile')}}" class="dropdown-item --text-gray-800">Profile</a>
+                                            <a href="{{route('user.profile')}}" class="dropdown-item --text-gray-800">Profile</a>
+                                        {{-- IF ADMIN --}}
+                                        @elseif(Auth::user()->user_role == 1)
+                                            <a class="dropdown-item --text-gray-800" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                        @endif
+                                    @endisset
 
                                     <a class="dropdown-item --text-gray-800" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -128,6 +141,7 @@
                                 </div>
                             </li>
 
+                        {{-- ELSE IF NOT LOGGED IN/GUEST --}}
                         @else
                             <li class="nav-item dropdown mx-3">
                                 <a id="authDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -183,7 +197,7 @@
                             <h4 class="--roboto-condensed --body-20 text-center mb-3">MENU</h4>
                             <ul class="list-unstyled text-center">
                                 <li class="list-item mb-3 --underline">
-                                    <a href="/" class="">Home</a>
+                                    <a href="{{ url('/') }}" class="">Home</a>
                                 </li>
 
                                 <li class="list-item mb-3 --underline">
