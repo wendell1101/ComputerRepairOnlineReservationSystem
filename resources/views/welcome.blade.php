@@ -146,7 +146,7 @@
 
                         <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
                             <h3 class="--roboto-condensed --body-20 text-left">My device runs so slow. What could be the problem?</h3>
-                            <p class="--body-16 --poppins">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis doloribus quia voluptatibus laudantium nulla quaerat necessitatibus ea eos magnam assumenda!</p>
+                            <p class="--body-16 --poppins">Most often, this can resolved by clearing the cache or cleaning the hardware components. However, there are times that it is caused by malware.</p>
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
 
                         <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
                             <h3 class="--roboto-condensed --body-20 text-left">My device suddenly won't work. It was fine a while ago. Why is that?</h3>
-                            <p class="--body-16 --poppins">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum quaerat possimus molestias quis similique officia, doloremque omnis ipsam esse! Asperiores.</p>
+                            <p class="--body-16 --poppins">There can be a variety of reasons this happened. To know what may have caused the malfunction, remember what did you last do and tell us what exactly happened.</p>
                         </div>
                     </div>
                 </div>
