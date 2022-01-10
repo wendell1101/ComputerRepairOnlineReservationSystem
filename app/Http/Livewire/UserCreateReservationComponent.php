@@ -18,6 +18,15 @@ class UserCreateReservationComponent extends Component
     public $status = 0;
     public $notes;
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    protected $rules = [
+        'expected_reservation_date_time' => 'required',
+    ];
+
     public function mount()
     {
         $cart = Cart::content();
@@ -28,31 +37,49 @@ class UserCreateReservationComponent extends Component
     }
     public function store()
     {
+        $validatedData = $this->validate();
+        $items = [];
         $cart = Cart::content();
-        $final_amount = Cart::total();
+
+        foreach($cart as $item)
+        {
+            $item->cart_item = $item->model;
+            $item->sub_total = $item->subTotal();
+            $item->img = $item->model->img;
+            $items[] = $item;
+        }
+
+
+        $final_amount = Cart::subTotal();
+
+        // disregard commas
+        $final_amount = (float) str_replace(',', '', $final_amount);
+
+
         if($cart->count() == 0)
         {
             return redirect()->back();
         }
 
+        $random = Str::random(10);
+        $transaction_id = strtoupper($random);
 
         $data = [
-            'transaction_id' =>  Str::uuid(),
+            'transaction_id' =>  $transaction_id,
             'user_id' => auth()->user()->id,
-            'items' => $cart,
-            'total_amount' => 1000,
+            'items' => json_encode($items),
+            'total_amount' => $final_amount,
             'expected_reservation_date_time' => $this->expected_reservation_date_time,
             'status' => 0,
             'notes' => $this->notes,
         ];
-        // dd($data);
 
         try{
             Reservation::create($data);
             Cart::destroy();
-            return redirect('/test');
+            return redirect()->route('user.reservations')->with('Successful reservation. Please wait for email notifications when reservation status updates');
         }catch(Throwable $th){
-            dd($th);
+            // dd($th);
         }
     }
 
@@ -67,7 +94,7 @@ class UserCreateReservationComponent extends Component
 
         $data = [
             'cart' => $cart,
-            'finalTotal' => Cart::total(),
+            'finalTotal' => Cart::subTotal(),
         ];
         return view('livewire.user-create-reservation-component', $data);
     }

@@ -13,8 +13,8 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'check_status', 'check_if_user'); // temporary
 
 // Cart
-Route::group(['prefix' => '/cart'], function(){
-    Route::get('/', 'CartController@index');
+Route::group(['prefix' => '/cart', 'middleware' => 'auth'] , function(){
+    Route::get('/', 'CartController@index')->name('cart.index');
     Route::get('/count', 'CartController@count');
     Route::get('/checkout', 'ReservationController@checkout')->name('reserve.checkout');
 });
@@ -37,9 +37,8 @@ Route::get('profile', function(){
 
 
 
-Route::get('/reservation', function(){
-    return view('user.reservations.index');
-})->name('user.reservations')->middleware('auth', 'check_status', 'check_if_user');
+Route::get('/reservations', 'ReservationController@index')->name('user.reservations')->middleware('auth', 'check_status', 'check_if_user');
+Route::get('/reservations/{transaction_id}', 'ReservationController@show')->name('user.reservations.show')->middleware('auth', 'check_status', 'check_if_user');
 
 Route::get('/reservation/create', function(){
     // TEMPORARY
@@ -65,6 +64,7 @@ Route::group(['prefix' => '/admin'], function () {
     Route::resource('products', 'ProductController');
     Route::resource('services', 'ServiceController');
     Route::resource('users', 'AdminUserController');
+    Route::resource('reservations', 'AdminReservationController');
 
 
     // Route::get('products', function(){

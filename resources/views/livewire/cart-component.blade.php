@@ -8,10 +8,12 @@
                 {{-- IMAGE --}}
                 <div class="col-md-3 col-sm-12 d-flex --bg-gray-800">
                     <div class="justify-content-center align-items-center p-3 w-100">
-                        @if($item->options->type == 'product')
-                            <img src="{{ asset('storage/product_images/' . $item->model->img) }}" alt="product_image" style="object-fit:scale-down" class="" height="auto" width="100%">
-                        @elseif($item->options->type == 'service')
-                            <img src="{{ asset('storage/service_images/' . $item->model->img) }}" alt="service_image" style="object-fit:scale-down" height="auto" width="100%">
+                        @if($item)
+                            @if($item->options->type == 'product')
+                                <img src="{{ asset('storage/product_images/' . $item->model->img) }}" alt="product_image" style="object-fit:scale-down" class="" height="auto" width="100%">
+                            @elseif($item->options->type == 'service')
+                                <img src="{{ asset('storage/service_images/' . $item->model->img) }}" alt="service_image" style="object-fit:scale-down" height="auto" width="100%">
+                            @endif
                         @endif
                     </div>
                 </div>

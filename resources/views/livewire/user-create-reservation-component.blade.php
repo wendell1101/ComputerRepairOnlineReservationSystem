@@ -4,7 +4,7 @@
             <div class="card-header bg-light py-4" style="border-radius: 30px 30px 0 0;">
                 <div class="row w-100">
                     <div class="col-md-6">
-                        <a href="{{route('home')}}" class="btn --btn-outline-gray m"><i class="fas fa-angle-double-left"></i></a>
+                        <a href="{{route('cart.index')}}" class="btn --btn-outline-gray m"><i class="fas fa-angle-double-left"></i></a>
                     </div>
                 </div>
             </div>
@@ -13,13 +13,19 @@
                     @csrf
                     <div class="form-group row">
                         <div class="col-12">
-                            <label for="expected_reservation_date-date">Expected Reservation Date and Time<span class="text-danger">*</span></label>
-                            <input type="datetime-local" wire:model="expected_reservation_date_time" id="expected_reservation_date" class="form-control">
+                            <label for="expected_reservation_date_time">Expected Reservation Date and Time<span class="text-danger">*</span></label>
+                            <input type="datetime-local" wire:model="expected_reservation_date_time" id="expected_reservation_date" class="form-control
+                            @error('expected_reservation_date_time')
+                            is-invalid
+                           @enderror
+                            ">
+                            @error('expected_reservation_date_time')
+                            <small class="text-danger">{{$message}}</small>
+                           @enderror
                         </div>
-
                     </div>
                     <div class="form-group">
-                        <label for="reservation-case"> Notes<span class="text-danger">*</span></label>
+                        <label for="reservation-case"> Notes (Optional)<span class="text-danger"></span></label>
                         <textarea name="case" id="reservation-case" wire:model="notes" cols="30" rows="3" class="form-control" placeholder="Briefly describe the error/malfunction of your device/gadget"></textarea>
                     </div>
 

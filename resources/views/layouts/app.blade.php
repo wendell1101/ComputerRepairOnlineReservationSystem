@@ -104,8 +104,10 @@
                             <a href="{{route('contacts')}}" class="nav-link">CONTACT</a>
                         </li>
 
-                        @auth
                         @livewire('cart-count-component')
+
+                        @auth
+
                             <li class="nav-item dropdown mx-3">
                                 <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="far fa-user --text-gray-50"></i>

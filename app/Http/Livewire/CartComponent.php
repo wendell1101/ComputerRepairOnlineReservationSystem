@@ -92,7 +92,7 @@ class CartComponent extends Component
             return $item;
         });
 
-        $finalTotal = Cart::total();
+        $finalTotal = Cart::subtotal();
 
         return view('livewire.cart-component', compact('cartItems', 'finalTotal'));
     }
