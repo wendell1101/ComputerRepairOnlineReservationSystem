@@ -65,4 +65,9 @@ class User extends Authenticatable
             echo "<span class='text-info'>client</span>";
         }
     }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }

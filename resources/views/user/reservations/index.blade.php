@@ -15,7 +15,7 @@
                     </div>
                     {{-- @if(there are reservations) --}}
                     <div class="col-md-6 d-flex justify-content-end">
-                        <a href="#" class="btn --btn-outline-gray m"><i class="fas fa-plus"></i></a>
+                        <a href="{{ route('reserve.checkout') }}" class="btn --btn-outline-gray m"><i class="fas fa-plus"></i></a>
                     </div>
                     {{-- @endif --}}
                 </div>
@@ -28,52 +28,35 @@
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead class="--roboto-condensed --body-18">
-                            <th scope="col">Date</th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Description</th>
+                            <th>#</th>
+                            <th scope="col">Transaction ID</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Reserved at </th>
+                            <th scope="col">Reservation date and time </th>
+
                         </thead>
+
                         <tbody class="--poppins">
-                            {{-- @forelse($reservations as $reservation) --}}
+                            @forelse($reservations as $reservation)
                             <tr>
-                                <td>Jan 11, 2022</td>
-                                <td>---</td>
-                                <td>Lorem ipsum dolor sit amet</td>
-                                <td>Not yet done</td>
+                                <td>{{ $loop->index+1 }}</td>
                                 <td>
-                                    <a href="#" role="button" data-placement="top" title="Edit" class="btn --btn-outline-gray" style="font-weight: 400; text-transform: none;">
-                                        <i class="far fa-edit"></i> Edit
-                                    </a>
-
-                                    <a href="" role="button" data-placement="top" title="Delete" class="btn btn-outline-danger">
-                                        <i class="far fa-trash-alt"></i> Delete
+                                    <a href="{{ route('user.reservations.show', $reservation->transaction_id) }}">
+                                        {{ strtoupper($reservation->transaction_id) }}
                                     </a>
                                 </td>
+                                <td>{{ get_reservation_status($reservation->status) }}</td>
+                                <td>{{ format_date_time($reservation->created_at) }}</td>
+                                <td>{{ format_date_time($reservation->expected_reservation_date_time) }}</td>
                             </tr>
 
-                            <tr>
-                                <td>Feb 01, 2022</td>
-                                <td>SSD</td>
-                                <td>Lorem ipsum dolor sit amet</td>
-                                <td>Not yet done</td>
-                                <td>
-                                    <a href="#" role="button" data-placement="top" title="Edit" class="btn --btn-outline-gray" style="font-weight: 400; text-transform: none;">
-                                        <i class="far fa-edit"></i> Edit
-                                    </a>
-
-                                    <a href="" role="button" data-placement="top" title="Delete" class="btn btn-outline-danger">
-                                        <i class="far fa-trash-alt"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
-                            {{-- @empty --}}
+                            @empty
                                 <tr>
                                     <td colspan="5">
                                         <p class="text-center">You have no reservations yet. <strong><a href="#" class="--link-dark-green">Create one.</a></strong></p>
                                     </td>
                                 </tr>
-                            {{-- @endforelse --}}
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

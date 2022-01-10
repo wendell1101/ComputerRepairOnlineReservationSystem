@@ -13,10 +13,13 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'check_status', 'check_if_user'); // temporary
 
 // Cart
-Route::group(['prefix' => '/cart'], function(){
-    Route::get('/', 'CartController@index');
+Route::group(['prefix' => '/cart', 'middleware' => 'auth'] , function(){
+    Route::get('/', 'CartController@index')->name('cart.index');
     Route::get('/count', 'CartController@count');
+    Route::get('/checkout', 'ReservationController@checkout')->name('reserve.checkout')->middleware('check_cart');
 });
+
+// Route::get('/thankyou', 'ReservationController@thankyou')->name('reserve.thankyou');
 
 Route::get('/services', 'ClientServiceController@index')->name('servicefees');
 
@@ -36,14 +39,13 @@ Route::get('profile', function(){
 
 
 
-Route::get('/reservation', function(){
-    return view('user.reservations.index');
-})->name('user.reservations')->middleware('auth', 'check_status', 'check_if_user');
+Route::get('/reservations', 'ReservationController@index')->name('user.reservations')->middleware('auth', 'check_status', 'check_if_user');
+Route::get('/reservations/{transaction_id}', 'ReservationController@show')->name('user.reservations.show')->middleware('auth', 'check_status', 'check_if_user');
 
 Route::get('/reservation/create', function(){
     // TEMPORARY
     return view('user.reservations.create');
-})->name('user.create')->middleware('auth', 'check_status', 'check_if_user');
+})->name('user.create')->middleware('auth', 'check_status', 'check_if_user', 'check_cart');
 
 // Route::get('/reservation/edit', function(){
 //     // TEMPORARY
@@ -64,6 +66,7 @@ Route::group(['prefix' => '/admin'], function () {
     Route::resource('products', 'ProductController');
     Route::resource('services', 'ServiceController');
     Route::resource('users', 'AdminUserController');
+    Route::resource('reservations', 'AdminReservationController');
 
 
     // Route::get('products', function(){
@@ -110,23 +113,23 @@ Auth::routes();
 
 // TEMPORARY
 Route::get('error-401', function(){
-    return view('errors._401');  
+    return view('errors._401');
   });
 Route::get('error-403', function(){
-  return view('errors._403');  
+  return view('errors._403');
 });
 Route::get('error-404', function(){
-    return view('errors._404');  
+    return view('errors._404');
   });
 Route::get('error-500', function(){
-   return view('errors._500');  
+   return view('errors._500');
 });
 Route::get('error-502', function(){
-    return view('errors._502');  
-});  
+    return view('errors._502');
+});
 Route::get('error-503', function(){
-    return view('errors._503');  
+    return view('errors._503');
 });
 Route::get('error-504', function(){
-    return view('errors._504');  
+    return view('errors._504');
 });

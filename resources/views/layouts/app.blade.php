@@ -104,19 +104,15 @@
                             <a href="{{route('contacts')}}" class="nav-link">CONTACT</a>
                         </li>
 
-                        {{-- IF LOGGED IN --}}
+                        @livewire('cart-count-component')
+
                         @auth
-                            {{-- IF USER IS LOGGED IN --}}
-                            @if (isset(Auth::user()->user_role) && Auth::user()->user_role == 0)
-                                @livewire('cart-count-component')   
-                            @endif
-                        
                             <li class="nav-item dropdown mx-3">
                                 <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="far fa-user --text-gray-50"></i>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">       
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     @isset(Auth::user()->user_role)
                                         {{-- IF USER --}}
                                         @if (Auth::user()->user_role == 0)

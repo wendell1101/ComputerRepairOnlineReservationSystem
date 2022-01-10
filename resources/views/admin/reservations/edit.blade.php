@@ -6,14 +6,16 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                {{-- <a href="#" class="btn btn-outline-dark">
-                    <i class="fas fa-plus"></i>
-                    <span>New Pricing</span>
-                </a> --}}
+                <a href="{{route('reservations.index')}}" class="btn btn-outline-dark">
+                    <i class="fas fa-angle-double-left"></i>
+                    <span>Go back</span>
+                </a>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">Home</li>
                     <li class="breadcrumb-item">Reservations</li>
+                    <li class="breadcrumb-item text-bold active">Update</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -21,6 +23,6 @@
 </div>
 <!-- /.content-header -->
 <!-- Main content -->
-@livewire('admin-reservation-component')
+@livewire('admin-reservation-update-component', ['reservation_id' => $id])
 <!-- /.content -->
 @endsection

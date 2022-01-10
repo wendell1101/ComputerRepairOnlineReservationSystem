@@ -15,7 +15,7 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">Home</li>
                     <li class="breadcrumb-item">Products</li>
-                    <li class="breadcrumb-item text-bold active">Create</li>
+                    <li class="breadcrumb-item text-bold active">Edit</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->

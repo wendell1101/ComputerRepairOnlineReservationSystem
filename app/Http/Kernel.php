@@ -36,7 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            
+
         ],
 
         'api' => [
@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'check_if_user' => \App\Http\Middleware\CheckIfUser::class,
         'check_if_admin' => \App\Http\Middleware\CheckIfAdmin::class,
         'check_status' => \App\Http\Middleware\CheckUserStatus::class,
+        'check_cart' => \App\Http\Middleware\CheckIfCartIsNotEmpty::class,
     ];
 }
