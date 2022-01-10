@@ -493,18 +493,10 @@
                 </tr> -->
                     <!-- Email Header : END -->
                     <!-- Logo, Flush : BEGIN -->
-                    <tr>
-                        <td style="background-color: #ffffff; padding-top: 20px; padding-left: 30px; padding-right: 30px; padding-bottom: 0px;" class="td__content">
-                            <img src="https://images.unsplash.com/photo-1555617766-c94804975da3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" width="100" height="" alt="Computer Repair and Services" border="0" style="object-fit: contain;" class="g-img">
-                        </td>
-                    </tr>
+
                     <!-- Logo, Flush : END -->
                     <!-- Hero Image, Flush : BEGIN -->
-                    <tr>
-                        <td style="background-color: #ffffff;">
-                            <img src="https://images.unsplash.com/photo-1514254519003-3c1b5f35e9ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw0NDE2OTc5fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" width="680" height="" alt="Inquiry" border="0" style="width: 100%; height: auto; display: block; object-fit: contain;" class="g-img">
-                        </td>
-                    </tr>
+
                     <!-- Hero Image, Flush : END -->
                     <!-- Message : BEGIN -->
                     <tr>

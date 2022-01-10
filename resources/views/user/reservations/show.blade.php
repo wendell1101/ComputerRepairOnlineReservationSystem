@@ -18,22 +18,18 @@
                 <div class="step active"> <span class="icon"> <i class="far fa-clock"></i> </span> <span class="text">Pending</span> </div>
                 <div class="step"> <span class="icon"> <i class="fas fa-clipboard-check"></i> </span> <span class="text"> Active</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text"> Completed</span> </div>
-                <div class="step" > <span class="icon"> <i class="far fa-window-close"></i> </span> <span class="text">Cancelled</span> </div>
                @elseif($reservation->status === 1)
                <div class="step active"> <span class="icon"> <i class="far fa-clock"></i> </span> <span class="text">Pending</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fas fa-clipboard-check"></i> </span> <span class="text">Active</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text"> Completed</span> </div>
-                <div class="step" > <span class="icon"> <i class="far fa-window-close"></i> </span> <span class="text">Cancelled</span> </div>
                 @elseif($reservation->status === 2)
                 <div class="step active"> <span class="icon"> <i class="far fa-clock"></i> </span> <span class="text">Pending</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fas fa-clipboard-check"></i> </span> <span class="text"> Active</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text"> Completed</span> </div>
-                <div class="step" > <span class="icon"> <i class="far fa-window-close"></i> </span> <span class="text">Cancelled</span> </div>
                 @elseif($reservation->status === 3)
                 <div class="step active"> <span class="icon"> <i class="far fa-clock"></i> </span> <span class="text">Pending/span> </div>
                 <div class="step active"> <span class="icon"> <i class="fas fa-clipboard-check"></i> </span> <span class="text"> Active</span> </div>
-                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text"> Completed</span> </div>
-                <div class="step" > <span class="icon"> <i class="far fa-window-close"></i> </span> <span class="text">Cancelled</span> </div>
+                <div class="step active" > <span class="icon"> <i class="far fa-window-close"></i> </span> <span class="text">Cancelled</span> </div>
                 @endif
             </div>
             <hr>

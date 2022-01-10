@@ -9,7 +9,7 @@
                     <p>
                         <a href="#more-info" class="--link-dark-green">
                             <i class="fas fa-info-circle"></i>
-                            Checkout more info below!
+                            Check out more info below!
                             <i class="fas fa-info-circle"></i>
                         </a>
                     </p>

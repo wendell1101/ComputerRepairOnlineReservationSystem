@@ -4,32 +4,51 @@ namespace App\Http\Livewire;
 
 use App\Reservation;
 use Livewire\Component;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UpdateReservationStatus;
 
 class AdminReservationUpdateComponent extends Component
 {
     public $reservationId = null;
-    public $status = 0;
+    public $status;
 
     public function mount($reservation_id)
     {
         $this->reservationId = $reservation_id;
+        $reservation = Reservation::find($reservation_id);
+
+        $this->status = $reservation->status;
     }
 
     public function updateReservation()
     {
         try{
-            $reservation = Reservation::with('user')->where('id', $this->reservationId)->first();
+
             // dd($reservation);
             Reservation::where('id', $this->reservationId)->update(['status' => $this->status]);
-            //send email here
-            Mail::to('wendellchansuazo11@gmail.com')->send(new UpdateReservationStatus($reservation));
 
-            return 'A message has been sent to Mailtrap!';
+            $reservation = Reservation::with('user')->where('id', $this->reservationId)->first();
+
+            //send email here
+            Mail::to($reservation->user->email)->send(new UpdateReservationStatus($reservation));
+
+            $this->alertMessage('success','A reservation status has been updated');
+            return redirect()->route('reservations.index');
         }catch(\Throwable $th){
-            dd($th);
+            // dd($th);
         }
+    }
+
+        // Toast notifs
+    // $type can be success, info, warning , error
+    public function alertMessage($type, $message)
+    {
+        // $this->dispatchBrowserEvent(
+        //     'alert',
+        //     ['type' => $type,  'message' => $message]
+        // );
+        Toastr::$type($message, $type, ["positionClass" => "toast-top-right"]);
     }
 
     public function render()

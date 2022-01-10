@@ -16,8 +16,10 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'c
 Route::group(['prefix' => '/cart', 'middleware' => 'auth'] , function(){
     Route::get('/', 'CartController@index')->name('cart.index');
     Route::get('/count', 'CartController@count');
-    Route::get('/checkout', 'ReservationController@checkout')->name('reserve.checkout');
+    Route::get('/checkout', 'ReservationController@checkout')->name('reserve.checkout')->middleware('check_cart');
 });
+
+// Route::get('/thankyou', 'ReservationController@thankyou')->name('reserve.thankyou');
 
 Route::get('/services', 'ClientServiceController@index')->name('servicefees');
 
@@ -43,7 +45,7 @@ Route::get('/reservations/{transaction_id}', 'ReservationController@show')->name
 Route::get('/reservation/create', function(){
     // TEMPORARY
     return view('user.reservations.create');
-})->name('user.create')->middleware('auth', 'check_status', 'check_if_user');
+})->name('user.create')->middleware('auth', 'check_status', 'check_if_user', 'check_cart');
 
 // Route::get('/reservation/edit', function(){
 //     // TEMPORARY

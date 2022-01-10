@@ -14,7 +14,7 @@ class ReservationController extends Controller
         $cart = Cart::content();
         if($cart->count() == 0)
         {
-            return redirect()->back();
+            return redirect()->route('cart.index');
         }
         return view('user.reservations.create');
     }
@@ -35,5 +35,10 @@ class ReservationController extends Controller
 
         // $reservation = json_decode($reservation);// return $reservation;
         return view('user.reservations.show', compact('reservation'));
+    }
+
+    public function thankyou()
+    {
+        return view('user.reservations.thankyou');
     }
 }

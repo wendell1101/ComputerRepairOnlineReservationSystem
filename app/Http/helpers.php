@@ -79,5 +79,26 @@ if (! function_exists('get_reservation_status')) {
     }
 }
 
+if (! function_exists('get_reservation_status_color')) {
+    function get_reservation_status_color($value)
+    {
+        switch($value){
+            case 0 :
+                echo "<span class='text-secondary'>pending</span>";
+                break;
+            case 1 :
+                echo "<span class='text-success'>active</span>";
+                break;
+            case 2 :
+                echo "<span class='text-warning'>completed</span>";
+                break;
+            case 3 :
+                echo "<span class='text-danger'>cancelled</span>";
+                break;
+        }
+    }
+}
+
+
 
 // {{ \Str::limit(strip_tags($service->description), 100, '...') }}

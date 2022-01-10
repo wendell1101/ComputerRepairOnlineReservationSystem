@@ -15,7 +15,7 @@
                     </div>
                     {{-- @if(there are reservations) --}}
                     <div class="col-md-6 d-flex justify-content-end">
-                        <a href="#" class="btn --btn-outline-gray m"><i class="fas fa-plus"></i></a>
+                        <a href="{{ route('reserve.checkout') }}" class="btn --btn-outline-gray m"><i class="fas fa-plus"></i></a>
                     </div>
                     {{-- @endif --}}
                 </div>
@@ -31,7 +31,8 @@
                             <th>#</th>
                             <th scope="col">Transaction ID</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Reservation Date and Time</th>
+                            <th scope="col">Reserved at </th>
+                            <th scope="col">Reservation date and time </th>
 
                         </thead>
 
@@ -46,6 +47,7 @@
                                 </td>
                                 <td>{{ get_reservation_status($reservation->status) }}</td>
                                 <td>{{ format_date_time($reservation->created_at) }}</td>
+                                <td>{{ format_date_time($reservation->expected_reservation_date_time) }}</td>
                             </tr>
 
                             @empty

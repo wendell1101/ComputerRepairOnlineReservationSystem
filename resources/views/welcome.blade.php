@@ -13,7 +13,7 @@
                     <p class="--roboto-condensed --body-20">Fixing your devices to make it run like brand new!</p>
                 </div>
 
-                <a href="#" class="btn --border-radius-30 --btn-outline-green mt-2">Book appointment</a>
+                <a href="{{route('user.create')}}" class="btn --border-radius-30 --btn-outline-green mt-2">Book appointment</a>
             </div>
         </div>
     </section>
@@ -29,7 +29,7 @@
                     <h3 class="--poppins --bold">Repair</h3>
                     <p class="--roboto-condensed --body-20">Is your device corrupted by virus? Spilled with water? Did it fall on the ground? Bring it over and we'll fix it!</p>
 
-                    <a href="{{route('servicefees')}}#services-repair" class="btn --border-radius-30 --btn-outline-gray mt-2">Learn more</a>
+                    {{-- <a href="{{route('servicefees')}}#services-repair" class="btn --border-radius-30 --btn-outline-gray mt-2">Learn more</a> --}}
                 </div>
 
                 <div class="col-md-4 col-sm-12 text-center mb-5">
@@ -39,7 +39,7 @@
                     <h3 class="--poppins --bold">Upgrade</h3>
                     <p class="--roboto-condensed --body-20">Is your device too slow? Or is your screen cracked? Let us optimize your device performance.</p>
 
-                    <a href="{{route('servicefees')}}#services-upgrade" class="btn --border-radius-30 --btn-outline-gray mt-2">Learn more</a>
+                    {{-- <a href="{{route('servicefees')}}#services-upgrade" class="btn --border-radius-30 --btn-outline-gray mt-2">Learn more</a> --}}
                 </div>
 
                 <div class="col-md-4 col-sm-12 text-center mb-5">
@@ -49,7 +49,7 @@
                     <h3 class="--poppins --bold">Print</h3>
                     <p class="--roboto-condensed --body-20">Documents? Photos? Temporary license plate? We got you! You can send it through our email or visit us personally.</p>
 
-                    <a href="{{route('servicefees')}}#services-print" class="btn --border-radius-30 --btn-outline-gray mt-2">Learn more</a>
+                    {{-- <a href="{{route('servicefees')}}#services-print" class="btn --border-radius-30 --btn-outline-gray mt-2">Learn more</a> --}}
                 </div>
             </div>
         </section>
@@ -86,14 +86,16 @@
 
                         <div class="card-img-overlay --border-radius-10 --product-card-overlay">
                             <h5 class="card-title --roboto-condensed --lead --bold">{{ $product->name }}</h5>
-                            <p class="card-text --poppins"> {{ \Str::limit(strip_tags($product->description), 20, '...') }}</p>
+                            <p class="card-text --poppins"> {{ \Str::limit(strip_tags($product->description), 25, '...') }}</p>
                         </div>
                     </div>
                 </div>
                 @endforeach
 
             </div>
-            <a href="{{ route('user.store') }}" class="float-right">View More </a>
+            <a href="{{ route('user.store') }}" class="float-right --link-dark-green">
+                See More <i class="fas fa-angle-double-right"></i>
+            </a>
         </section>
         @endif
 
@@ -144,7 +146,7 @@
 
                         <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
                             <h3 class="--roboto-condensed --body-20 text-left">My device runs so slow. What could be the problem?</h3>
-                            <p class="--body-16 --poppins">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis doloribus quia voluptatibus laudantium nulla quaerat necessitatibus ea eos magnam assumenda!</p>
+                            <p class="--body-16 --poppins">Most often, this can resolved by clearing the cache or cleaning the hardware components. However, there are times that it is caused by malware.</p>
                         </div>
                     </div>
                 </div>
@@ -159,7 +161,7 @@
 
                         <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
                             <h3 class="--roboto-condensed --body-20 text-left">My device suddenly won't work. It was fine a while ago. Why is that?</h3>
-                            <p class="--body-16 --poppins">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum quaerat possimus molestias quis similique officia, doloremque omnis ipsam esse! Asperiores.</p>
+                            <p class="--body-16 --poppins">There can be a variety of reasons this happened. To know what may have caused the malfunction, remember what did you last do and tell us what exactly happened.</p>
                         </div>
                     </div>
                 </div>

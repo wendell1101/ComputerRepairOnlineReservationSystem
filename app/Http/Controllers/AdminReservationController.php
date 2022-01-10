@@ -46,7 +46,9 @@ class AdminReservationController extends Controller
      */
     public function show($id)
     {
-        //
+        $reservation = Reservation::with('user')->where('id', $id)->first();
+        // $reservation = json_decode($reservation);
+        return view('admin.reservations.show', compact('reservation'));
     }
 
     /**

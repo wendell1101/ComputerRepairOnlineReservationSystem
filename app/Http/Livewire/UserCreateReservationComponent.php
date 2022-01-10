@@ -87,10 +87,6 @@ class UserCreateReservationComponent extends Component
     public function render()
     {
         $cart = Cart::content();
-        if($cart->count() == 0)
-        {
-            return redirect()->back();
-        }
 
         $data = [
             'cart' => $cart,

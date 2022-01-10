@@ -1,6 +1,9 @@
 <div class="container">
     <x-alert />
-    <h1 class="--roboto-condensed --lead-30 --bold">Cart Items</h1>
+    <h1 class="--roboto-condensed --lead-lg --bold">
+        <i class="fas fa-shopping-cart"></i>
+        Cart Items
+    </h1>
 
     @if($cartItems->count() > 0)
         @foreach($cartItems as $key => $item)
@@ -102,8 +105,15 @@
 
         </div>
     @else
-        <div class="col-8 offset-2">
-            <p>No Item Found</p>
+        <div class="col-12">
+            <div class="card shadow --bg-gray-50">
+                <div class="card-body">
+                    <p class="text-center --poppins --lead mb-0">
+                        <i class="fas fa-cart-plus"></i>
+                        You have not added anything to your cart yet.
+                    </p>
+                </div>
+            </div>
         </div>
     @endif
 </div>

@@ -30,7 +30,7 @@ class UpdateReservationStatus extends Mailable
     public function build()
     {
         return $this->from('wendellchansuazo11@gmail.com', env('MAIL_FROM_NAME'))
-            ->subject("Computer Repair : TransactionId #{$this->reservation->transaction_id} has been" .get_reservation_status($this->reservation->status))
+            ->subject("Tech2u : TransactionId #{$this->reservation->transaction_id} status has been updated to " .get_reservation_status($this->reservation->status))
             ->view('emails.update_reservation_status')
             ->with('reservation', $this->reservation);
     }
