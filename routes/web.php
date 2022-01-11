@@ -3,7 +3,7 @@
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductCategoryController;
-
+use App\Http\Middleware\CheckIfAdmin;
 use Illuminate\Support\Facades\Route;
 
 

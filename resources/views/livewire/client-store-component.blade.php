@@ -53,12 +53,12 @@
                             <p class="card-text --poppins">
                                 <small>
                                     {{ $product->discount_percentage }}&percnt; off from {{ $product->discount_start_date}} to {{$product->discount_end_date}} only
-                                </small> <br>  
+                                </small> <br>
                             </p>
                         @endif
-                        {{-- LINK FOR MORE INFO --}}
-                        <div class="d-flex justify-content-center align-items-center w-100">
-                            <button href="" class="--link-btn-outline-green " wire:click="setSelectProductId({{$product->id}})" data-toggle="modal" data-target="#more-info-modal">More Info</button>
+                       {{-- LINK FOR MORE INFO --}}
+                       <div class="d-flex justify-content-center align-items-center w-100" wire:click="setSelectProductId({{$product->id}})" data-toggle="modal" data-target="#more-info-modal">
+                        <button type="button" class="--link-btn-outline-green " >More Info</button>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                     <p class="--poppins --body-16">
                         @if(($product->has_discount) && ($product->discounted_price > 0) && ($product->within_discount_date))
                             <span class="badge badge-pill --bg-green --text-gray-800">{{ $product->discount_percentage }} % </span>
-                            <del>&#8369; {{ format_price($product->price) }}</del> 
+                            <del>&#8369; {{ format_price($product->price) }}</del>
                             <span style="font-size: 12px"><i class="fas fa-arrow-right"></i></span> &#8369; {{ format_price($product->discounted_price)}}
                         @else
                             &#8369; {{ format_price($product->price) }}
