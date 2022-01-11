@@ -28,6 +28,7 @@ class CartComponent extends Component
     public function addQuantity($rowId)
     {
         // dd('add quantity');
+        dd('clicked add quant');
         $item = Cart::get($rowId);
 
 
