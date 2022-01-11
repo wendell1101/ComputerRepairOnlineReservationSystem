@@ -212,6 +212,21 @@
     text-decoration: none;
 }
 
+.--link-btn-green{
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid var(--green-primary);
+    color: var(--green-primary);
+    font-family: var(--poppins);
+    font-weight: var(--bold);
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+.--link-btn-green:hover{
+    text-decoration: none;
+    background-color: var(--green-primary);
+    color: var(--gray-50);
+}
 
 /*
 ********************************
