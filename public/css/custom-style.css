@@ -1,23 +1,23 @@
 /* IMPORTS */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;1,400&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;1,400&display=swap");
 
 /* VARIABLES */
+
 :root {
     /* COLORS */
     --gray-800: #1f2937;
     --gray-50: #f9fafb;
     --green-primary: #5ae311;
-
     /* FONT FAMILIES */
     --roboto-condensed: "Roboto Condensed", sans-serif;
     --poppins: "Poppins", sans-serif;
-
     /* FONT WEIGHTS */
     --regular: 400;
-    --semi-bold: 600; /* only applies to poppins */
+    --semi-bold: 600;
+    /* only applies to poppins */
     --bold: 700;
-
     /* FONT SIZES */
     --lead-lg: 40px;
     --lead: 30px;
@@ -26,71 +26,95 @@
     --body-16: 16px;
 }
 
+
 /*
 **************************************
 * CUSTOM UTILITY & COMPONENT CLASSES *
 **************************************
 */
 
+
 /* BACKGROUND COLORS */
+
 .--bg-gray-800 {
     background-color: var(--gray-800);
 }
+
 .--bg-gray-50 {
     background-color: var(--gray-50);
 }
+
 .--bg-green {
     background-color: var(--green-primary);
 }
 
+
 /* COLORS */
+
 .--text-gray-800 {
     color: var(--gray-800);
 }
+
 .--text-gray-50 {
     color: var(--gray-50);
 }
+
 .--text-green {
     color: var(--green-primary);
 }
 
+
 /* FONT FAMILY */
+
 .--roboto-condensed {
     font-family: var(--roboto-condensed);
 }
+
 .--poppins {
     font-family: var(--poppins);
 }
 
+
 /* FONT SIZES*/
+
 .--lead-lg {
     font-size: var(--lead-lg);
 }
+
 .--lead {
     font-size: var(--lead);
 }
+
 .--body-20 {
     font-size: var(--body-20);
 }
+
 .--body-18 {
     font-size: var(--body-18);
 }
+
 .--body-16 {
     font-size: var(--body-16);
 }
 
+
 /* FONT WEIGHTS */
+
 .--regular {
     font-weight: var(--regular);
 }
+
 .--semi-bold {
     font-weight: var(--semi-bold);
 }
+
 .--bold {
     font-weight: var(--bold);
 }
 
+
 /* ANCHOR TAGS/LINKS */
+
 .--link-green,
 .--link-gray {
     text-decoration: none;
@@ -119,8 +143,10 @@
     text-decoration: underline 3px solid var(--green-primary);
 }
 
+
 /* BUTTONS */
-.--border-radius-10{
+
+.--border-radius-10 {
     border-radius: 10px;
 }
 
@@ -128,7 +154,8 @@
     border-radius: 30px;
 }
 
-.--btn-outline-green, .--link-btn-outline-green {
+.--btn-outline-green,
+.--link-btn-outline-green {
     background-color: transparent;
     border: 2px solid var(--green-primary);
     color: var(--green-primary);
@@ -138,7 +165,8 @@
     transition: all 0.3s ease-in-out;
 }
 
-.--btn-outline-green:hover, .--link-btn-outline-green:hover{
+.--btn-outline-green:hover,
+.--link-btn-outline-green:hover {
     color: #f9fafb;
     background-color: var(--green-primary);
 }
@@ -171,7 +199,7 @@
     background-color: var(--gray-50);
 }
 
-.--link-btn-outline-green{
+.--link-btn-outline-green {
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
@@ -180,15 +208,17 @@
     display: none;
 }
 
-.--link-btn-outline-green:hover{
+.--link-btn-outline-green:hover {
     text-decoration: none;
 }
+
 
 /*
 ********************************
 * PUT OTHER CUSTOM CLASS BELOW *
 ********************************
 */
+
 .--underline {
     position: relative;
     border: none;
@@ -210,17 +240,17 @@
     transform: scale(1, 1);
 }
 
-.--underline > a {
+.--underline>a {
     color: var(--gray-50) !important;
     text-decoration: none;
 }
 
-.--underline > a:hover {
+.--underline>a:hover {
     color: var(--green-primary) !important;
 }
 
 #hero-section,
-.--background-img{
+.--background-img {
     width: 100%;
     margin-bottom: 5rem;
     background-image: url("../img/shop.jpg");
@@ -233,7 +263,7 @@
     min-height: auto;
 }
 
-.--user-background-img{
+.--user-background-img {
     max-height: 20vh;
     width: 100%;
     margin-bottom: 2rem;
@@ -243,7 +273,7 @@
     background-repeat: no-repeat;
 }
 
-#hero-section > div,
+#hero-section>div,
 .--dark-overlay {
     background: rgba(0, 0, 0, 0.7);
 }
@@ -255,7 +285,7 @@
     z-index: 0;
 }
 
-.--user-dark-overlay{
+.--user-dark-overlay {
     background: rgba(0, 0, 0, 0.7);
     height: 20vh;
     position: relative;
@@ -269,7 +299,7 @@
     top: 25%;
 }
 
-.--checkbox{
+.--checkbox {
     appearance: none;
     -webkit-appearance: none;
     width: 25px;
@@ -284,7 +314,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.--checkbox:after{
+.--checkbox:after {
     content: '';
     width: 15px;
     height: 15px;
@@ -293,13 +323,13 @@
     display: none;
 }
 
-.--checkbox:checked:after{
+.--checkbox:checked:after {
     display: block;
 }
 
-.--up-btn{
-    width:35px;
-    height:35px;
+.--up-btn {
+    width: 35px;
+    height: 35px;
     background-color: var(--gray-50);
     border: 2px solid var(--gray-800);
     color: var(--gray-800);
@@ -313,12 +343,12 @@
     transition: all 0.3s ease-in-out;
 }
 
-.--up-btn:hover{
+.--up-btn:hover {
     color: var(--green-primary);
     background-color: var(--gray-800);
 }
 
-#desc-section{
+#desc-section {
     background-image: url("../storage/img/frosted-desc.jpg");
     background-size: cover;
     background-position: center;
@@ -327,11 +357,11 @@
     width: 100%;
 }
 
-#desc-section img{
+#desc-section img {
     border-radius: 30px;
 }
 
-.--product-card-overlay{
+.--product-card-overlay {
     background: transparent;
     height: 300px;
     cursor: pointer;
@@ -339,18 +369,17 @@
     color: transparent;
 }
 
-.--product-card-overlay:hover{
+.--product-card-overlay:hover {
     background: rgba(0, 0, 0, 0.4);
     color: var(--gray-50);
     text-shadow: 1px 1px 2px black;
 }
 
-
-.--faqs-box{
+.--faqs-box {
     min-height: 200px;
 }
 
-.--repair-cards{
+.--repair-cards {
     color: var(--gray-800);
     background: var(--gray-50);
     height: 275px;
@@ -360,7 +389,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.--repair-cards:hover{
+.--repair-cards:hover {
     color: var(--gray-50);
     background: var(--gray-800);
     height: 400px;
@@ -372,42 +401,46 @@
     font-size: 8em;
 }
 
-#services-repair{
+#services-repair {
     padding: 2rem 0;
 }
 
-#services-upgrade{
+#services-upgrade {
     min-height: 500px;
 }
 
-#services-upgrade, #services-print{
+#services-upgrade,
+#services-print {
     margin-top: 10vh;
 }
 
-#services-repair, #services-upgrade, #services-print{
+#services-repair,
+#services-upgrade,
+#services-print {
     position: relative;
     margin-bottom: 10vh;
 }
 
-.--pagination-custom > li > a{
+.--pagination-custom>li>a {
     color: var(--gray-800);
     text-decoration: none;
     background: var(--gray-50);
 }
 
-.--pagination-custom > li > a:hover,
-.--pagination-custom > li > a:focus{
+.--pagination-custom>li>a:hover,
+.--pagination-custom>li>a:focus {
     background: var(--gray-800);
     color: var(--green-primary);
 }
 
-.--svg-img{
+.--svg-img {
     filter: invert(11%) sepia(17%) saturate(1390%) hue-rotate(176deg) brightness(96%) contrast(88%);
 }
 
-.--order-qty-box > input[type=number]{
+.--order-qty-box>input[type=number] {
     font-family: var(--poppins);
     padding: 10px;
+    width: 70px!important;
     height: 40px;
     border: 2px solid var(--gray-800);
     -webkit-appearance: textfield;
@@ -415,14 +448,15 @@
     appearance: textfield;
 }
 
-.--order-qty-box > input[type=number]::-webkit-inner-spin-button, .--order-qty-box > 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none;
-  -moz-appearance: none;
-    appearance: none;
+.--order-qty-box>input[type=number]::-webkit-inner-spin-button,
+.--order-qty-box>input[type=number]::-webkit-outer-spin-button {
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; */
 }
 
-.--qty-up-btn, .--qty-down-btn{
+.--qty-up-btn,
+.--qty-down-btn {
     cursor: pointer;
     border: 2px solid var(--gray-800);
     background-color: var(--gray-800);
@@ -433,7 +467,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-.--qty-up-btn:hover, .--qty-down-btn:hover{
+.--qty-up-btn:hover,
+.--qty-down-btn:hover {
     background-color: var(--gray-50);
     border: 2px solid var(--gray-800);
     color: var(--green-primary);

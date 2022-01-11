@@ -65,16 +65,14 @@
                                         style="width: 50px;"/>
                                 </div>
                                 {{-- NUMBER FIELD CONTROL BUTTONS --}}
-                                <div class="col-4">
-                                    {{-- PLUS --}}
+                                {{-- <div class="col-4">
                                     <div class="--qty-up-btn">
                                         <i class="fas fa-plus"></i>
                                     </div>
-                                    {{-- MINUS --}}
                                     <div class="--qty-down-btn">
                                         <i class="fas fa-minus"></i>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
