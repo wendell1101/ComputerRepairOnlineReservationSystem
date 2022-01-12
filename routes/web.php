@@ -133,3 +133,7 @@ Route::get('error-503', function(){
 Route::get('error-504', function(){
     return view('errors._504');
 });
+
+Route::get('/thank-you', function(){
+    return view('user.reservations.thankyou');
+})->name('thankyoupage');

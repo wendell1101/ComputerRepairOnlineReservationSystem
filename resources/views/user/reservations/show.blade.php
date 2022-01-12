@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="margin-top:100px; margin-bottom:100px">
+<div class="container --roboto-condensed" style="margin-top:100px; margin-bottom:100px">
     <article class="card shadow">
         <div class="card-body">
             <h6>Transaction Id: {{ $reservation->transaction_id}}</h6>
             <article class="card">
                 <div class="card-body row">
                     <div class="col"> <strong>Reservation Date and Time:</strong> <br>{{ format_date_time($reservation->expected_reservation_date_time)}}</div>
-                    <div class="col"> <strong>Service By:</strong> <br> Tech2u, | <i class="fa fa-phone"></i> +639959768531 </div>
+                    <div class="col"> <strong>Service By:</strong> <br> Tech2u, | <i class="fa fa-phone"></i> 09287158971 </div>
                     <div class="col text-uppercase"> <strong>Status:</strong> <br> {{ get_reservation_status($reservation->status) }}</div>
                     <div class="col"> <strong>Transaction Id #:</strong> <br> {{ $reservation->transaction_id}}</div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="step active"> <span class="icon"> <i class="fas fa-clipboard-check"></i> </span> <span class="text"> Active</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text"> Completed</span> </div>
                 @elseif($reservation->status === 3)
-                <div class="step active"> <span class="icon"> <i class="far fa-clock"></i> </span> <span class="text">Pending/span> </div>
+                <div class="step active"> <span class="icon"> <i class="far fa-clock"></i> </span> <span class="text">Pending</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fas fa-clipboard-check"></i> </span> <span class="text"> Active</span> </div>
                 <div class="step active" > <span class="icon"> <i class="far fa-window-close"></i> </span> <span class="text">Cancelled</span> </div>
                 @endif
@@ -100,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('user.reservations') }}" class="btn btn-success" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to reservations</a>
+            <a href="{{ route('user.reservations') }}" class="btn --link-btn-green" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to reservations</a>
         </div>
     </article>
 </div>
