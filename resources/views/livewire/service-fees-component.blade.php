@@ -33,7 +33,7 @@
                             </div>
                                 <h4 class="--poppins --bold mt-0">{{ $service->name }}</h4>
                                 <div class="--repair-info" style="display: none;">
-                                    <p class="--body-16">&#8369;{{ format_price($service->price) }} <br> {{ \Str::limit(strip_tags($service->description), 40, '...') }}</p>
+                                    <p class="--body-16">&#8369;{{ format_price($service->price) }} <br> {{ \Str::limit(strip_tags($service->description), 25, '...') }}</p>
 
                                     <div class="row">
                                         <div class="col-6">
@@ -80,7 +80,7 @@
 
                                 <li>
                                     <i class="fa-li fas fa-cog"></i>
-                                    The repair fee depends on the damage  on your device/unit, so we can only give you the specific price <strong>AFTER</strong> we checked it.
+                                    The repair fee dependsphp  on the damage  on your device/unit, so we can only give you the specific price <strong>AFTER</strong> we checked it.
                                 </li>
                             </ul>
                         </div>
