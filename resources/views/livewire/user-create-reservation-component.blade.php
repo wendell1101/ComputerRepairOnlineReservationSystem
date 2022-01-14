@@ -15,7 +15,7 @@
                         <div class="form-group row">
                             <div class="col-12">
                                 <label for="expected_reservation_date_time">Expected Reservation Date and Time<span class="text-danger">*</span></label>
-                                <input type="datetime-local" wire:model="expected_reservation_date_time" id="expected_reservation_date" class="form-control
+                                <input type="datetime-local" wire:model="expected_reservation_date_time"  id="expected_reservation_date_time" class="form-control
                                 @error('expected_reservation_date_time')
                                 is-invalid
                             @enderror
@@ -92,3 +92,27 @@
         </div>
     </div>
 </div>
+
+@section('js')
+    <script>
+        // Use Javascript
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+    var yyyy = today.getFullYear();
+    var hour = today.getHours();
+    var min = today.getMinutes();
+    if(dd<10){
+    dd='0'+dd
+    }
+    if(mm<10){
+    mm='0'+mm
+    }
+
+    // 2017-06-01T08:30
+    today = yyyy+'-'+mm+'-'+dd+'T'+hour+':'+min ;
+    document.getElementById("expected_reservation_date_time").setAttribute("min", today);
+
+    console.log(document.getElementById("expected_reservation_date_time"));
+    </script>
+@endsection
