@@ -6,6 +6,11 @@
     </a>
 </li>
 
-@section('js')
+{{-- @section('js')
+<script>
+    window.addEventListener('cart-count', event => {
+        alert('CartCount to: ' + event.detail.count);
+    })
 
-@endsection
+</script>
+@endsection --}}

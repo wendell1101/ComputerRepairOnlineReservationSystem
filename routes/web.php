@@ -16,6 +16,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'c
 Route::group(['prefix' => '/cart', 'middleware' => 'auth'] , function(){
     Route::get('/', 'CartController@index')->name('cart.index');
     Route::get('/count', 'CartController@count');
+    Route::post('/add/{productId}', 'CartController@addToCart')->name('cart.add');
     Route::get('/checkout', 'ReservationController@checkout')->name('reserve.checkout')->middleware('check_cart');
 });
 
@@ -54,7 +55,7 @@ Route::get('/reservation/create', function(){
 
 
 // Admin
-Route::group(['prefix' => '/admin'], function () {
+Route::group(['prefix' => '/admin', 'middleware' => ['auth']], function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     //Temporary
     // Route::get('categories', function () {

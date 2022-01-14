@@ -77,10 +77,14 @@
                         @endif
 
                     </p>
-                    <button class="btn btn-block --btn-outline-green" wire:click="addToCart({{$product->id}})">
-                        <i class="fas fa-cart-plus"></i>
-                        Add to cart
-                    </button>
+                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-block --btn-outline-green">
+                            <i class="fas fa-cart-plus"></i>
+                            Add to cart
+                        </button>
+                    </form>
+
                 </figcaption>
             </figure>
         </div>
@@ -263,4 +267,11 @@
 @endif
 
 </div>
+
+
+@section('js')
+<script>
+    //
+</script>
+@endsection
 
