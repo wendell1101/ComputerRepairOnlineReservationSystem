@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Service;
 use Livewire\Component;
 use App\ServiceCategory;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Session;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -48,9 +49,21 @@ class ServiceFeesComponent extends Component
         'price' => $service->price, 'weight' => 0, 'options' => ['type' => 'service']])->associate('App\Service');
 
         Session::flash('success', 'A service has been added to cart successfully');
+        $this->alertMessage('success', 'A service has been added to cart successfully');
+        return redirect(request()->header('Referer'));
     }
 
 
+     // Toast notifs
+    // $type can be success, info, warning , error
+    public function alertMessage($type, $message)
+    {
+        // $this->dispatchBrowserEvent(
+        //     'alert',
+        //     ['type' => $type,  'message' => $message]
+        // );
+        Toastr::$type($message, $type, ["positionClass" => "toast-top-right"]);
+    }
     public function render()
     {
         $service_categories = ServiceCategory::with('services')->get();

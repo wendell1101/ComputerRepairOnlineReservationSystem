@@ -16,6 +16,8 @@ class ClientStoreComponent extends Component
 
     protected $paginationTheme = 'bootstrap';
 
+    protected $listeners = ['cartCount' => 'dynamicCartCount'];
+
     public $products = [];
 
     // product detail view
@@ -31,6 +33,12 @@ class ClientStoreComponent extends Component
     public function mount()
     {
         $this->filterByCategory();
+    }
+
+    public function dynamicCartCount()
+    {
+        $cartCount = Cart::content()->count();
+        return $cartCount;
     }
 
     public function checkIfIsFeatured()
@@ -174,6 +182,9 @@ class ClientStoreComponent extends Component
 
         $this->filterByCategory();
         Session::flash('success', 'A product has been added to cart successfully');
+
+        $count = Cart::content()->count();
+        $this->dispatchBrowserEvent('refreshCartCount');
         // $this->alertMessage('success', 'A product has been added to cart successfully');
     }
 

@@ -14,7 +14,7 @@
                         </a>
                     </p>
                 </div>
-                
+
                 {{-- REPAIR SECTION --}}
                 @if($service_categories->count() > 0)
                 @foreach($service_categories as $category)
@@ -50,7 +50,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

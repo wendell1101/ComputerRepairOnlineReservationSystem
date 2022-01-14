@@ -28,14 +28,14 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>150</h3>
+                        <h3>{{ $servicesCount}} </h3>
 
-                        <p>New Orders</p>
+                        <p>Available Services</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('services.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -43,14 +43,14 @@
                 <!-- small box -->
                 <div class="small-box bg-navy">
                     <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+                        <h3>{{ $reservationsCount }}<sup style="font-size: 20px">%</sup></h3>
 
                         <p>Reservations</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars text-light"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('reservations.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -58,14 +58,14 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>44</h3>
+                        <h3>{{ $usersCount }}</h3>
 
                         <p>User Registrations</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('users.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -73,44 +73,126 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>65</h3>
+                        <h3>{{ $productsCount }}</h3>
 
                         <p>Available Products</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('products.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
-
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="..." alt="Image of Best Seller Here" class="card-img-top">
-                    
-                    <div class="card-body">
-                        <h2 class="card-title">Best Selling Product</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, molestias illum quae ipsam maiores quod, laudantium iure ut culpa velit qui voluptas distinctio voluptatem modi eaque tenetur? Cumque, obcaecati voluptates!</p>
-                    </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <canvas id="reservationDates" style="position: relative; height:40vh; width:80vw"></canvas>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="myChart" style="height:400px; width:80vw"></canvas>
                 </div>
             </div>
 
-            <div class="col-md-8 col-sm-12">
-                <div class="card card-navy">
-                    <div class="card-header">
-                        <h3 class="card-title">Most ordered products</h3>                        
-                    </div>
-
-                    <div class="card-body">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quas, iste sunt maiores harum aut temporibus omnis in aliquam earum!</p>
-
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
 </section>
 <!-- /.content -->
+@endsection
+
+
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+       // BAR GRAPH
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var usersCount = "<?php echo $usersCount ?>";
+    var productsCount = "<?php echo $productsCount ?>";
+    var servicesCount = "<?php echo $servicesCount ?>";
+    var reservationsCount = "<?php echo $reservationsCount ?>";
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Services', 'Products', 'Users', 'Reservations'],
+            datasets: [{
+                label: 'Total Result',
+                data: [servicesCount, productsCount, usersCount, reservationsCount],
+                backgroundColor: [
+                    '#17a2b8',
+                    '#dc3545',
+                    '#ffc107',
+                    '#343a40',
+                ],
+                borderColor: [
+                    '#333',
+                    '#333',
+                    '#333',
+                    '#333',
+                ],
+                borderWidth:.5
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+<script>
+
+    var jan = "<?php echo $reservations['jan'] ?>";
+    var feb = "<?php echo $reservations['feb'] ?>";
+    var mar = "<?php echo $reservations['mar'] ?>";
+    var april = "<?php echo $reservations['april'] ?>";
+    var may = "<?php echo $reservations['may'] ?>";
+    var june = "<?php echo $reservations['june'] ?>";
+    var july = "<?php echo $reservations['july'] ?>";
+    var aug = "<?php echo $reservations['aug'] ?>";
+    var sept = "<?php echo $reservations['sept'] ?>";
+    var oct = "<?php echo $reservations['oct'] ?>";
+    var nov = "<?php echo $reservations['nov'] ?>";
+    var dec = "<?php echo $reservations['dec'] ?>";
+    var currentYear =  "<?php echo $reservations['year'] ?>";
+
+
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ];
+    const data = {
+    labels: labels,
+    datasets: [{
+        label: `Reservations -  Year (${currentYear})`,
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [jan, feb, mar, april, may, june, july, aug, sept, oct, nov, dec]
+    }]
+    };
+    const config = {
+    type: 'line',
+    data: data,
+    options: {}
+    };
+
+    var myChart = new Chart(
+        document.getElementById('reservationDates'),
+        config
+    );
+</script>
 @endsection
