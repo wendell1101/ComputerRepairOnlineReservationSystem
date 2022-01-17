@@ -33,7 +33,7 @@
                         <p>Available Services</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-bag"></i>
+                        <i class="fas fa-tools"></i>
                     </div>
                     <a href="{{ route('services.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
@@ -43,12 +43,12 @@
                 <!-- small box -->
                 <div class="small-box bg-navy">
                     <div class="inner">
-                        <h3>{{ $reservationsCount }}<sup style="font-size: 20px">%</sup></h3>
+                        <h3>{{ $reservationsCount }}</h3>
 
                         <p>Reservations</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-stats-bars text-light"></i>
+                        <i class="far fa-calendar text-light"></i>
                     </div>
                     <a href="{{ route('reservations.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
@@ -78,18 +78,20 @@
                         <p>Available Products</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
+                        <i class="fas fa-store"></i>
                     </div>
                     <a href="{{ route('products.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row w-100">
+                <div class="col-md-6 col-sm-12">
+                    <h4 class="text-center text-bold">Reservations</h4>
                     <canvas id="reservationDates" style="position: relative; height:40vh; width:80vw"></canvas>
                 </div>
-                <div class="col-md-6">
-                    <canvas id="myChart" style="height:400px; width:80vw"></canvas>
+                <div class="col-md-4 offset-md-1 col-sm-12 offset-sm-0">
+                    <h4 class="text-center text-bold">User Profile Completion</h4>
+                    <canvas id="myChart" style="height:40vh; width:;"></canvas>
                 </div>
             </div>
 
@@ -110,36 +112,52 @@
     var productsCount = "<?php echo $productsCount ?>";
     var servicesCount = "<?php echo $servicesCount ?>";
     var reservationsCount = "<?php echo $reservationsCount ?>";
+    // var myChart = new Chart(ctx, {
+    //     type: 'bar',
+    //     data: {
+    //         labels: ['Services', 'Products', 'Users', 'Reservations'],
+    //         datasets: [{
+    //             label: 'Total Result',
+    //             data: [servicesCount, productsCount, usersCount, reservationsCount],
+    //             backgroundColor: [
+    //                 '#17a2b8',
+    //                 '#dc3545',
+    //                 '#ffc107',
+    //                 '#343a40',
+    //             ],
+    //             borderColor: [
+    //                 '#333',
+    //                 '#333',
+    //                 '#333',
+    //                 '#333',
+    //             ],
+    //             borderWidth:.5
+    //         }]
+    //     },
+    //     options: {
+    //         scales: {
+    //             yAxes: [{
+    //                 ticks: {
+    //                     beginAtZero: true
+    //                 }
+    //             }]
+    //         }
+    //     }
+    // });
+
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'doughnut',
         data: {
-            labels: ['Services', 'Products', 'Users', 'Reservations'],
+            labels: ['Incomplete', 'Complete'],
             datasets: [{
                 label: 'Total Result',
-                data: [servicesCount, productsCount, usersCount, reservationsCount],
+                data: [5,4],
                 backgroundColor: [
-                    '#17a2b8',
                     '#dc3545',
                     '#ffc107',
-                    '#343a40',
-                ],
-                borderColor: [
-                    '#333',
-                    '#333',
-                    '#333',
-                    '#333',
-                ],
-                borderWidth:.5
+                ], 
+                hoverOffset: 4
             }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
         }
     });
 </script>

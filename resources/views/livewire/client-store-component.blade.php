@@ -147,12 +147,14 @@
 {{-- More info modal --}}
 @if(!empty($selectedProduct))
 <div class="modal fade" id="more-info-modal" tabindex="-1" wire:ignore.self role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg --roboto-condensed" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">{{ $selectedProduct->name }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">
+                        <i class="fas fa-times"></i>
+                    </span>
                 </button>
             </div>
             <div class="modal-body">
@@ -171,21 +173,8 @@
                                 <span class="font-weight-bold"> {{ get_category_name($selectedProduct->product_category_id) }}</span>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <small>Status: </small>
-                            </div>
-                            <div class="col">
-                                @if($selectedProduct->is_available)
-                                <span class="text-success font-weight-bold">Available</span>
-                                @else
-                                <span class="text-danger font-weight-bold">Not Available</span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="row">
+                       
+                        {{-- <div class="row">
                             <div class="col">
                                 <small>Featured: </small>
                             </div>
@@ -196,70 +185,44 @@
                                 <span class="text-danger font-weight-bold">False</span>
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="row">
                             <div class="col">
                                 <small>Price: </small>
                             </div>
                             <div class="col">
-                                <span class="font-weight-bold"> PHP {{ format_price($selectedProduct->price) }}</span>
+                                @if(($selectedProduct->has_discount) && ($selectedProduct->discounted_price > 0) && ($selectedProduct->within_discount_date))
+                                    <ul class="list-unstyled">
+                                        <li class="font-weight-bold"><del class="text-muted">PHP {{ format_price($selectedProduct->price) }} </del> PHP {{ format_price($selectedProduct->get_discounted_price($selectedProduct->price)) }}</li>
+                                        <li class="">{{ format_price($selectedProduct->discount_percentage) }}% off from {{ format_date($selectedProduct->discount_start_date) ?? 'N/A' }} to {{ format_date($selectedProduct->discount_end_date) ?? 'N/A' }}</li>
+                                    </ul>
+                                @else 
+                                    <span class="font-weight-bold"> PHP {{ format_price($selectedProduct->price) }}</span>
+                                @endif
                             </div>
                         </div>
-                        <hr>
+                        <hr class="my-2">
                         <div>
-                            <small>Description: </small><br>
-                            <span> {{ $selectedProduct->description }}</span>
+                            @if($selectedProduct->is_featured)
+                            <span class="badge --bg-green --text-gray-800">Featured</span>
+                            @endif
+                            <p class="--body-18"> {{ $selectedProduct->description }}</p>
                         </div>
 
                         {{-- Discount Section --}}
-                        @if(($selectedProduct->has_discount) && ($selectedProduct->discounted_price > 0) && ($selectedProduct->within_discount_date))
+                        {{-- @if(($selectedProduct->has_discount) && ($selectedProduct->discounted_price > 0) && ($selectedProduct->within_discount_date))
                         <hr>
                         <div>
-                            <h4>Discount</h4>
-                            <div class="row">
-                                <div class="col">
-                                    <small>Discount Percentage:</small>
-                                </div>
-                                <div class="col">
-                                    <span class="font-weight-bold">{{ format_price($selectedProduct->discount_percentage) }} %</span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <small>Discount Start Date:</small>
-                                </div>
-                                <div class="col">
-                                    <span class="font-weight-bold">{{ format_date($selectedProduct->discount_start_date) ?? 'N/A' }}</span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <small>Discount End Date:</small>
-                                </div>
-                                <div class="col">
-                                    <span class="font-weight-bold">{{ format_date($selectedProduct->discount_end_date) ?? 'N/A' }}</span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <small>Discounted Price:</small>
-                                </div>
-                                <div class="col">
-                                    <span class="font-weight-bold">PHP {{ format_price($selectedProduct->get_discounted_price($selectedProduct->price)) }}</span>
-                                </div>
-                            </div>
+                            <p>{{ format_price($selectedProduct->discount_percentage) }}% off from {{ format_date($selectedProduct->discount_start_date) ?? 'N/A' }} to {{ format_date($selectedProduct->discount_end_date) ?? 'N/A' }}</p>
                         </div>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                <button type="button" class="btn --btn-outline-green" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

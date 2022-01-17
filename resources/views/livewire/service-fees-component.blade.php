@@ -33,7 +33,7 @@
                             </div>
                                 <h4 class="--poppins --bold mt-0">{{ $service->name }}</h4>
                                 <div class="--repair-info" style="display: none;">
-                                    <p class="--body-16">&#8369;{{ format_price($service->price) }} <br> {{ \Str::limit(strip_tags($service->description), 40, '...') }}</p>
+                                    <p class="--body-16">&#8369;{{ format_price($service->price) }} <br> {{ \Str::limit(strip_tags($service->description), 25, '...') }}</p>
 
                                     <div class="row">
                                         <div class="col-6">
@@ -61,7 +61,13 @@
                 <hr>
                 @endforeach
                 @else
-                    <h1>No service Found</h1>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center --roboto-condensed ">No service Found</h3>
+                            </div>
+                        </div>
+                    </div> 
                 @endif
                 <div class="col-md-12 col-sm-12">
                     <div id="more-info" class="row no-gutters shadow ">
