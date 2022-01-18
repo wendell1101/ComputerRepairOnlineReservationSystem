@@ -61,7 +61,13 @@
                 <hr>
                 @endforeach
                 @else
-                    <h1>No service Found</h1>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center --roboto-condensed ">No service Found</h3>
+                            </div>
+                        </div>
+                    </div> 
                 @endif
                 <div class="col-md-12 col-sm-12">
                     <div id="more-info" class="row no-gutters shadow ">
