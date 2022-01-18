@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index');
 
 // User
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'check_status', 'check_if_user'); // temporary
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'verified', 'check_status', 'check_if_user'); // temporary
 
 // Cart
 Route::group(['prefix' => '/cart', 'middleware' => 'auth'] , function(){
@@ -110,7 +110,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth']], function () {
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 // TEMPORARY
 Route::get('error-401', function(){
