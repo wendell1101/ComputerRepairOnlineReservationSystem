@@ -77,7 +77,7 @@ class UserCreateReservationComponent extends Component
         try{
             Reservation::create($data);
             Cart::destroy();
-            return redirect()->route('user.reservations')->with('Successful reservation. Please wait for email notifications when reservation status updates');
+            return redirect()->route('thankyoupage')->with('success', 'Successful reservation. Please wait for email notifications when reservation status updates');
         }catch(Throwable $th){
             // dd($th);
         }

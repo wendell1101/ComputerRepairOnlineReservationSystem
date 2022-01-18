@@ -7,13 +7,13 @@ use App\Http\Middleware\CheckIfAdmin;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->middleware('auth', 'verified', 'check_status', 'check_if_user');
 
 // User
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'verified', 'check_status', 'check_if_user'); // temporary
 
 // Cart
-Route::group(['prefix' => '/cart', 'middleware' => 'auth'] , function(){
+Route::group(['prefix' => '/cart', 'middleware' => ['auth', 'verified']] , function(){
     Route::get('/', 'CartController@index')->name('cart.index');
     Route::get('/count', 'CartController@count');
     Route::post('/add/{productId}', 'CartController@addToCart')->name('cart.add');
@@ -36,17 +36,17 @@ Route::get('contacts', function(){
 Route::get('profile', function(){
     // TEMPORARY
     return view('user.profile');
-})->name('user.profile')->middleware('auth', 'check_status', 'check_if_user');
+})->name('user.profile')->middleware('auth', 'verified', 'check_status', 'check_if_user');
 
 
 
-Route::get('/reservations', 'ReservationController@index')->name('user.reservations')->middleware('auth', 'check_status', 'check_if_user');
-Route::get('/reservations/{transaction_id}', 'ReservationController@show')->name('user.reservations.show')->middleware('auth', 'check_status', 'check_if_user');
+Route::get('/reservations', 'ReservationController@index')->name('user.reservations')->middleware('auth', 'verified', 'check_status', 'check_if_user');
+Route::get('/reservations/{transaction_id}', 'ReservationController@show')->name('user.reservations.show')->middleware('auth', 'verified', 'check_status', 'check_if_user');
 
 Route::get('/reservation/create', function(){
     // TEMPORARY
     return view('user.reservations.create');
-})->name('user.create')->middleware('auth', 'check_status', 'check_if_user', 'check_cart');
+})->name('user.create')->middleware('auth', 'verified', 'check_status', 'check_if_user', 'check_cart');
 
 // Route::get('/reservation/edit', function(){
 //     // TEMPORARY
@@ -55,7 +55,7 @@ Route::get('/reservation/create', function(){
 
 
 // Admin
-Route::group(['prefix' => '/admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'verified']], function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     //Temporary
     // Route::get('categories', function () {
