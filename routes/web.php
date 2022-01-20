@@ -29,9 +29,8 @@ Route::get('/store', 'ClientStoreController@index')->name('user.store');
 Route::get('about', function(){
     return view('user.about');
 })->name('about');
-Route::get('contacts', function(){
-    return view('user.contact');
-})->name('contacts');
+
+Route::resource('contacts', 'ContactController');
 
 Route::get('profile', function(){
     // TEMPORARY
@@ -138,3 +137,5 @@ Route::get('error-504', function(){
 Route::get('/thank-you', function(){
     return view('user.reservations.thankyou');
 })->name('thankyoupage');
+
+

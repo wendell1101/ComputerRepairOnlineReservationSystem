@@ -7,6 +7,7 @@
 
 <div class="container">
     <div class="text-justify">
+        <x-alert />
         {{-- MAIN SECTION --}}
         <div id="contacts-main" class="col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1 offset-sm-0">
             <div class="row">
@@ -36,7 +37,7 @@
                                 7am to 6pm
                             </li>
                         </ul>
-                    </div>    
+                    </div>
                 </div>
 
                 <div class="col-lg-8 col-md-8 col-sm-12">

@@ -85,10 +85,23 @@
             </div>
             <!-- ./col -->
             <div class="row w-100">
-                <div class="col-md-6 col-sm-12">
-                    <h4 class="text-center text-bold">Reservations</h4>
+                <div class="col-md-6 col-sm-12 mt-3 text-center mx-auto py-5" >
+                    <h4 class="text-center text-bold">Reservations Over time</h4>
                     <canvas id="reservationDates" style="position: relative; height:40vh; width:80vw"></canvas>
                 </div>
+
+                <div class="col-md-4 col-sm-12 mt-3 text-center mx-auto py-5" >
+                    <h4 class="text-center text-bold">Reservations Status</h4>
+                    <canvas id="reservationStatus" style="position: relative; height:40vh; width:80vw"></canvas>
+                </div>
+            </div>
+
+            <div class="row w-100 border-top py-3">
+                <div class="col-md-4 offset-md-1 col-sm-12 offset-sm-0">
+                    <h4 class="text-center text-bold">Verified Users </h4>
+                    <canvas id="verifiedUsers" style="height:40vh; width:;"></canvas>
+                </div>
+
                 <div class="col-md-4 offset-md-1 col-sm-12 offset-sm-0">
                     <h4 class="text-center text-bold">User Profile Completion</h4>
                     <canvas id="myChart" style="height:40vh; width:;"></canvas>
@@ -108,10 +121,16 @@
 <script>
        // BAR GRAPH
     var ctx = document.getElementById('myChart').getContext('2d');
+
     var usersCount = "<?php echo $usersCount ?>";
     var productsCount = "<?php echo $productsCount ?>";
     var servicesCount = "<?php echo $servicesCount ?>";
-    var reservationsCount = "<?php echo $reservationsCount ?>";
+    var reservationpsCount = "<?php echo $reservationsCount ?>";
+
+    //profiles count
+    var completedProfile = "<?php echo $profile['completed'] ?>";
+    var incompleteProfile = "<?php echo $profile['incomplete'] ?>";
+
     // var myChart = new Chart(ctx, {
     //     type: 'bar',
     //     data: {
@@ -151,15 +170,64 @@
             labels: ['Incomplete', 'Complete'],
             datasets: [{
                 label: 'Total Result',
-                data: [5,4],
+                data: [incompleteProfile, completedProfile],
                 backgroundColor: [
                     '#dc3545',
                     '#ffc107',
-                ], 
+                ],
                 hoverOffset: 4
             }]
         }
     });
+
+
+    var verifiedUsers = document.getElementById('verifiedUsers').getContext('2d');
+
+    var activeUsers = "<?php echo $verifiedUsers['active'] ?>";
+    var inactiveUsers = "<?php echo $verifiedUsers['inactive'] ?>";
+
+    var verifiedUsers = new Chart(verifiedUsers, {
+        type: 'doughnut',
+        data: {
+            labels: ['Inactive', 'Active'],
+            datasets: [{
+                label: 'Total Result',
+                data: [activeUsers, inactiveUsers],
+                backgroundColor: [
+                    'dark-blue',
+                    '#007bff',
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
+
+    var reservationStatus = document.getElementById('reservationStatus').getContext('2d');
+    let pending = <?php echo $reservationStatus['pending']?>;
+    let active = <?php echo $reservationStatus['active']?>;
+    let completed = <?php echo $reservationStatus['completed']?>;
+    let cancelled = <?php echo $reservationStatus['cancelled']?>;
+
+    var ctx3 = new Chart(reservationStatus, {
+        type: 'polarArea',
+        data: {
+            labels: ['Pending', 'Active', 'Completed', 'Cancelled'],
+            datasets: [{
+                label: 'Total Result',
+                data: [pending, active, completed, cancelled],
+                backgroundColor: [
+                    '#343a40',
+                    '#28a745',
+                    '#ffc107',
+                    '#dc3545',
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
+
+
+
 </script>
 
 <script>
@@ -199,7 +267,8 @@
         label: `Reservations -  Year (${currentYear})`,
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
-        data: [jan, feb, mar, april, may, june, july, aug, sept, oct, nov, dec]
+        data: [jan, feb, mar, april, may, june, july, aug, sept, oct, nov, dec],
+
     }]
     };
     const config = {

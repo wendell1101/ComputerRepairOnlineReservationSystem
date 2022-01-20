@@ -27,7 +27,7 @@
                                 <button type="submit" class="btn btn-success">
                                     Update
                                 </button>
-                                <div wire:loading class="loading">
+                                <div wire:loading wire:target="updateReservation" class="loading">
                                     Processing please wait...
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
 <style>
     .loading{
         background: #fff;
-        opacity: 0.7;
+        opacity: 1;
         width: 100%;
         height: 100%;
         position: absolute;
