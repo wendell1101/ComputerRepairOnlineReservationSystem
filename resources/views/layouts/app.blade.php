@@ -101,7 +101,7 @@
                         </li>
 
                         <li class="nav-item --underline mx-3">
-                            <a href="{{route('contacts')}}" class="nav-link">CONTACT</a>
+                            <a href="{{route('contacts.index')}}" class="nav-link">CONTACT</a>
                         </li>
 
                         @livewire('cart-count-component')
@@ -211,22 +211,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-3" id="contact-form">
-                        <h4 class="--roboto-condensed --body-20 mb-3">CONNECT WITH US</h4>
-                        <div class="--poppins">
-                            <form action="" method="post">
-                                @csrf
-                                <div class="form-group">
-                                    <input type="text" name="email" id="" class="form-control" placeholder="email">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="message" id="" cols="30" rows="5" class="form-control" placeholder="message"></textarea>
-                                </div>
-
-                                <input type="submit" value="SEND" class="btn btn-block --border-radius-30 --btn-outline-green">
-                            </form>
-                        </div>
-                    </div>
+                  @include('includes.contact-form')
                 </div>
             </div>
         </footer>

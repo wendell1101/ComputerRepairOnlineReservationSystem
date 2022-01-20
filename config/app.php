@@ -232,4 +232,5 @@ return [
 
     ],
 
+    'BUSINESS_EMAIL' => 't2usamplebusiness@gmail.com',
 ];

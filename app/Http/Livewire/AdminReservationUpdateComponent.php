@@ -31,17 +31,11 @@ class AdminReservationUpdateComponent extends Component
             $reservation = Reservation::with('user')->where('id', $this->reservationId)->first();
 
             //send email here
-            try{
-                Mail::to($reservation->user->email)->send(new UpdateReservationStatus($reservation));
-            }catch(\Throwable $th){
-                dd('email not sent');
-            }
-          
+            Mail::to($reservation->user->email)->send(new UpdateReservationStatus($reservation));
 
             $this->alertMessage('success','A reservation status has been updated');
             return redirect()->route('reservations.index');
         }catch(\Throwable $th){
-            dd($th);
             $this->alertMessage('success','A reservation status has been updated');
             return redirect()->route('reservations.index');
         }

@@ -24,12 +24,32 @@ class AdminController extends Controller
         $productsCount = Product::all()->count();
         $servicesCount = Service::all()->count();
 
+        $profile = [
+            'completed' => User::whereNotNull('address')->get()->count(),
+            'incomplete' => User::whereNull('address')->get()->count()
+        ];
+
+        $verifiedUsers = [
+            'active' => User::whereNotNull('email_verified_at')->get()->count(),
+            'inactive' => User::whereNull('email_verified_at')->get()->count(),
+        ];
+
+        $reservationStatus = [
+            'pending' => Reservation::where('status', 0)->get()->count(),
+            'active' => Reservation::where('status', 1)->get()->count(),
+            'completed' => Reservation::where('status', 2)->get()->count(),
+            'cancelled' => Reservation::where('status', 3)->get()->count(),
+        ];
+
         $data = [
             'usersCount' => $usersCount,
             'reservationsCount' => $reservationsCount,
             'productsCount' => $productsCount,
             'servicesCount' => $servicesCount,
-            'reservations' => $this->getReservationCountByMonth()
+            'reservations' => $this->getReservationCountByMonth(),
+            'profile' => $profile,
+            'verifiedUsers' => $verifiedUsers,
+            'reservationStatus' => $reservationStatus
         ];
 
 
