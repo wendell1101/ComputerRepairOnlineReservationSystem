@@ -24,7 +24,7 @@
                         Before proceeding, please check your email for verification link. If you did not receive the email, click the button below to request another.
                         <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                             @csrf
-                            <button type="submit" class="btn --btn-outline-green">Click here to request another</button>.
+                            <button type="submit" class="btn --btn-outline-green">Send Request</button>.
                         </form>
                     </p>
                 </div>
