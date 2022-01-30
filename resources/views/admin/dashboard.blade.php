@@ -83,6 +83,7 @@
                     <a href="{{ route('products.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+            <div class="row">
             <!-- ./col -->
             <div class="row w-100">
                 <div class="col-md-6 col-sm-12 mt-3 text-center mx-auto py-5" >

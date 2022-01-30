@@ -51,7 +51,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function checkIfIsActive($user)
     {
-        if ($user->is_active) {
+        if (!is_null($user->email_verified_at)) {
             echo "<span class='text-success'>active</span>";
         } else {
             echo "<span class='text-danger'>inactive</span>";

@@ -7,10 +7,10 @@ use App\Http\Middleware\CheckIfAdmin;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', 'HomeController@index')->middleware('auth', 'verified', 'check_status', 'check_if_user');
+Route::get('/', 'HomeController@index');
 
 // User
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth', 'verified', 'check_status', 'check_if_user'); // temporary
+Route::get('/home', 'HomeController@index')->name('home');
 
 // Cart
 Route::group(['prefix' => '/cart', 'middleware' => ['auth', 'verified']] , function(){
@@ -54,12 +54,8 @@ Route::get('/reservation/create', function(){
 
 
 // Admin
-Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'verified', 'check_if_admin']], function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    //Temporary
-    // Route::get('categories', function () {
-    //     return view('admin.categories.index');
-    // })->name('categories.index')->middleware('auth', 'check_status', 'check_if_admin');
 
     Route::resource('categories', 'ProductCategoryController');
     Route::resource('xcategory_services', 'ServiceCategoryController');

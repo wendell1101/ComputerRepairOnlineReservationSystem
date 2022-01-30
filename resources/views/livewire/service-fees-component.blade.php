@@ -1,101 +1,107 @@
 <div class="container">
     <x-alert />
-    <div class="text-justify">
-        <div class="row">
-            {{-- MAIN SECTION --}}
-            <div id="services-fees-main" class="col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1 offset-sm-0">
-                <div class="mb-3 --poppins  col-md-12 text-center">
-                    <h1 class="--bold mb-0">Here are our basic services...</h1>
-                    <p>
-                        <a href="#more-info" class="--link-dark-green">
-                            <i class="fas fa-info-circle"></i>
-                            Check out more info below!
-                            <i class="fas fa-info-circle"></i>
-                        </a>
-                    </p>
-                </div>
+    @if($service_categories->count() > 0)
+        <div class="text-justify">
+            <div class="row">
+                {{-- MAIN SECTION --}}
+                <div id="services-fees-main" class="col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1 offset-sm-0">
+                    <div class="mb-3 --poppins  col-md-12 text-center">
+                        <h1 class="--bold mb-0">Here are our basic services...</h1>
+                        <p>
+                            <a href="#more-info" class="--link-dark-green">
+                                <i class="fas fa-info-circle"></i>
+                                Check out more info below!
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                        </p>
+                    </div>
 
-                {{-- REPAIR SECTION --}}
-                @if($service_categories->count() > 0)
-                @foreach($service_categories as $category)
-                <section id="services-repair" class="">
-                    <div class="row">
-                        <h2 class="mb-3 --poppins --bold col-md-12"> {{ $category->name }}</h2>
+                    {{-- REPAIR SECTION --}}
+                    @if($service_categories->count() > 0)
+                    @foreach($service_categories as $category)
+                    <section id="services-repair" class="">
+                        <div class="row">
+                            <h2 class="mb-3 --poppins --bold col-md-12"> {{ $category->name }}</h2>
 
-                         @foreach($category->services as $service)
+                            @forelse($category->services as $service)
 
-                        <div class="col-md-4 col-sm-12 text-center mb-5  --repair-card-col" >
-                            <div class="--repair-cards p-4">
-                                <div class="my-0 --repair-icons" >
-                                    {{-- <i class="fas fa-desktop"></i> --}}
-                                    <img src="{{ asset('storage/service_images/' . $service->img) }}" width="130" class="--svg-img"
-                                    />
-                            </div>
-                                <h4 class="--poppins --bold mt-0">{{ $service->name }}</h4>
-                                <div class="--repair-info" style="display: none;">
-                                    <p class="--body-16">&#8369;{{ format_price($service->price) }} <br> {{ \Str::limit(strip_tags($service->description), 25, '...') }}</p>
+                            <div class="col-md-4 col-sm-12 text-center mb-5  --repair-card-col" >
+                                <div class="--repair-cards p-4">
+                                    <div class="my-0 --repair-icons" >
+                                        {{-- <i class="fas fa-desktop"></i> --}}
+                                        <img src="{{ asset('storage/service_images/' . $service->img) }}" width="130" class="--svg-img"
+                                        />
+                                </div>
+                                    <h4 class="--poppins --bold mt-0">{{ $service->name }}</h4>
+                                    <div class="--repair-info" style="display: none;">
+                                        <p class="--body-16">&#8369;{{ format_price($service->price) }} <br> {{ \Str::limit(strip_tags($service->description), 25, '...') }}</p>
 
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button class="btn btn-block --btn-outline-gray-50" wire:click="setSelectServiceId({{$service->id}})" data-toggle="modal" data-target="#more-info-modal">
-                                                <i class="fas fa-info-circle"></i>
-                                                More Info
-                                            </button>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button class="btn btn-block --btn-outline-gray-50" wire:click="setSelectServiceId({{$service->id}})" data-toggle="modal" data-target="#more-info-modal">
+                                                    <i class="fas fa-info-circle"></i>
+                                                    More Info
+                                                </button>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <button class="btn btn-block --btn-outline-green" wire:click="addToCart({{$service->id}})">
+                                                    <i class="fas fa-cart-plus"></i>
+                                                    Add to cart
+                                                </button>
+                                            </div>
                                         </div>
 
-                                        <div class="col-6">
-                                            <button class="btn btn-block --btn-outline-green" wire:click="addToCart({{$service->id}})">
-                                                <i class="fas fa-cart-plus"></i>
-                                                Add to cart
-                                            </button>
-                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                            @empty
+                            <h4 class="text-center ml-4">No available service for {{ $category->name}}</h4>
+                            @endforelse
 
+                        </div>
+                    </section>
+                    <hr>
+                    @endforeach
+                    @else
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="text-center --roboto-condensed ">No service Found</h3>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                    @endif
+                    <div class="col-md-12 col-sm-12">
+                        <div id="more-info" class="row no-gutters shadow ">
+                            <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
+                                <h1 class="text-center --text-green mb-0">
+                                    <i class="fas fa-info-circle"></i>
+                                </h1>
+                            </div>
 
-                    </div>
-                </section>
-                <hr>
-                @endforeach
-                @else
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="text-center --roboto-condensed ">No service Found</h3>
+                            <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
+                                <ul class="fa-ul --poppins --body-16">
+                                    <li>
+                                        <i class="fa-li fas fa-cog"></i>
+                                        Checkup/Diagnosis is <strong>FREE</strong>
+                                    </li>
+
+                                    <li>
+                                        <i class="fa-li fas fa-cog"></i>
+                                        The repair fee dependsphp  on the damage  on your device/unit, so we can only give you the specific price <strong>AFTER</strong> we checked it.
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </div> 
-                @endif
-                <div class="col-md-12 col-sm-12">
-                    <div id="more-info" class="row no-gutters shadow ">
-                        <div class="--bg-gray-800 col-md-2 col-sm-12 d-flex justify-content-center align-items-center p-3">
-                            <h1 class="text-center --text-green mb-0">
-                                <i class="fas fa-info-circle"></i>
-                            </h1>
-                        </div>
-
-                        <div class="--bg-gray-50 col-md-10 col-sm-12 p-4">
-                            <ul class="fa-ul --poppins --body-16">
-                                <li>
-                                    <i class="fa-li fas fa-cog"></i>
-                                    Checkup/Diagnosis is <strong>FREE</strong>
-                                </li>
-
-                                <li>
-                                    <i class="fa-li fas fa-cog"></i>
-                                    The repair fee dependsphp  on the damage  on your device/unit, so we can only give you the specific price <strong>AFTER</strong> we checked it.
-                                </li>
-                            </ul>
-                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
+    @else
+        <h2 class="text-center text-secondary">No service available as of the moment</h2>
+    @endif
 
         {{-- More info modal --}}
     @if(!empty($selectedService))
