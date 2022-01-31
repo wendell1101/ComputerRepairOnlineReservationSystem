@@ -107,6 +107,15 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" wire:model="has_discount" class="custom-control-input" id="product-status3" name="status"
+                                                @if($has_discount) checked @endif>
+                                                <label class="custom-control-label" for="product-status3">
+                                                    @if($has_discount) Discount @else No Discount  @endif
+                                                </label>
+                                            </div>
+                                        </div>
                                 </div>
 
 
@@ -127,51 +136,52 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-6 mt-4 mt-md-0">
-                                            <label>
-                                                Discount Percentage:
-                                            </label>
-                                            <div class="m-input-icon m-input-icon--left">
-                                                <input type="number" class="form-control @error('discount_percentage') border-danger @enderror" wire:model="discount_percentage">
-                                            </div>
+                                       @if($has_discount)
+                                    <div class="col-lg-6 mt-4 mt-md-0">
+                                        <label>
+                                            Discount Percentage:
+                                        </label>
+                                        <div class="m-input-icon m-input-icon--left">
+                                            <input type="number" class="form-control @error('discount_percentage') border-danger @enderror" wire:model="discount_percentage">
                                         </div>
+                                    </div>
 
 
-                                        <div class="col-lg-6 mt-4 mt-md-0">
-                                            <label>
-                                                Discount Start Date:
-                                            </label>
-                                            <div wire:ignore>
-                                                <input type="date" id="discount_start_date" value="{{$discount_start_date}}"
-                                                @if(!$discount_start_date) min="{{ date('Y-m-d' )}}" @else min="{{ $product->discount_start_date }}"@endif
-                                                wire:model="discount_start_date" class="form-control m-input" placeholder="Please pick a date">
-                                            </div>
-                                            @error('discount_start_date')
-                                            <small class="text-danger mt-2">
-                                            {{ $message }}
-                                            </small>
-                                            @enderror
+                                    <div class="col-lg-6 mt-4 mt-md-0">
+                                        <label>
+                                            Discount Start Date:
+                                        </label>
+                                        <div wire:ignore>
+                                            <input type="date" id="discount_start_date" value="{{$discount_start_date}}"
+                                            @if(!$discount_start_date) min="{{ date('Y-m-d' )}}" @else min="{{ $product->discount_start_date }}"@endif
+                                            wire:model="discount_start_date" class="form-control m-input" placeholder="Please pick a date">
                                         </div>
+                                        @error('discount_start_date')
+                                        <small class="text-danger mt-2">
+                                        {{ $message }}
+                                        </small>
+                                        @enderror
+                                    </div>
 
-                                        <div class="col-lg-6 mt-4 mt-md-0">
-                                            <label>
-                                                Discount End Date:
-                                            </label>
-                                            <div wire:ignore>
-                                                <input type="date" id="discount_end_date" value="{{$discount_end_date}}"
-                                                @if(!$discount_end_date) min="{{ date('Y-m-d' )}}" @else min="{{ $product->discount_end_date }}"@endif
-                                                wire:model="discount_end_date" class="form-control m-input" placeholder="Please pick a date">
-                                            </div>
-                                            @error('discount_end_date')
-                                            <small class="text-danger mt-2">
-                                            {{ $message }}
-                                            </small>
-                                            @enderror
-
-                                            <div class="form-group mt-2">
-                                                <button type="submit" class="btn btn-outline-primary float-right" id="product-create-btn">Update Product</button>
-                                            </div>
+                                    <div class="col-lg-6 mt-4 mt-md-0">
+                                        <label>
+                                            Discount End Date:
+                                        </label>
+                                        <div wire:ignore>
+                                            <input type="date" id="discount_end_date" value="{{$discount_end_date}}"
+                                            @if(!$discount_end_date) min="{{ date('Y-m-d' )}}" @else min="{{ $product->discount_end_date }}"@endif
+                                            wire:model="discount_end_date" class="form-control m-input" placeholder="Please pick a date">
                                         </div>
+                                        @error('discount_end_date')
+                                        <small class="text-danger mt-2">
+                                        {{ $message }}
+                                        </small>
+                                        @enderror
+                                    </div>
+                                       @endif
+                                    <div class="col-lg-12 mt-4 mt-md-0">
+                                            <button type="submit" class="btn btn-outline-primary float-right mt-2" id="product-create-btn">Update Product</button>
+                                    <div>
                                     </div>
                                 </div>
 

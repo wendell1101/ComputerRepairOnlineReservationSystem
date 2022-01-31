@@ -84,46 +84,48 @@
                                 <small>Description: </small><br>
                                 <span> {{ $product->description }}</span>
                             </div>
-                            <hr>
-                            <div>
-                                <h4>Discount</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <small>Discount Percentage:</small>
+                            @if($product->has_discount)
+                                <hr>
+                                <div>
+                                    <h4>Discount</h4>
+                                    <div class="row">
+                                        <div class="col">
+                                            <small>Discount Percentage:</small>
+                                        </div>
+                                        <div class="col">
+                                            <span class="font-weight-bold">{{ format_price($product->discount_percentage) }} %</span>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <span class="font-weight-bold">{{ format_price($product->discount_percentage) }} %</span>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col">
-                                        <small>Discount Start Date:</small>
+                                    <div class="row">
+                                        <div class="col">
+                                            <small>Discount Start Date:</small>
+                                        </div>
+                                        <div class="col">
+                                            <span class="font-weight-bold">{{ format_date($product->discount_start_date) ?? 'N/A' }}</span>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <span class="font-weight-bold">{{ format_date($product->discount_start_date) ?? 'N/A' }}</span>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col">
-                                        <small>Discount End Date:</small>
+                                    <div class="row">
+                                        <div class="col">
+                                            <small>Discount End Date:</small>
+                                        </div>
+                                        <div class="col">
+                                            <span class="font-weight-bold">{{ format_date($product->discount_end_date) ?? 'N/A' }}</span>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <span class="font-weight-bold">{{ format_date($product->discount_end_date) ?? 'N/A' }}</span>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col">
-                                        <small>Discounted Price:</small>
+                                    <div class="row">
+                                        <div class="col">
+                                            <small>Discounted Price:</small>
+                                        </div>
+                                        <div class="col">
+                                            <span class="font-weight-bold">PHP {{ format_price($product->get_discounted_price($product->price)) }}</span>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <span class="font-weight-bold">PHP {{ format_price($product->get_discounted_price($product->price)) }}</span>
-                                    </div>
-                                </div>
 
-                            </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
             </div>

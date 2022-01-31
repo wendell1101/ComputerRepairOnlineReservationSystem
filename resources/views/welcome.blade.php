@@ -19,6 +19,7 @@
     </section>
 
     <div class="container mt-3">
+        <x-alert />
         {{-- SERVICES SECTION --}}
         <section id="2nd-section" class="mb-5">
             <div class="row">

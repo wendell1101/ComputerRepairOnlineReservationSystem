@@ -102,6 +102,15 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" wire:model="has_discount" class="custom-control-input" id="product-status3" name="status"
+                                                @if($has_discount) checked @endif>
+                                                <label class="custom-control-label" for="product-status3">
+                                                    @if($has_discount) Discount @else No Discount  @endif
+                                                </label>
+                                            </div>
+                                        </div>
                                 </div>
 
 
@@ -122,6 +131,8 @@
                                             </div>
                                         </div>
 
+                                        @if($has_discount)
+                                             {{-- Discount percentage --}}
                                         <div class="col-lg-6 mt-4 mt-md-0">
                                             <label>
                                                 Discount Percentage:
@@ -131,7 +142,7 @@
                                             </div>
                                         </div>
 
-
+                                        {{-- Discount start date --}}
                                         <div class="col-lg-6 mt-4 mt-md-0">
                                             <label>
                                                 Discount Start Date:
@@ -146,7 +157,7 @@
                                             </small>
                                             @enderror
                                         </div>
-
+                                        {{-- Discount end date --}}
                                         <div class="col-lg-6 mt-4 mt-md-0">
                                             <label>
                                                 Discount End Date:
@@ -161,10 +172,14 @@
                                             </small>
                                             @enderror
 
-                                            <div class="form-group mt-2">
-                                                <button type="submit" class="btn btn-outline-primary float-right" id="product-create-btn">Create Product</button>
-                                            </div>
+
                                         </div>
+                                        @endif
+
+                                        <div class="col-lg-12 mt-4 mt-md-0">
+                                                <button type="submit" class="btn btn-outline-primary float-right mt-2" id="product-create-btn">Create Product</button>
+                                        <div>
+
                                     </div>
                                 </div>
 
