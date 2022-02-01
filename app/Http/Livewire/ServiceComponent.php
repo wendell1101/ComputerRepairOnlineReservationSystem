@@ -101,7 +101,7 @@ class ServiceComponent extends Component
 
     public function render()
     {
-        $services = Service::paginate(10);
+        $services = Service::paginate(config('app.PAGINATION_LIMIT'));
         $categories = ServiceCategory::all();
 
         return view('livewire.service-component',[

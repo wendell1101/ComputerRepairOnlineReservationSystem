@@ -26,8 +26,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css" integrity="sha512-9my9Mb2+0YO+I4PUCSwUYO7sEK21Y0STBAiFEYoWtd2VzLEZZ4QARDrZ30hdM1GlioHJ8o8cWQiy8IAb1hy/Hg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- Toast --}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <style>
         html{
@@ -113,14 +114,14 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    @isset(Auth::user()->user_role)
+                                    @isset(Auth::user()->is_admin)
                                         {{-- IF USER --}}
-                                        @if (Auth::user()->user_role == 0)
+                                        @if (Auth::user()->is_admin == 0)
                                             <a class="dropdown-item --text-gray-800" href="{{ route('user.reservations') }}">Reservations</a>
 
                                             <a href="{{route('user.profile')}}" class="dropdown-item --text-gray-800">Profile</a>
                                         {{-- IF ADMIN --}}
-                                        @elseif(Auth::user()->user_role == 1)
+                                        @elseif(Auth::user()->is_admin == 1)
                                             <a class="dropdown-item --text-gray-800" href="{{ route('admin.dashboard') }}">Dashboard</a>
                                         @endif
                                     @endisset
@@ -240,29 +241,15 @@
                 // console.log(error);
             })
         }
-        // window.addEventListener('load', function() {
-        //     axios.get('/cart/count')
-        //     .then(function (response) {
-        //         const cartCount = document.getElementById('lblCartCount').innerHTML = response.data;
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     })
-        // })
 
     </script>
 
 
-    <script>
-        window.addEventListener('alert', event => {
-                     toastr[event.detail.type](event.detail.message,
-                     event.detail.title ?? ''), toastr.options = {
-                            "closeButton": true,
-                            "progressBar": true,
-                        }
-                    });
-        </script>
+
     @yield('js')
+
+    @livewireScripts
+
     <script>
         @if(Session::has('message'))
         toastr.options =
@@ -299,9 +286,7 @@
         }
                 toastr.warning("{{ session('warning') }}");
         @endif
-    </script>
-    {!! Toastr::message() !!}
-    @livewireScripts
+      </script>
 </body>
 
 </html>

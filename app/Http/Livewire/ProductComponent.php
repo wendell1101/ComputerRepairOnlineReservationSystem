@@ -109,7 +109,7 @@ class ProductComponent extends Component
 
     public function render()
     {
-        $products = Product::paginate(10);
+        $products = Product::paginate(config('app.PAGINATION_LIMIT'));
         $categories = ProductCategory::all();
 
         return view('livewire.product-component',[

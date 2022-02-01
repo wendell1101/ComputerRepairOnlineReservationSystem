@@ -15,10 +15,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Cart
 Route::group(['prefix' => '/cart', 'middleware' => ['auth', 'verified']] , function(){
     Route::get('/', 'CartController@index')->name('cart.index');
-    Route::get('/count', 'CartController@count');
     Route::post('/add/{productId}', 'CartController@addToCart')->name('cart.add');
     Route::get('/checkout', 'ReservationController@checkout')->name('reserve.checkout')->middleware('check_cart');
 });
+Route::get('cart/count', 'CartController@count');
 
 // Route::get('/thankyou', 'ReservationController@thankyou')->name('reserve.thankyou');
 

@@ -74,9 +74,9 @@
                                         </tr>
                                         @endforeach
 
+                                        {{ $services->links()}}
 
                                     </tbody>
-                                    {{ $services->links() }}
                                 </table>
                                 @else
                                 <p>No Service Found </p>

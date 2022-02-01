@@ -11,7 +11,7 @@ class CartCountComponent extends Component
 
     protected function getListeners()
     {
-        $this->cartCount =  ['cartCount' => 'dynamicCartCount'];
+        $this->cartCount =  Cart::content()->count();
     }
 
     public function render()

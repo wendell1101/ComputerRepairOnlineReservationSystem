@@ -73,13 +73,13 @@
                                                     @if($is_admin) Admin @else Client  @endif
                                                 </label>
                                             </div>
-                                            <div class="custom-control custom-switch">
+                                            {{-- <div class="custom-control custom-switch">
                                                 <input type="checkbox" wire:model="is_active" class="custom-control-input" id="product-status2" name="status"
                                                 @if($is_active) checked @endif>
                                                 <label class="custom-control-label" for="product-status2">
                                                     @if($is_active) Active @else Inactive  @endif
                                                 </label>
-                                            </div>
+                                            </div> --}}
                                         </div>
 
                                         {{-- image --}}
