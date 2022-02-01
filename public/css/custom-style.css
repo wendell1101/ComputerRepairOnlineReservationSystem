@@ -313,6 +313,14 @@
     z-index: 100;
     top: 25%;
 }
+@media(max-width:575px){
+    .--overlap {
+        width: 100%;
+        position: relative;
+        z-index: 100;
+        top: 25%;
+    } 
+}
 
 .--checkbox {
     appearance: none;

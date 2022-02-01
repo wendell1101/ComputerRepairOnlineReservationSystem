@@ -6,7 +6,7 @@
 </div>
 
 <div class="container">
-    <div class="col-10 offset-1">
+    <div class="col-lg-10 col-md-10 col-sm-10 offset-lg-1 offset-md-1 offset-sm-1">
         <div class="card --border-radius-30 shadow-lg mb-5">
             <div class="card-header bg-light py-4" style="border-radius: 30px 30px 0 0;">
                 <div class="row w-100">

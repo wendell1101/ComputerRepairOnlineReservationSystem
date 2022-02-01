@@ -7,7 +7,7 @@
 
 <div class="container --overlap mb-5">
     <div class="row">
-        <div class="col-md-4 offset-md-4 col-sm-8 offset-sm-2">
+        <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
             <div class="card shadow-lg border-0 --border-radius-30">
                 <div class="card-body">
                     <h3 class="--roboto-condensed --bold --lead text-center mb-5">SIGN IN</h3>

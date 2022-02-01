@@ -61,7 +61,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark shadow-sm --bg-gray-800">
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm --bg-gray-800">
             <div class="container">
                 <a class="navbar-brand --roboto-condensed" href="{{ url('/') }}">
                     Tech2u
@@ -169,7 +169,7 @@
         </main>
 
         {{-- FOOTER --}}
-        <footer id="footer-lg" class="--bg-gray-800 --text-gray-50">
+        <footer id="footer-lg" class="--bg-gray-800 --text-gray-50" style="position: relative; z-index:1500">
             <div class="container py-4">
                 <div class="row">
                     <div class="col-md-4 mb-3">
