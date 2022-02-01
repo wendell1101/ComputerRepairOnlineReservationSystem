@@ -2,10 +2,11 @@
     <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
         {{-- CONTACT INFORMATION --}}
         <div class="card shadow-lg --border-radius-30 mb-5">
+            <x-alert />
             <div class="card-body p-5">
                 <h3 class="--roboto-condensed text-center --bold mb-4"><i class="fas fa-user"></i> PERSONAL INFORMATION</h3>
 
-                <form wire:submit.prevent="updateProfile" method="post">
+                <form wire:submit.prevent="updateProfile" method="POST">
                     @csrf
                     <div class="form-row">
                         <div class="col-md-6">
@@ -170,8 +171,12 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-block --btn-outline-gray --border-radius-30"
+                    {{-- <button type="submit" class="btn btn-block --btn-outline-gray --border-radius-30"
                     @if(!$errors->isEmpty()) disabled @endif >
+                        UPDATE INFORMATION
+                    </button> --}}
+
+                    <button type="submit" class="btn btn-block --btn-outline-gray --border-radius-30">
                         UPDATE INFORMATION
                     </button>
                 </form>

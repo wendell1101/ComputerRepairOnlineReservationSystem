@@ -85,7 +85,7 @@ class ProfileComponent extends Component
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'email' => $this->email,
-            'img' => $this->img,
+            // 'img' => $this->img,
             'contact_number' => $this->contact_number,
             'house_number' => $this->house_number,
             'street' => $this->street,
@@ -97,20 +97,21 @@ class ProfileComponent extends Component
             'address' => $address,
         ];
 
-        // dd($data);
-        if($this->user['img'] != $this->img){
-            Storage::delete('public/user_images/' . $this->product['img']);
-            $data['img'] = time() . '_' . $this->img->getClientOriginalName();
-            $this->img->storeAs('user_images', $data['img'], 'public');
-        }
+        // if($this->user['img'] != $this->img){
+        //     Storage::delete('public/user_images/' . $this->user['img']);
+        //     $data['img'] = time() . '_' . $this->img->getClientOriginalName();
+        //     $this->img->storeAs('user_images', $data['img'], 'public');
+        // }
 
         try{
             User::where('id', auth()->id())->update($data);
+            return redirect()->back()->with('success', 'Profile has been updated successfully');
         }catch(Throwable $th){
             // dd($th);
         }
 
-        $this->alertMessage('success','New category has been created');
+
+        $this->alertMessage('success','Your profile has been updated');
 
     }
 

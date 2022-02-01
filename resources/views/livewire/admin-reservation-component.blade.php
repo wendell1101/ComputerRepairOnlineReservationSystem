@@ -44,6 +44,8 @@
                                         </tr>
                                     @endforeach
 
+                                    {{ $reservations->links() }}
+
 
 
                                 </tbody>

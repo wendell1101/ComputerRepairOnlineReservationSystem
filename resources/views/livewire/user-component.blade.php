@@ -34,7 +34,7 @@
                                 @if($users->count() > 0)
                                 <table id="users-table" class="table table-bordered table-striped table-hover">
                                     <thead>
-                                        <th scope="col">id</th>
+                                        <th scope="col">#</th>
                                         <th>Profile Image</th>
                                         <th>Name</th>
                                         <th>Email</th>
@@ -74,7 +74,7 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-
+                                        {{ $users->links() }}
                                     </tbody>
                                 </table>
                                 @else

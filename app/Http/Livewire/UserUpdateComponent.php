@@ -59,7 +59,7 @@ class UserUpdateComponent extends Component
         $this->email = $user->email;
         $this->password = $user->password;
         $this->img = $user->img;
-        $this->is_active = $user->is_active;
+        $this->is_active = is_null($user->email_verified_at) ? 0 : 1;
         $this->is_admin = $user->is_admin;
     }
 

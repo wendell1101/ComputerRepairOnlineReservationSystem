@@ -80,7 +80,7 @@ class UserComponent extends Component
 
     public function render()
     {
-        $users = User::paginate(10);
+        $users = User::paginate(config('app.PAGINATION_LIMIT'));
 
         return view('livewire.user-component',[
             'users' => $users,

@@ -163,7 +163,7 @@ class ServiceCategoryComponent extends Component
 
     public function render()
     {
-        $categories = ServiceCategory::paginate(5);
+        $categories = ServiceCategory::paginate(config('app.PAGINATION_LIMIT'));
         return view('livewire.service-category-component', compact('categories'));
     }
 }

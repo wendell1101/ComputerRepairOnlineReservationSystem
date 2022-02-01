@@ -158,7 +158,7 @@ class CategoryComponent extends Component
 
     public function render()
     {
-        $categories = ProductCategory::paginate(5);
+        $categories = ProductCategory::paginate(config('app.PAGINATION_LIMIT'));
         return view('livewire.category-component', compact('categories'));
     }
 }
