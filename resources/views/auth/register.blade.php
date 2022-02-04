@@ -7,7 +7,7 @@
 
 <div class="container --overlap mb-5">
     <div class="row">
-        <div class="col-4 offset-4">
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-10 offset-xl-4 offset-lg-3 offset-md-3 offset-sm-1">
             <div class="card shadow-lg border-0 --border-radius-30">
 
                 <div class="card-body">

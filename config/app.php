@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Singapore',
 
     /*
     |--------------------------------------------------------------------------
@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        Brian2694\Toastr\ToastrServiceProvider::class,
+
     ],
 
     /*
@@ -229,4 +232,6 @@ return [
 
     ],
 
+    'BUSINESS_EMAIL' => 't2usamplebusiness@gmail.com',
+    'PAGINATION_LIMIT' => 5,
 ];

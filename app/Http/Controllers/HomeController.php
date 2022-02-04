@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ServiceCategory;
+use App\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $featuredProducts = Product::where('is_featured', true)->take(3)->get();
+        $service_categories = ServiceCategory::take(3)->get();
+
+        return view('welcome', compact('featuredProducts' ,'service_categories'));
     }
 }

@@ -1,0 +1,114 @@
+/* IMPORTS */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;1,400&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;1,400&display=swap");
+
+/* VARIABLES */
+:root {
+    /* COLORS */
+    --gray-800: #1f2937;
+    --gray-50: #f9fafb;
+    --green-primary: #5ae311;
+
+    /* FONT FAMILIES */
+    --roboto-condensed: "Roboto Condensed", sans-serif;
+    --poppins: "Poppins", sans-serif;
+
+    /* FONT WEIGHTS */
+    --regular: 400;
+    --semi-bold: 600; /* only applies to poppins */
+    --bold: 700;
+
+    /* FONT SIZES */
+    --lead-lg: 40px;
+    --lead: 30px;
+    --body-20: 20px;
+    --body-18: 18px;
+    --body-16: 16px;
+}
+
+/* BACKGROUND COLORS */
+.--bg-gray-800 {
+    background-color: var(--gray-800);
+}
+.--bg-gray-50 {
+    background-color: var(--gray-50);
+}
+.--bg-green {
+    background-color: var(--green-primary);
+}
+
+/* COLORS */
+.--text-gray-800 {
+    color: var(--gray-800);
+}
+.--text-gray-50 {
+    color: var(--gray-50);
+}
+.--text-green {
+    color: var(--green-primary);
+}
+
+/* FONT FAMILY */
+.--roboto-condensed {
+    font-family: var(--roboto-condensed);
+}
+.--poppins {
+    font-family: var(--poppins);
+}
+
+/* FONT SIZES*/
+.--lead-lg {
+    font-size: var(--lead-lg);
+}
+.--lead {
+    font-size: var(--lead);
+}
+.--body-20 {
+    font-size: var(--body-20);
+}
+.--body-18 {
+    font-size: var(--body-18);
+}
+.--body-16 {
+    font-size: var(--body-16);
+}
+
+/* FONT WEIGHTS */
+.--regular {
+    font-weight: var(--regular);
+}
+.--semi-bold {
+    font-weight: var(--semi-bold);
+}
+.--bold {
+    font-weight: var(--bold);
+}
+
+/* ANCHOR TAGS/LINKS */
+.--link-green,
+.--link-gray {
+    text-decoration: none;
+    color: var(--gray-50);
+    transition: all 0.3s ease-in-out;
+}
+
+.--link-gray:hover {
+    color: var(--gray-800);
+    text-decoration: underline 3px solid var(--gray-800);
+}
+
+.--link-green:hover {
+    color: var(--green-primary);
+    text-decoration: underline 3px solid var(--green-primary);
+}
+
+.--link-dark-green {
+    text-decoration: none;
+    color: var(--gray-800);
+    transition: all 0.3s ease-in-out;
+}
+
+.--link-dark-green:hover {
+    color: var(--green-primary);
+    text-decoration: underline 3px solid var(--green-primary);
+}
