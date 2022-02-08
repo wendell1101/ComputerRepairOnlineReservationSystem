@@ -31,7 +31,7 @@
                         <div class="table-responsive">
                             <table id="reservations-table" class="table table-hover table-striped">
                                 <thead>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">#</th>
                                     <th>TRANSACTION ID</th>
                                     <th>Full Name</th>
                                     <th>Total Price</th>
@@ -72,7 +72,6 @@
                         @else
                             <h5>No reservation yet</h5>
                         @endif
-
                     </div>
                 </div>
             </div>
