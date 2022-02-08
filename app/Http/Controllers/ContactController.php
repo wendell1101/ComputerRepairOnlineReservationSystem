@@ -38,8 +38,12 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         try{
+            if(auth()->user()){
+                $request['email'] = auth()->user()->email;
+                $request['full_name'] = auth()->user()->first_name . ' ' . auth()->user()->last_name;
+            }
             Mail::to(config('app.BUSINESS_EMAIL'))->send(new ContactEmail($request->all()));
-            return redirect()->back()->with('success', 'Your has been email sent successfully');
+            return redirect()->back()->with('success', 'Your email has been sent successfully');
         }catch(Throwable $th){
             return redirect()->back()->with('error', 'Something went wrong, email not sent. Please try again');
         }
