@@ -233,5 +233,5 @@ return [
     ],
 
     'BUSINESS_EMAIL' => 't2usamplebusiness@gmail.com',
-    'PAGINATION_LIMIT' => 5,
+    'PAGINATION_LIMIT' => 10,
 ];
